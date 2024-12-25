@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <base href="/portfolio/">
+        <link rel="stylesheet" href="works.css">
+    </head>
+<body>
+    <header>
+
+    </header>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="index.html#slider" class="sidebar-link">
+            <span class="icon">🏠</span>
+            <span class="label">Home</span>
+        </a>
+        <a href="blog.html" class="sidebar-link">
+            <span class="icon">📝</span>
+            <span class="label">Blog</span>
+        </a>
+        <div class="sidebar-link dropdown">
+            <span class="icon">💼</span>
+            <span class="label">Projects</span>
+            <!-- Dropdown menu for projects -->
+            <div class="dropdown-content">
+                <a href="work_hnn.html" class="dropdown-item">Development of Hybrid Neural Network</a>
+                <a href="work_elastic.html" class="dropdown-item">Establishing ElasticSearch DB Ecosystem</a>
+                <a href="work_cnn.html" class="dropdown-item">Development of Convolutional Neural Network</a>
+                <a href="work_rnn.html" class="dropdown-item">Development of Recurrent Neural Network</a>
+                <a href="work_aa.html" class="dropdown-item">Creation of Storyboard: Mapping of Visualizations</a>
+                <a href="work_fse.html" class="dropdown-item">Microsoft Excel Spreadsheet Engineering</a>
+                <a href="work_dv.html" class="dropdown-item">Data Visualizations and Analysis with Tableau</a>
+                <a href="work_cs.html" class="dropdown-item">Employee Application Development Using C#</a>
+                <!-- Add more projects as needed -->
+            </div>
+        </div>
+        <a href="index.html#contact" class="sidebar-link">
+            <span class="icon">📬</span>
+            <span class="label">Contact</span>
+        </a>
+    </div>
+
+    <div class="container">
+        <!-- Project Header -->
+        <div class="project-header">
+            <h1 class="project-title">Student Grades Database Implementation Using C</h1>
+            <p class="project-summary">Develop a robust application to manage student grades for each module.</p>
+        </div>
+
+        <!-- Project Description -->
+        <div class="project-description">
+            <h2>Project Description</h2>
+            <p>This is a team project that consists of reading exisitng data from a .txt file that acts as a database, show the retrieved data in the program, allow users to insert new data, query for a specific data, update an existing data, delete specific data, and lastly save the changes made back into the .txt file. My role specifically in this project was to implement the reading of data from the database, displaying and saving the data.</p>
+        </div>
+
+        <!-- Project Technologies -->
+        <div class="project-technologies">
+            <h2>Technologies Used</h2>
+            <ul>
+                <li>Visual Studio Code</li>
+                <li>C</li>
+            </ul>
+        </div>
+
+        <div class="project-steps">
+            <h2>Summary of Steps</h2>
+            <ul>
+                <li>Define project requirements</li>
+                <li>Develop the core functionality</li>
+                <li>Add error handling</li>
+                <li>Debug and test</li>
+                <li>Make iterative refinements before making final testing</li>
+            </ul>
+        </div>
+
+        <div class="block">
+            <h2>Open database to extract data</h2>
+            <!-- Code Block -->
+            <pre class="code-block"><code>
+            <!-- Your code goes here -->
+            void openDb(const char *filename) {
+                FILE *file = fopen(filename, "a+"); // Open file for reading and appending, create if it doesn't exist
+                if (file == NULL) {
+                    printf("CMS: Error opening or creating file \"%s\".\n", filename);
+                    return;
+                }
+            
+                // Check if the file is empty (newly created)
+                fseek(file, 0, SEEK_END); // Move to the end of the file
+                long fileSize = ftell(file); // Get file size
+                if (fileSize == 0) {
+                    // File is empty, write default headers
+                    fprintf(file, "Database Name: P13_8-CMS\n");
+                    fprintf(file, "Authors: Kenneth, Annettejoy, Deacon, Keith, Ming Yang\n\n");
+                    fprintf(file, "Table Name: StudentRecords\n");
+                    fprintf(file, "ID\tName\t\tProgramme\t\tMark\n");
+                    printf("CMS: File \"%s\" did not exist and has been created with default headers.\n", filename);
+            
+                    // Close the file after writing headers
+                    fclose(file);
+                    return; // No need to parse records since the file is new
+                }
+            
+                // Reset file position to the beginning for reading
+                rewind(file);
+            
+                // Free existing memory for the linked list
+                freeMemory();
+            
+                char buffer[256];
+            
+                // Start reading the file line by line
+                while (fgets(buffer, sizeof(buffer), file)) {
+                    // Skip empty lines or lines with just whitespace
+                    if (buffer[0] == '\n' || buffer[0] == '\r' || buffer[0] == '\0') {
+                        continue;
+                    }
+            
+                    // Remove trailing newline characters
+                    char *end = buffer + strlen(buffer) - 1;
+                    while (end > buffer && isspace((unsigned char)*end)) {
+                        *end = '\0';
+                        end--;
+                    }
+            
+                    // Attempt to parse the line as a student record
+                    StudentRecord record;
+                    char nameBuffer[50] = {0};
+                    char programmeBuffer[50] = {0};
+            
+                    // Use sscanf to detect and extract valid student records
+                    int fieldsRead = sscanf(buffer, "%d %[^\t] %[^\t] %f",
+                                            &record.id, nameBuffer, programmeBuffer, &record.mark);
+            
+                    if (fieldsRead == 4) {
+                        // Valid student record found, process it
+                        strncpy(record.name, nameBuffer, sizeof(record.name) - 1);
+                        strncpy(record.programme, programmeBuffer, sizeof(record.programme) - 1);
+            
+                        // Add the record to the linked list
+                        Node *newNode = (Node *)malloc(sizeof(Node));
+                        if (!newNode) {
+                            printf("CMS: Memory allocation failed.\n");
+                            fclose(file);
+                            return;
+                        }
+                        newNode->record = record;
+                        newNode->next = head;
+                        head = newNode;
+            
+                        recordcount++;
+                    } else {
+                        // Skip non-student-record lines
+                        // Optionally log this for debugging:
+                        // printf("Skipping non-record line: %s\n", buffer);
+                    }
+                }
+            
+                fclose(file);
+            
+                // Set file_open to 1 after successfully parsing the file
+                file_open = 1;
+                printf("CMS: The database file \"%s\" was successfully read.\n", filename);
+            }
+            </code></pre>
+        </div>
+
+        <div class="project-steps">
+            <ul>
+                <li>opens file using "a+" to allow file to be created automatically if it does not exist</li>
+                <li>prevents existing data from being overwritten completely if any errors were to occur</li>
+                <li>formats the file with headers if it is empty</li>
+                <li>skips through all corrupted headers if any and only retrieve data that matches the specified srtucture</li>
+                <li>returns a value to show that the file has been opened at least once as a prerequisite for the other functions to work</li>
+            </ul>
+        </div>
+
+        <div class="block">
+            <h2>Save changes to database file</h2>
+            <!-- Code Block -->
+            <pre class="code-block"><code>
+            <!-- Your code goes here -->
+            void saveDb(const char *filename) {
+                FILE *file = fopen(filename, "w");
+                if (!file) {
+                    printf("CMS: Error opening file.\n");
+                    return;
+                }
+                fprintf(file, "Database Name: P13_8-CMS\n");
+                fprintf(file, "Authors: Kenneth, Annettejoy, Deacon, Keith, Ming Yang\n\n");
+                fprintf(file, "Table Name: StudentRecords\n");
+                fprintf(file, "ID\tName\t\tProgramme\t\tMark\n");
+            
+                Node *current = head;
+                while (current != NULL) {
+                    fprintf(file, "%d\t%-20s\t%-25s\t%.1f\n", current->record.id, current->record.name, current->record.programme, current->record.mark);
+                    current = current->next;
+                }
+            
+                fclose(file);
+                printf("CMS: The database file \"%s\" has been successfully saved.\n", filename);
+            }
+            </code></pre>
+        </div>
+
+        <div class="project-steps">
+            <ul>
+                <li>opens file using "w" to fully rewrite the whole file so that the structure fully matches the desired layout</li>
+                <li>ensures the data is under the matching header for easy reference</li>
+                <li>shows a message to confirm the saving progress</li>
+            </ul>
+        </div>
+
+        <!-- Project Links -->
+        <!--div class="project-links">
+            <h2>Project Links</h2>
+            <a href="*" target="_blank" class="project-link">GitHub Repository</a>
+            <a href="*" target="_blank" class="project-link">Live Project</a>
+        </div-->
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Your Name. You can't use up creativity, the more you use, the more you have in your significant mind.</p>
+    </footer>
+</body>
+</html>

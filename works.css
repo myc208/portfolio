@@ -1,0 +1,364 @@
+/* General Reset (already present) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    font-family: Arial, sans-serif;
+    height: 100%;
+    background: linear-gradient(135deg, #7e7e86, #2b2e3d);
+    background-color: #2b2e3d;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 90%;
+    max-width: 800px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin: auto;
+    flex: 1;
+    padding-bottom: 130px;
+}
+
+.project-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.project-title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+.project-summary {
+    color: #555;
+    font-size: 1.1rem;
+}
+
+.project-description, .project-technologies, .project-gallery, .project-links, .project-steps, .block, .project-changes, .project-analysis, .project-task {
+    margin-top: 20px;
+}
+
+.project-description h2, .project-technologies h2, .project-gallery h2, .project-links h2, .project-steps h2, .block h2, .project-changes h2, .project-analysis h2, .project-task h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.project-description p, .project-steps p, .project-analysis p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+}
+
+.project-task p {
+    text-decoration: underline;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+}
+
+.project-technologies ul, .project-analysis ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    color: #555;
+}
+
+.project-technologies li, .project-steps li, .project-analysis li, .project-task li {
+    margin: 5px 0;
+}
+
+.project-steps ul, .project-task ul {
+    list-style-type: decimal;
+    padding-left: 20px;
+    color: #555;
+}
+
+.code-block {
+    background-color: #333; /* Dark grey background */
+    color: #f8f8f2; /* Light text color for contrast */
+    padding: 10px;
+    border-radius: 5px;
+    font-family: monospace;
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 300px;
+}
+
+
+.project-gallery {
+    display: block;
+    overflow: visible;
+    margin-bottom: 20px;
+}
+
+.description-gallery {
+    display: block;
+    overflow: visible;
+    margin-bottom: 20px;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    justify-content: center; /* Center the image grid */
+    margin-top: 15px; /* Space between heading and images */
+}
+
+.image-item {
+    text-align: center;
+}
+
+.image-item img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.image-item p {
+    margin-top: 5px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+
+.project-gallery img:hover {
+    transform: scale(2);
+}
+
+/*.project-links {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.project-link {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.project-link:hover {
+    background-color: #0056b3;
+}*/
+
+/* Footer styling */
+footer {
+    width: 100%;
+    text-align: center;
+    background-color: #2b2e3d;
+    padding: 20px;
+    font-size: 14px;
+    color: #cccccc;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin-top: auto;
+}
+
+/* Sidebar styling */
+.sidebar {
+    position: fixed;
+    top: 20px;
+    left: 0;
+    width: 60px; /* Collapsed width */
+    height: calc(100vh - 40px);
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    overflow: visible; /* Allow dropdown to be visible */
+    transition: width 0.3s ease;
+    border-radius: 0 8px 8px 0;
+    z-index: 1000;
+}
+
+.sidebar:hover {
+    width: 200px; /* Expand sidebar on hover */
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 15px 10px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+
+.sidebar-link:hover {
+    background-color: #555;
+}
+
+.icon {
+    font-size: 1.5rem;
+    width: 30px;
+    text-align: center;
+}
+
+.label {
+    margin-left: 10px;
+    opacity: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: opacity 0.3s ease;
+}
+
+/* Make labels visible only when sidebar is expanded */
+.sidebar:hover .label {
+    opacity: 1;
+}
+
+/* Adjust main content position based on sidebar */
+.content {
+    margin-left: 60px; /* Space for collapsed sidebar */
+    padding: 20px;
+    width: calc(100% - 60px); /* Adjusted content width */
+    transition: margin-left 0.3s ease;
+}
+
+.sidebar:hover ~ .content {
+    margin-left: 200px; /* Adjusted margin for expanded sidebar */
+    width: calc(100% - 200px);
+}
+
+/* Dropdown specific styling */
+.sidebar-link.dropdown {
+    position: relative;
+}
+
+/* Dropdown styling to display beneath "Projects" and within the sidebar */
+.dropdown-content {
+    display: none; /* Initially hidden */
+    position: absolute;
+    top: 100%; /* Position directly below "Projects" */
+    left: 0; /* Align with the left edge of the sidebar */
+    background-color: #222; /* Dark background for visibility */
+    padding: 10px 0;
+    border-radius: 0 0 8px 8px; /* Rounded corners on the bottom */
+    min-width: 100%; /* Expand to match the width of the sidebar */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1001; /* Ensure it appears above other elements */
+}
+
+/* Display the dropdown on hover */
+.sidebar-link.dropdown:hover .dropdown-content {
+    display: flex; /* Show the dropdown on hover */
+    flex-direction: column;
+}
+
+.dropdown-item {
+    color: #fff;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+}
+
+.dropdown-item:hover {
+    background-color: #555;
+}
+
+/* Move "Contact" down dynamically */
+.sidebar-link.dropdown:hover ~ .sidebar-link {
+    margin-top: 350px; /* Adjust spacing to make room for dropdown */
+}
+
+.change-list {
+    list-style-type: decimal;
+    padding-left: 20px;
+}
+
+.change-list li {
+    margin-bottom: 15px;
+}
+
+.change-list li span {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.change-list li p {
+    margin-top: 5px;
+    margin-left: 20px; /* Indent description */
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+.drive-button {
+    background-color: #4285F4; /* Google blue color */
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .drive-button:hover {
+    background-color: #357ae8;
+    transform: scale(1.05);
+  }
+
+  .drive-button:active {
+    background-color: #2c6cb6;
+    transform: scale(0.98);
+  }
+
+  /* Style for the icon */
+  .icon {
+    font-size: 18px;
+  }
+
+
+/* Project Description */
+.showcase-description {
+    text-align: center;
+    margin: 50px auto;
+    padding: 20px;
+    max-width: 800px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.showcase-description p {
+    margin-bottom: 10px;
+}

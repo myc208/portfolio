@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <base href="/portfolio/">
+        <link rel="stylesheet" href="works.css">
+    </head>
+<body>
+    <header>
+
+    </header>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="index.html#slider" class="sidebar-link">
+            <span class="icon">🏠</span>
+            <span class="label">Home</span>
+        </a>
+        <a href="blog.html" class="sidebar-link">
+            <span class="icon">📝</span>
+            <span class="label">Blog</span>
+        </a>
+        <div class="sidebar-link dropdown">
+            <span class="icon">💼</span>
+            <span class="label">Projects</span>
+            <!-- Dropdown menu for projects -->
+            <div class="dropdown-content">
+                <a href="work_elastic.html" class="dropdown-item">Establishing ElasticSearch DB Ecosystem</a>
+                <a href="work_cnn.html" class="dropdown-item">Development of Convolutional Neural Network</a>
+                <a href="work_rnn.html" class="dropdown-item">Development of Recurrent Neural Network</a>
+                <a href="work_aa.html" class="dropdown-item">Creation of Storyboard: Mapping of Visualizations</a>
+                <a href="work_fse.html" class="dropdown-item">Microsoft Excel Spreadsheet Engineering</a>
+                <a href="work_dv.html" class="dropdown-item">Data Visualizations and Analysis with Tableau</a>
+                <a href="work_cs.html" class="dropdown-item">Employee Application Development Using C#</a>
+                <a href="work_grade.html" class="dropdown-item">Student Grades Database Implementation Using C</a>
+                <!-- Add more projects as needed -->
+            </div>
+        </div>
+        <a href="index.html#contact" class="sidebar-link">
+            <span class="icon">📬</span>
+            <span class="label">Contact</span>
+        </a>
+    </div>
+
+    <div class="container">
+        <!-- Project Header -->
+        <div class="project-header">
+            <h1 class="project-title">Development of Hybrid Neural Network</h1>
+            <p class="project-summary">Optimizing algorithm learning through convergence of convolutional layers with LSTM/GRU layers.</p>
+        </div>
+
+        <!-- Project Description -->
+        <div class="project-description">
+            <h2>Project Description</h2>
+            <p>Develop a neural network model for prediction accuracy comparison with other generative learning algorithms such as Naive Bayes, HGBoost, KNN, Random Forest. The outcome of the project is to identify an algorithm that most accurately detects phishing email by classifying it has spam or ham.</p>
+        </div>
+
+        <!-- Project Technologies -->
+        <div class="project-technologies">
+            <h2>Technologies Used</h2>
+            <ul>
+                <li>Google Collab</li>
+                <li>Python</li>
+                <li>Kaggle Datasets</li>
+            </ul>
+        </div>
+
+        <div class="project-steps">
+            <h2>Summary of Steps</h2>
+            <ul>
+                <li>Identify relevant datasets from Kaggle</li>
+                <li>Perform data cleansing after merging various datasets</li>
+                <li>Develop a base model</li>
+                <li>Analyse results and identify potential improvements</li>
+                <li>Integrate changes for development of newer and improved model</li>
+                <li>Repeat analysis, changes and model development until results reach a plateau</li>
+            </ul>
+        </div>
+        
+        <div class="block">
+            <h2>Data cleansing process</h2>
+            <!-- Code Block -->
+            <pre class="code-block"><code>
+            <!-- Your code goes here -->
+            # Manually add "id", "subject", and "message" to the stopwords list
+            custom_stopwords = ["id", "subject", "message"]
+            stopwords.extend(custom_stopwords)
+
+            # Standardize the column names for merging
+            # 'Category' and 'Message' columns are renamed to 'label' and 'text' for consistency
+            mail_data.rename(columns={"Category": "label", "Message": "text"}, inplace=True)
+
+            # Concatenate the two datasets into one DataFrame
+            # Assuming both datasets have similar structure with 'label' and 'text' columns
+            merged_data = pd.concat([mail_data, spam_ham_data[['label', 'text']]])
+
+            # Reset index after concatenation
+            merged_data.reset_index(drop=True, inplace=True)
+
+            # Data Cleansing Functions
+
+            def clean_text(text):
+                """
+                Clean text by converting to lowercase, removing punctuation,
+                and removing stopwords.
+
+                Args:
+                    text (str): The input text to clean.
+
+                Returns:
+                    str: Cleaned text.
+                """
+                text = text.lower()  # Convert text to lowercase
+                # Remove punctuation
+                text = text.translate(str.maketrans('', '', string.punctuation))
+                # Tokenize text using a simple whitespace split
+                tokens = text.split()
+                # Remove stopwords
+                cleaned_tokens = [word for word in tokens if word not in stopwords]
+                return ' '.join(cleaned_tokens)  # Join tokens back to string
+
+            def remove_line_breaks(text):
+                """
+                Remove line breaks and carriage return characters (\r, \n) from text.
+
+                Args:
+                    text (str): The input text to clean.
+
+                Returns:
+                    str: Cleaned text with line breaks removed.
+                """
+                return text.replace('\r', ' ').replace('\n', ' ')
+
+            def replace_urls_and_numbers(text):
+                """
+                Replace URLs and phone numbers in text with placeholder tokens ("URL" and "NUM").
+
+                Args:
+                    text (str): The input text to clean.
+
+                Returns:
+                    str: Text with URLs replaced by "URL" and phone numbers replaced by "NUM".
+                """
+                # Replace URLs with "URL"
+                text = re.sub(r'http\S+|www\S+|https\S+', 'URL', text, flags=re.MULTILINE)
+                # Replace phone numbers with "NUM"
+                text = re.sub(r'\b\d{2,3}[-.\s()]*\d{3,4}[-.\s()]*\d{3,4}\b', 'NUM', text)
+                return text
+
+            def remove_special_characters(text):
+                """
+                Remove special characters (non-alphanumeric except spaces).
+
+                Args:
+                    text (str): The input text to clean.
+
+                Returns:
+                    str: Cleaned text without special characters.
+                """
+                return re.sub(r'[^a-zA-Z0-9\s]', '', text)
+
+            def remove_emojis(text):
+                """
+                Remove emojis from text using regex patterns for common emoji ranges.
+
+                Args:
+                    text (str): The input text to clean.
+
+                Returns:
+                    str: Cleaned text without emojis.
+                """
+                # Regex to match various emoji unicode ranges
+                emoji_pattern = re.compile(
+                    "["
+                    "\U0001F600-\U0001F64F"  # emoticons
+                    "\U0001F300-\U0001F5FF"  # symbols & pictographs
+                    "\U0001F680-\U0001F6FF"  # transport & map symbols
+                    "\U0001F1E0-\U0001F1FF"  # flags (iOS)
+                    "\U00002700-\U000027BF"  # Dingbats
+                    "\U0001F900-\U0001F9FF"  # Supplemental Symbols and Pictographs
+                    "\U00002600-\U000026FF"  # Miscellaneous Symbols
+                    "\U000024C2-\U0001F251"
+                    "]+", flags=re.UNICODE
+                )
+                return emoji_pattern.sub(r'', text)
+
+            def remove_extra_whitespace(text):
+                """
+                Remove extra whitespaces and trim the text.
+
+                Args:
+                    text (str): The input text to clean.
+
+                Returns:
+                    str: Cleaned text without multiple spaces.
+                """
+                return re.sub(r'\s+', ' ', text).strip()
+
+            # Apply data cleansing
+            # Step by step application of each cleaning function to the 'text' column
+            merged_data['processed_text'] = merged_data['text'].apply(remove_line_breaks)  # Remove \r and \n
+            merged_data['processed_text'] = merged_data['processed_text'].apply(clean_text)  # Clean text
+            merged_data['processed_text'] = merged_data['processed_text'].apply(replace_urls_and_numbers)  # Replace URLs and numbers
+            merged_data['processed_text'] = merged_data['processed_text'].apply(remove_special_characters)  # Remove special characters
+            merged_data['processed_text'] = merged_data['processed_text'].apply(remove_emojis)  # Remove emojis
+            merged_data['processed_text'] = merged_data['processed_text'].apply(remove_extra_whitespace)  # Remove extra whitespace
+
+            # Convert labels to numerical values
+            label_mapping = {'ham': 0, 'spam': 1}  # Map 'ham' to 0 and 'spam' to 1
+            merged_data['label_num'] = merged_data['label'].map(label_mapping)
+
+            # TF-IDF Vectorization
+            # Convert processed text into a numerical format using TF-IDF
+            tfidf_vectorizer = TfidfVectorizer(max_features=1000)  # Limit to top 1000 features for better performance
+            X_tfidf = tfidf_vectorizer.fit_transform(merged_data['processed_text']).toarray()
+            y = merged_data['label_num'].values
+
+            # Separate data into training and final test set
+            # A test size of 20% ensures enough data for testing while retaining sufficient training samples
+            X_train_full, X_test_final, y_train_full, y_test_final = train_test_split(X_tfidf, y, test_size=0.2, random_state=42)
+
+            # K-Fold Cross-Validation
+            # Using 10 splits for k-fold cross-validation to assess model performance
+            kf = KFold(n_splits=10, shuffle=True, random_state=42)
+            accuracy_scores = []
+
+            # Custom callback for tqdm
+            class TQDMProgressBar(Callback):
+                def on_epoch_begin(self, epoch, logs=None):
+                    if epoch == 0:
+                        self.tqdm_bar = tqdm(total=self.params['epochs'], desc='Training', unit='epoch')
+                    self.tqdm_bar.update(1)
+
+                def on_epoch_end(self, epoch, logs=None):
+                    self.tqdm_bar.set_postfix(loss=logs['loss'], accuracy=logs['accuracy'], val_loss=logs['val_loss'], val_accuracy=logs['val_accuracy'])
+
+                def on_train_end(self, logs=None):
+                    self.tqdm_bar.close()
+
+            # Define a learning rate scheduler with exponential decay
+            def lr_scheduler(epoch, lr):
+                decay_rate = 0.96
+                decay_step = 5
+                return lr * decay_rate if epoch % decay_step == 0 and epoch != 0 else lr
+
+            # Focal Loss Function
+            def focal_loss(gamma=2., alpha=0.25):
+                def focal_loss_fixed(y_true, y_pred):
+                    bce = BinaryCrossentropy()(y_true, y_pred)
+                    pt = tf.exp(-bce)
+                    loss = alpha * (1 - pt) ** gamma * bce
+                    return loss
+                return focal_loss_fixed
+
+            for train_index, val_index in kf.split(X_train_full):
+                # Splitting training data for cross-validation
+                X_train, X_val = X_train_full[train_index], X_train_full[val_index]
+                y_train, y_val = y_train_full[train_index], y_train_full[val_index]
+
+                # Apply SMOTE to balance the classes in the training set
+                smote = SMOTE(random_state=42)
+                X_train_res, y_train_res = smote.fit_resample(X_train, y_train)
+            </code></pre>
+        </div>
+
+        <!-- Project Gallery -->
+        <div class="project-gallery">
+            <h2>Project Gallery</h2>
+            <div class="image-grid">
+                <div class="image-item">
+                    <img src="hnn.png" alt="Project Image 1">
+                    <p class="image-description">Base model</p>
+                </div>
+                <div class="image-item">
+                    <img src="hnn_result.png.jpg" alt="Project Image 2">
+                    <p class="image-description">Results of base model</p>
+                </div>
+                <div class="image-item">
+                    <img src="hnn_new.png.jpg" alt="Project Image 3">
+                    <p class="image-description">Improved model</p>
+                </div>
+                <!-- Additional images can be added here -->
+            </div>
+        </div>
+
+        <div class="project-changes">
+            <h2>Model Optimizations</h2>
+            <ol class="change-list">
+                <li>
+                    <span>Shorter Sequence Length:</span>
+                    <p>The sequence length at each stage is now cut in half compared to the original. This  lightens the computational load, making the model train faster. It also shifts the focus toward picking up more local patterns, which can be useful if you’re working with shorter data sequences or where nearby relationships matter more than long-range connections.</p>
+                </li>
+                <li>
+                    <span>Changes to Pooling Layers:</span>
+                    <p>The output sizes after the MaxPooling1D layers have also been halved to help  the model generalize better by shrinking the data size, which lowers the number of parameters and makes the model less sensitive to tiny details. This helps the model be more robust when facing new data.</p>
+                </li>
+                <li>
+                    <span>Smaller LSTM Outputs:</span>
+                    <p>The output shapes from the LSTM layers have been reduced to allow the model to focus more on the key patterns without getting bogged down in too many details. This not only speeds things up but also helps avoid overfitting.</p>
+                </li>
+            </ol>
+        </div>
+
+        <!-- Project Links -->
+        <!--div class="project-links">
+            <h2>Project Links</h2>
+            <a href="*" target="_blank" class="project-link">GitHub Repository</a>
+            <a href="*" target="_blank" class="project-link">Live Project</a>
+        </div-->
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Your Name. You can't use up creativity, the more you use, the more you have in your significant mind.</p>
+    </footer>
+</body>
+</html>
