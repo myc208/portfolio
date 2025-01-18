@@ -648,3 +648,50 @@ p, a {
     word-wrap: break-word;
     overflow-wrap: break-word;
 }
+
+/* Base Styles for Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #333745;
+    color: white;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.menu-toggle {
+    display: none; /* Hidden by default */
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Responsive Header */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide navigation links */
+        flex-direction: column;
+        gap: 10px;
+        position: absolute;
+        top: 70px; /* Adjust based on header height */
+        left: 0;
+        width: 100%;
+        background-color: #333745;
+        padding: 20px;
+    }
+
+    .nav-links.show {
+        display: flex; /* Show when toggled */
+    }
+
+    .menu-toggle {
+        display: block; /* Show the toggle button */
+    }
+}

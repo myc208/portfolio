@@ -118,3 +118,12 @@ renderBullets();
 
 // Re-render bullets when the window is resized to adjust based on slidesToShow
 window.addEventListener('resize', renderBullets);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const toggleButton = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    toggleButton.addEventListener('click', () => {
+        navLinks.classList.toggle('show'); // Add/remove the 'show' class
+    });
+});
