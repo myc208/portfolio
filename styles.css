@@ -584,3 +584,67 @@ cite {
         transform: translateY(-20px);
     }
 }
+
+/* Responsive Styles */
+
+/* Mobile-first: Max Width 600px */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+    }
+
+    .logo h1 {
+        font-size: 24px;
+    }
+
+    .social-icons {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* General content layout adjustments */
+    .content {
+        padding: 10px;
+    }
+
+    /* Responsive images */
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    /* Buttons and links */
+    button, a {
+        padding: 10px 20px;
+    }
+}
+
+/* Adjust Grid or Flexbox Layouts */
+@media (max-width: 600px) {
+    .grid-item {
+        flex: 0 0 100%; /* Stack items vertically */
+    }
+}
+
+/* Responsive Typography */
+h1 {
+    font-size: clamp(24px, 5vw, 48px); /* Scales between 24px and 48px */
+}
+
+/* Handle text wrapping */
+p, a {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
