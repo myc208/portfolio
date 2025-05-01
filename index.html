@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - About</title>
+    <title>Ming Yang - Portfolio</title>
     <base href="/portfolio/">
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-
     <header>
         <div class="logo">
             <h1>Ming Yang</h1>
@@ -21,11 +23,10 @@
                 </a>
             </div>
         </div>
-        <!-- Menu Toggle Button -->
         <button class="menu-toggle" aria-label="Toggle navigation">
-            &#9776; <!-- Hamburger Icon -->
+            &#9776;
         </button>
-        <nav>
+        <nav class="nav-links">
             <a href="index.html" class="active">About</a>
             <a href="works.html">Works</a>
         </nav>
@@ -33,7 +34,10 @@
 
     <section class="intro-section">
         <div class="left-side">
-            <img src="your-image-here.jpg" alt="Your profile image">
+            <div class="profile-image-container">
+                <img src="your-image-here.jpg" alt="Profile image" class="profile-image">
+                <div class="image-overlay"></div>
+            </div>
         </div>
         <div class="right-side">
             <p class="small-heading">— Introduction</p>
@@ -49,73 +53,58 @@
         <div class="contact-section">
             <p class="small-heading">— Contact</p>
             <h3>Open to Discussions & Opportunities.</h3>
-            <p>If you have any questions, would like to explore potential collaborations, discuss job opportunities, or share ideas and suggestions, I’d be delighted to connect. Please don't hesitate to reach out via email, as I'm always open to engaging in meaningful discussions and exploring new possibilities.</p>
-            <a href="mailto:mychw208@gmail.com">Drop me an email!</a>
+            <p>If you have any questions, would like to explore potential collaborations, discuss job opportunities, or share ideas and suggestions, I'd be delighted to connect. Please don't hesitate to reach out via email.</p>
+            <a href="mailto:mychw208@gmail.com" class="email-link">Drop me an email!</a>
         </div>
         <div class="experience">
-            <h1>"Creativity is contagious—pass it on."</h1>
-            <p></p>
-            <h3>— Albert Einstein</h3>
+            <div class="quote-card">
+                <h1>"Creativity is contagious—pass it on."</h1>
+                <h3>— Albert Einstein</h3>
+            </div>
         </div>
     </section>
 
-    <!-- Service Section (Already in place, no need to modify) -->
     <section class="services">
         <div class="service-item">
-            <h2>Database Enginner Intern</h2>
-            <h2><br></h2>
-            <div class="logo">
-                <img src="Aida-logo-dark.png" alt="Aida logo" width="200">
+            <div class="service-icon">
+                <img src="Aida-logo-dark.png" alt="Aida logo" width="120">
             </div>
-            <h2><br></h2>
-            <p>AiDA Technologies Pte Ltd</p>
-            <p><br></p>
-            <p>September 2021 ~ February 2022</p>
-            <h3><br></h3>
-            <p>Test and implement new database software, develop algorithms to flag sensitive words in communications, participate in daily standup meetings, and document test failures and solutions.</p>
+            <h2>Database Engineer Intern</h2>
+            <p class="company">AiDA Technologies Pte Ltd</p>
+            <p class="duration">September 2021 ~ February 2022</p>
+            <p class="description">Test and implement new database software, develop algorithms to flag sensitive words in communications, participate in daily standup meetings, and document test failures and solutions.</p>
         </div>
         <div class="service-item">
+            <div class="service-icon">
+                <img src="SAF_Commando_Formation_logo.png" alt="Cdo logo" width="120">
+            </div>
             <h2>Commando Trooper</h2>
-            <div class="logo">
-                <img src="SAF_Commando_Formation_logo.png" alt="Cdo logo" width="200">
-            </div>
-            <p>SAF 1st Commando Battalion</p>
-            <p><br></p>
-            <p>June 2022 ~ April 2024</p>
-            <h3><br></h3>
-            <p>Operate in small discreet forces to obtain mission success through team planning, backbrief to ensure complete understanding of mission and execution profile, before actual execution on the ground.</p>
+            <p class="company">SAF 1st Commando Battalion</p>
+            <p class="duration">June 2022 ~ April 2024</p>
+            <p class="description">Operate in small discreet forces to obtain mission success through team planning, backbrief to ensure complete understanding of mission and execution profile.</p>
         </div>
         <div class="service-item">
-            <h2>Retail Assistant</h2>
-            <div class="logo">
-                <img src="lotte.png" alt="lotte logo" width="200">
+            <div class="service-icon">
+                <img src="lotte.png" alt="lotte logo" width="120">
             </div>
-            <h2><br></h2>
-            <p>Lotte Travel Retail</p>
-            <p><br></p>
-            <p>July 2024 ~ August 2024</p>
-            <h3><br></h3>
-            <p>62 Projects</p>
+            <h2>Retail Assistant</h2>
+            <p class="company">Lotte Travel Retail</p>
+            <p class="duration">July 2024 ~ August 2024</p>
+            <p class="description">62 Projects</p>
         </div>
     </section>
 
-    <!-- Client Logos Section -->
     <section class="clients">
-        <img src="SIT.png" alt="SIT logo">
-        <img src="np.png" alt="Ngee Ann Poly logo">
-        <!-- Add more logos as needed -->
+        <div class="client-logos">
+            <img src="SIT.png" alt="SIT logo">
+            <img src="np.png" alt="Ngee Ann Poly logo">
+        </div>
     </section>
 
-    <!-- Slider Section -->
     <div class="slider-section" id="slider">
-        <!-- Slider Title -->
         <h2 class="slider-section-title">Featured Projects</h2>
-    
-        <!-- Slider Container -->
         <div class="slider">
-            <!-- Slides Container -->
             <div class="slides">
-                <!-- Slide 1 -->
                 <div class="slide card-item">
                     <a href="work_hnn.html" class="card-link">
                         <img src="hybridmodel.png" alt="Card Image" class="card-image">
@@ -124,8 +113,6 @@
                         <button class="card-button material-symbols-rounded">→</button>
                     </a>
                 </div>
-    
-                <!-- Slide 2 -->
                 <div class="slide card-item">
                     <a href="work_elastic.html" class="card-link">
                         <img src="elasticsearch.png" alt="Card Image" class="card-image">
@@ -134,8 +121,6 @@
                         <button class="card-button material-symbols-rounded">→</button>
                     </a>
                 </div>
-    
-                <!-- Slide 3 -->
                 <div class="slide card-item">
                     <a href="work_cnn.html" class="card-link">
                         <img src="cnn.png" alt="Card Image" class="card-image">
@@ -152,114 +137,73 @@
                         <button class="card-button material-symbols-rounded">→</button>
                     </a>
                 </div>
-                <div class="slide card-item">
-                    <a href="work_aa.html" class="card-link">
-                        <img src="storyboard.png" alt="Card Image" class="card-image">
-                        <p class="badge">Developer</p>
-                        <h2 class="card-title">Creation of Storyboard: Mapping of Visualizations</h2>
-                        <button class="card-button material-symbols-rounded">→</button>
-                    </a>
-                </div>
-                <div class="slide card-item">
-                    <a href="work_fse.html" class="card-link">
-                        <img src="fse.png" alt="Card Image" class="card-image">
-                        <p class="badge">Developer</p>
-                        <h2 class="card-title">Microsoft Excel Spreadsheet Engineering</h2>
-                        <button class="card-button material-symbols-rounded">→</button>
-                    </a>
-                </div>
-                <div class="slide card-item">
-                    <a href="work_dv.html" class="card-link">
-                        <img src="tab.png" alt="Card Image" class="card-image">
-                        <p class="badge">Developer</p>
-                        <h2 class="card-title">Data Visualizations and Analysis with Tableau</h2>
-                        <button class="card-button material-symbols-rounded">→</button>
-                    </a>
-                </div>
-                <div class="slide card-item">
-                    <a href="work_cs.html" class="card-link">
-                        <img src="cscover.png" alt="Card Image" class="card-image">
-                        <p class="badge">Developer</p>
-                        <h2 class="card-title">Employee Application Development Using C#</h2>
-                        <button class="card-button material-symbols-rounded">→</button>
-                    </a>
-                </div>
-                <div class="slide card-item">
-                    <a href="work_grade.html" class="card-link">
-                        <img src="grade.png" alt="Card Image" class="card-image">
-                        <p class="badges">Co-Developer</p>
-                        <h2 class="card-title">Student Grades Database Implementation Using C</h2>
-                        <button class="card-button material-symbols-rounded">→</button>
-                    </a>
-                </div>
-                <!-- Additional slides can be added here following the same structure -->
             </div>
-    
-            <!-- Navigation Buttons -->
             <button class="prev">❮</button>
             <button class="next">❯</button>
-    
-            <!-- Dynamic Navigation Bullets Container (Empty initially, populated by JavaScript) -->
             <div class="navigation-bullets"></div>
         </div>
     </div>
 
-    <!-- Testimonial Section -->
     <section class="testimonial">
-        <blockquote>
-            <p>“Just a Student, walking forward with purpose, striving for progress over perfection—because every step forward counts.”</p>
-            <cite>~ Me</cite>
-        </blockquote>
+        <div class="testimonial-card">
+            <blockquote>
+                <p>"Just a Student, walking forward with purpose, striving for progress over perfection—because every step forward counts."</p>
+                <cite>~ Me</cite>
+            </blockquote>
+        </div>
     </section>
 
-    <!-- Contact Section -->
     <section class="contact">
-        <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-        <script type="javascript">
-            (function() {
-                emailjs.init('UETHVMIaZExRj5Bm-');
-            })(); 
-        </script>
         <div class="project-inquiry">
-            <p>Any questions, concerns, or just want to share a great joke? Drop me an email—I promise to address the first two and laugh at the third!</p>
-            <h3><br></h3>
-            <a href="mailto:mychw208@gmail.com">Email Me!</a>
+            <p class="inquiry-text">Any questions, concerns, or just want to share a great joke? Drop me an email—I promise to address the first two and laugh at the third!</p>
+            <a href="mailto:mychw208@gmail.com" class="email-button">Email Me!</a>
         </div>
         <div class="project-estimate">
             <h3>Leave your contact details!</h3>
-            <h3><br></h3>
-            <form id="contact form">
-                <label for="name">What’s your name?</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Your fancy email</label>
-                <input type="email" id="email" name="email" required>
-                <label for="message">What are you contacting regarding?</label>
-                <textarea id="message" name="message" required></textarea>
-                <button type="button" onclick="sendEmail()">Submit</button>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="name">What's your name?</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your fancy email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">What are you contacting regarding?</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="button" onclick="sendEmail()" class="submit-button">Submit</button>
             </form>
         </div>
-        <script type="text/javascript">
-            function sendEmail() {
-                var templateParams = {
-                    name: document.getElementById('name').value,
-                    email: document.getElementById('email').value,
-                    message: document.getElementById('message').value
-                };
-                emailjs.send('service_m86enjx', 'service_m86enjx', templateParams)
-                .then(function(response) {
-                    alert('Email sent successfully!');
-                }, function(error) {
-                    console.log('FAILED...', error);
-                    alert('Failed to send email: ' + JSON.stringify(error));
-                });
-            }
-        </script>
     </section>
 
-    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Your Name. You can't use up creativity, the more you use, the more you have in your significant mind.</p>
+        <p>&copy; 2024 Ming Yang. You can't use up creativity, the more you use, the more you have in your significant mind.</p>
     </footer>
+
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script src="scripts.js"></script>
+    <script>
+        (function() {
+            emailjs.init('UETHVMIaZExRj5Bm-');
+        })();
+        
+        function sendEmail() {
+            var templateParams = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value
+            };
+            
+            emailjs.send('service_m86enjx', 'template_m86enjx', templateParams)
+                .then(function(response) {
+                    alert('Email sent successfully!');
+                    document.getElementById('contact-form').reset();
+                }, function(error) {
+                    alert('Failed to send email. Please try again later.');
+                });
+        }
+    </script>
 </body>
 </html>

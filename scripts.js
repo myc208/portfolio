@@ -1,110 +1,131 @@
-let currentSlide = 0;
-let slidesToShow;
+document.addEventListener('DOMContentLoaded', function() {
+    // Mobile menu toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    menuToggle.addEventListener('click', function() {
+        navLinks.classList.toggle('show');
+    });
 
-function updateSlidesToShow() {
-    const viewportWidth = window.innerWidth;
-
-    if (viewportWidth >= 900) {
-        slidesToShow = 3;
-    } else if (viewportWidth >= 600) {
-        slidesToShow = 2;
-    } else {
-        slidesToShow = 1;
-    }
-
-    renderBullets();
-}
-
-function showSlide(index) {
+    // Initialize slider
+    let currentSlide = 0;
+    let slidesToShow = 3; // Default for larger screens
     const slides = document.querySelectorAll('.slide');
     const totalSlides = slides.length;
+    const slidesContainer = document.querySelector('.slides');
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
+    const bulletsContainer = document.querySelector('.navigation-bullets');
 
-    if (index >= totalSlides - 2) {
-        currentSlide = 0;
-    } else if (index < 0) {
-        currentSlide = totalSlides - 1;
-    } else {
-        currentSlide = index;
+    // Update slides to show based on screen size
+    function updateSlidesToShow() {
+        if (window.innerWidth >= 900) {
+            slidesToShow = 3;
+        } else if (window.innerWidth >= 600) {
+            slidesToShow = 2;
+        } else {
+            slidesToShow = 1;
+        }
+        renderBullets();
     }
 
-    const offset = -currentSlide * (100 / slidesToShow);
-    document.querySelector('.slides').style.transform = `translateX(${offset}%)`;
-
-    updateActiveBullet();
-}
-
-function changeSlide(direction) {
-    showSlide(currentSlide + direction);
-}
-
-updateSlidesToShow();
-showSlide(currentSlide);
-
-window.addEventListener('resize', () => {
-    updateSlidesToShow();
-    showSlide(currentSlide);
-});
-
-let autoSlide = setInterval(() => {
-    changeSlide(1);
-}, 3000);
-
-document.querySelector('.slider').addEventListener('mouseenter', () => {
-    clearInterval(autoSlide);
-});
-
-document.querySelector('.slider').addEventListener('mouseleave', () => {
-    autoSlide = setInterval(() => {
-        changeSlide(1);
-    }, 3000);
-});
-
-function calculatePages() {
-    const totalSlides = document.querySelectorAll('.slide').length;
-    return totalSlides - 2;
-}
-
-function renderBullets() {
-    const bulletsContainer = document.querySelector('.navigation-bullets');
-    const totalPages = calculatePages();
-
-    bulletsContainer.innerHTML = '';
-
-    if (totalPages > 1) {
-        for (let i = 0; i < totalPages; i++) {
-            const bullet = document.createElement('span');
-            bullet.classList.add('bullet');
-            bullet.dataset.page = i;
-            bullet.addEventListener('click', () => goToPage(i));
-            bulletsContainer.appendChild(bullet);
+    // Show current slide
+    function showSlide(index) {
+        // Handle wrap-around for infinite loop
+        if (index >= totalSlides) {
+            currentSlide = 0;
+        } else if (index < 0) {
+            currentSlide = totalSlides - 1;
+        } else {
+            currentSlide = index;
         }
+
+        const offset = -currentSlide * (100 / slidesToShow);
+        slidesContainer.style.transform = `translateX(${offset}%)`;
+
         updateActiveBullet();
     }
-}
 
-function updateActiveBullet() {
-    const bullets = document.querySelectorAll('.bullet');
-    bullets.forEach((bullet, index) => {
-        bullet.classList.toggle('active', index === currentSlide);
+    // Change slide
+    function changeSlide(direction) {
+        showSlide(currentSlide + direction);
+    }
+
+    // Create navigation bullets
+    function renderBullets() {
+        bulletsContainer.innerHTML = '';
+        const bulletCount = Math.ceil(totalSlides / slidesToShow);
+
+        for (let i = 0; i < bulletCount; i++) {
+            const bullet = document.createElement('span');
+            bullet.classList.add('bullet');
+            bullet.addEventListener('click', () => goToSlide(i));
+            bulletsContainer.appendChild(bullet);
+        }
+
+        updateActiveBullet();
+    }
+
+    // Update active bullet
+    function updateActiveBullet() {
+        const bullets = document.querySelectorAll('.bullet');
+        const activeBulletIndex = Math.floor(currentSlide / slidesToShow);
+
+        bullets.forEach((bullet, index) => {
+            bullet.classList.toggle('active', index === activeBulletIndex);
+        });
+    }
+
+    // Go to specific slide
+    function goToSlide(index) {
+        showSlide(index * slidesToShow);
+    }
+
+    // Initialize
+    updateSlidesToShow();
+    showSlide(currentSlide);
+
+    // Event listeners
+    prevButton.addEventListener('click', () => changeSlide(-1));
+    nextButton.addEventListener('click', () => changeSlide(1));
+
+    // Auto slide
+    let autoSlide = setInterval(() => {
+        changeSlide(1);
+    }, 5000);
+
+    // Pause auto slide on hover
+    const slider = document.querySelector('.slider');
+    slider.addEventListener('mouseenter', () => {
+        clearInterval(autoSlide);
     });
-}
 
-function goToPage(pageIndex) {
-    showSlide(pageIndex);
-}
+    slider.addEventListener('mouseleave', () => {
+        autoSlide = setInterval(() => {
+            changeSlide(1);
+        }, 5000);
+    });
 
-document.querySelector('.prev').addEventListener('click', () => changeSlide(-1));
-document.querySelector('.next').addEventListener('click', () => changeSlide(1));
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        updateSlidesToShow();
+        showSlide(currentSlide);
+    });
 
-renderBullets();
-
-window.addEventListener('resize', renderBullets);
-
-document.addEventListener('DOMContentLoaded', () => {
-    const toggleButton = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-
-    toggleButton.addEventListener('click', () => {
-        navLinks.classList.toggle('show');
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
     });
 });
