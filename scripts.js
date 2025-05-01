@@ -186,6 +186,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     setTimeout(() => {
                         entry.target.classList.add('visible');
                     }, index * 200);
+                } else {
+                    entry.target.classList.remove('visible');
                 }
             });
         }, { threshold: 0.1 });
@@ -215,7 +217,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         item.style.animation = 'fadeIn 0.5s ease forwards';
                         // Ensure it's observed for scroll animations
                         item.classList.add('animate-on-scroll');
-                        observer.observe(item);
+                        scrollObserver.observe(item);
                     }, index * 100);
                 } else {
                     item.style.animation = 'fadeOut 0.3s ease forwards';
@@ -227,27 +229,51 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Scroll Animations
-    const observer = new IntersectionObserver((entries) => {
+    // Enhanced Scroll Animations - triggers every time elements enter viewport
+    const scrollObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
+                // Add edge blur when exiting viewport
+                entry.target.style.setProperty('--edge-blur', '0px');
+            } else {
+                entry.target.classList.remove('visible');
+                
+                // Calculate distance from viewport edges
+                const rect = entry.target.getBoundingClientRect();
+                const viewportHeight = window.innerHeight;
+                const viewportWidth = window.innerWidth;
+                
+                // Calculate blur amount based on distance from edges
+                const topDistance = Math.max(0, -rect.top);
+                const bottomDistance = Math.max(0, rect.bottom - viewportHeight);
+                const leftDistance = Math.max(0, -rect.left);
+                const rightDistance = Math.max(0, rect.right - viewportWidth);
+                
+                const maxBlur = 10; // Maximum blur amount in pixels
+                const blurAmount = Math.min(
+                    maxBlur,
+                    Math.max(topDistance, bottomDistance, leftDistance, rightDistance) / 10
+                );
+                
+                entry.target.style.setProperty('--edge-blur', `${blurAmount}px`);
             }
         });
     }, { threshold: 0.1 });
 
+    // Observe all elements that should animate
     document.querySelectorAll('.animate-on-scroll').forEach(el => {
-        observer.observe(el);
+        scrollObserver.observe(el);
     });
 
     // Initialize all service items as visible
     document.querySelectorAll('.service-item').forEach(item => {
         item.style.display = 'block';
         item.classList.add('animate-on-scroll');
-        observer.observe(item);
+        scrollObserver.observe(item);
     });
 
-    // Add animation keyframes
+    // Add animation keyframes and edge blur styles
     const style = document.createElement('style');
     style.textContent = `
         @keyframes fadeIn {
@@ -257,6 +283,14 @@ document.addEventListener('DOMContentLoaded', function() {
         @keyframes fadeOut {
             from { opacity: 1; transform: translateY(0); }
             to { opacity: 0; transform: translateY(20px); }
+        }
+        
+        /* Edge blur effect */
+        .animate-on-scroll {
+            transition: filter 0.3s ease;
+        }
+        .animate-on-scroll:not(.visible) {
+            filter: blur(var(--edge-blur, 0px));
         }
     `;
     document.head.appendChild(style);

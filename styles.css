@@ -1031,15 +1031,24 @@ body.dark-mode .filter-btn {
 }
 
 /* Animation Classes */
+/* Edge blur effect base styles */
 .animate-on-scroll {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transition: filter 0.3s ease;
+    will-change: filter; /* Optimizes blur performance */
 }
 
+/* Initial state before animation */
+.animate-on-scroll:not(.visible) {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(var(--edge-blur, 0px));
+}
+
+/* Animated state */
 .animate-on-scroll.visible {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0);
 }
 
 /* Theme Toggle Button */
