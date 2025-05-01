@@ -62,7 +62,7 @@ header nav a:hover {
 }
 
 header nav a.active {
-    color: #e8b53b;
+    color: #000000;
 }
 
 /* Intro Section (already present) */
@@ -96,7 +96,7 @@ header nav a.active {
 .right-side h2 {
     font-size: 32px;
     font-weight: 400;
-    color: #e8b53b;
+    color: #000000;
     margin-bottom: 20px;
 }
 
@@ -181,7 +181,7 @@ header nav a.active {
 .services {
     display: flex;
     justify-content: space-around;
-    background-color: #2b2e3d;
+    background-color: #afafaf;
     padding: 50px;
 }
 
@@ -191,7 +191,7 @@ header nav a.active {
 }
 
 .service-item {
-    background-color: #444b5b;
+    background-color: #afafaf;
     padding: 20px;
     border-radius: 5px;
     text-align: center;
@@ -205,7 +205,7 @@ header nav a.active {
 }
 
 .service-item h2 {
-    color: #e8b53b;
+    color: #cccccc;
     margin-bottom: 10px;
 }
 
@@ -216,7 +216,7 @@ header nav a.active {
 /* Footer (already present) */
 footer {
     text-align: center;
-    background-color: #2b2e3d;
+    background-color: #000000;
     padding: 20px;
     font-size: 14px;
     color: #cccccc;
@@ -227,7 +227,7 @@ footer {
     display: flex;
     justify-content: space-around;
     padding: 50px;
-    background-color: #333745;
+    background-color: #afafaf;
 }
 
 .clients img {
@@ -242,7 +242,7 @@ footer {
     align-items: center;
     padding: 40px 0;
     text-align: center;
-    background-color: #2b2e3d;
+    background-color: #36373b;
 }
 
 /* Title styling */
@@ -262,7 +262,7 @@ footer {
     width: 100%;
     overflow: hidden;
     border-radius: 8px;
-    background-color: #2d3042;
+    background-color: #afafaf;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -457,34 +457,6 @@ footer {
     background-color: #888; /* Bullet hover effect */
 }
 
-/* Blog Section */
-.blog {
-    padding: 50px;
-    background-color: #333745;
-}
-
-.blog h2 {
-    margin-bottom: 20px;
-    color: #e8b53b;
-}
-
-.blog ul {
-    list-style: none;
-}
-
-.blog li {
-    margin-bottom: 15px;
-}
-
-.blog a {
-    text-decoration: none;
-    color: #e8b53b;
-}
-
-.blog a:hover {
-    text-decoration: underline;
-}
-
 /* Testimonial Section */
 .testimonial {
     padding: 50px;
@@ -554,36 +526,6 @@ cite {
     background-color: #d1a43a;
 }
 
-/* Styling for the under-construction message */
-.under-construction {
-    text-align: center;
-    margin-top: 50px;
-    font-size: 32px;
-    font-weight: bold;
-    color: #ff0000;
-}
-
-.construction-container {
-    text-align: center;
-    margin-top: 20px;
-}
-
-/* Update the size of the animated GIF */
-#animated-image {
-    width: 400px; /* Adjust width as needed */
-    height: auto; /* Maintains aspect ratio */
-    animation: bounce 2s infinite;
-}
-
-/* Keyframes for the bounce animation */
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-20px);
-    }
-}
 
 /* Responsive Styles */
 
