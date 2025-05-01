@@ -29,6 +29,7 @@
         <nav class="nav-links">
             <a href="index.html" class="active">About</a>
             <a href="works.html">Works</a>
+            <button id="theme-toggle" aria-label="Toggle dark mode">🌓</button>
         </nav>
     </header>
 
@@ -49,6 +50,34 @@
         </div>
     </section>
 
+    <!-- New Interactive Timeline Section -->
+    <section class="timeline-section animate-on-scroll">
+        <h2 class="section-title">My Journey</h2>
+        <div class="timeline">
+            <div class="event" data-year="2021">
+                <div class="event-content">
+                    <h3>Database Engineer Intern</h3>
+                    <p class="company">AiDA Technologies</p>
+                    <p class="event-description">Tested and implemented new database software, developed algorithms to flag sensitive words in communications.</p>
+                </div>
+            </div>
+            <div class="event" data-year="2022">
+                <div class="event-content">
+                    <h3>Commando Trooper</h3>
+                    <p class="company">SAF 1st Commando Battalion</p>
+                    <p class="event-description">Operated in small discreet forces to obtain mission success through team planning.</p>
+                </div>
+            </div>
+            <div class="event" data-year="2024">
+                <div class="event-content">
+                    <h3>Retail Assistant</h3>
+                    <p class="company">Lotte Travel Retail</p>
+                    <p class="event-description">Completed 62 projects during my tenure.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="contact-experience" id="contact">
         <div class="contact-section">
             <p class="small-heading">— Contact</p>
@@ -64,33 +93,45 @@
         </div>
     </section>
 
-    <section class="services">
-        <div class="service-item">
-            <div class="service-icon">
-                <img src="Aida-logo-dark.png" alt="Aida logo" width="120">
+    <!-- Updated Services Section with Filter -->
+    <section class="services animate-on-scroll">
+        <div class="section-header">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="tech">Tech</button>
+                <button class="filter-btn" data-filter="military">Military</button>
+                <button class="filter-btn" data-filter="retail">Retail</button>
             </div>
-            <h2>Database Engineer Intern</h2>
-            <p class="company">AiDA Technologies Pte Ltd</p>
-            <p class="duration">September 2021 ~ February 2022</p>
-            <p class="description">Test and implement new database software, develop algorithms to flag sensitive words in communications, participate in daily standup meetings, and document test failures and solutions.</p>
         </div>
-        <div class="service-item">
-            <div class="service-icon">
-                <img src="SAF_Commando_Formation_logo.png" alt="Cdo logo" width="120">
+        <div class="service-items">
+            <div class="service-item tech">
+                <div class="service-icon">
+                    <img src="Aida-logo-dark.png" alt="Aida logo" width="120">
+                </div>
+                <h2>Database Engineer Intern</h2>
+                <p class="company">AiDA Technologies Pte Ltd</p>
+                <p class="duration">September 2021 ~ February 2022</p>
+                <p class="description">Test and implement new database software, develop algorithms to flag sensitive words in communications, participate in daily standup meetings, and document test failures and solutions.</p>
             </div>
-            <h2>Commando Trooper</h2>
-            <p class="company">SAF 1st Commando Battalion</p>
-            <p class="duration">June 2022 ~ April 2024</p>
-            <p class="description">Operate in small discreet forces to obtain mission success through team planning, backbrief to ensure complete understanding of mission and execution profile.</p>
-        </div>
-        <div class="service-item">
-            <div class="service-icon">
-                <img src="lotte.png" alt="lotte logo" width="120">
+            <div class="service-item military">
+                <div class="service-icon">
+                    <img src="SAF_Commando_Formation_logo.png" alt="Cdo logo" width="120">
+                </div>
+                <h2>Commando Trooper</h2>
+                <p class="company">SAF 1st Commando Battalion</p>
+                <p class="duration">June 2022 ~ April 2024</p>
+                <p class="description">Operate in small discreet forces to obtain mission success through team planning, backbrief to ensure complete understanding of mission and execution profile.</p>
             </div>
-            <h2>Retail Assistant</h2>
-            <p class="company">Lotte Travel Retail</p>
-            <p class="duration">July 2024 ~ August 2024</p>
-            <p class="description">62 Projects</p>
+            <div class="service-item retail">
+                <div class="service-icon">
+                    <img src="lotte.png" alt="lotte logo" width="120">
+                </div>
+                <h2>Retail Assistant</h2>
+                <p class="company">Lotte Travel Retail</p>
+                <p class="duration">July 2024 ~ August 2024</p>
+                <p class="description">62 Projects</p>
+            </div>
         </div>
     </section>
 

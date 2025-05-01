@@ -129,6 +129,69 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Dark/Light Mode Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+        
+        // Update button emoji
+        themeToggle.textContent = document.body.classList.contains('dark-mode') ? '🌞' : '🌙';
+    });
+
+    // Check for saved theme preference
+    if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+        themeToggle.textContent = '🌞';
+    } else {
+        themeToggle.textContent = '🌙';
+    }
+
+    // Project Filter Functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all buttons
+            filterButtons.forEach(b => b.classList.remove('active'));
+            // Add active class to clicked button
+            btn.classList.add('active');
+            
+            const filter = btn.dataset.filter;
+            document.querySelectorAll('.service-item').forEach(item => {
+                if (filter === 'all' || item.classList.contains(filter)) {
+                    item.style.display = 'block';
+                    // Add animation class
+                    item.classList.add('animate-on-scroll');
+                    // Trigger reflow to restart animation
+                    void item.offsetWidth;
+                    item.classList.add('visible');
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    // Scroll Animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        observer.observe(el);
+    });
+
+    // Initialize all service items as visible
+    document.querySelectorAll('.service-item').forEach(item => {
+        item.style.display = 'block';
+        item.classList.add('animate-on-scroll');
+        observer.observe(item);
+    });
+
     // Email form submission
     window.sendEmail = function() {
         const templateParams = {
