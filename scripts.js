@@ -27,15 +27,16 @@ document.addEventListener('DOMContentLoaded', function() {
             slidesToShow = 1;
         }
         renderBullets();
+        showSlide(currentSlide); // Adjust slide position on resize
     }
 
     // Show current slide
     function showSlide(index) {
         // Handle wrap-around for infinite loop
-        if (index >= totalSlides) {
+        if (index > totalSlides - slidesToShow) {
             currentSlide = 0;
         } else if (index < 0) {
-            currentSlide = totalSlides - 1;
+            currentSlide = totalSlides - slidesToShow;
         } else {
             currentSlide = index;
         }
@@ -109,7 +110,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle window resize
     window.addEventListener('resize', () => {
         updateSlidesToShow();
-        showSlide(currentSlide);
     });
 
     // Smooth scrolling for anchor links
@@ -128,4 +128,21 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Email form submission
+    window.sendEmail = function() {
+        const templateParams = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            message: document.getElementById('message').value
+        };
+        
+        emailjs.send('service_m86enjx', 'template_m86enjx', templateParams)
+            .then(function(response) {
+                alert('Email sent successfully!');
+                document.getElementById('contact-form').reset();
+            }, function(error) {
+                alert('Failed to send email. Please try again later.');
+            });
+    };
 });
