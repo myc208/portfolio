@@ -191,7 +191,7 @@ header nav a.active {
 }
 
 .service-item {
-    background-color: #afafaf;
+    background-color: #000000;
     padding: 20px;
     border-radius: 5px;
     text-align: center;
@@ -227,7 +227,7 @@ footer {
     display: flex;
     justify-content: space-around;
     padding: 50px;
-    background-color: #afafaf;
+    background-color: #000000;
 }
 
 .clients img {
@@ -242,7 +242,7 @@ footer {
     align-items: center;
     padding: 40px 0;
     text-align: center;
-    background-color: #36373b;
+    background-color: #afafaf;
 }
 
 /* Title styling */
@@ -460,7 +460,7 @@ footer {
 /* Testimonial Section */
 .testimonial {
     padding: 50px;
-    background-color: #2b2e3d;
+    background-color: #000000;
     text-align: center;
 }
 
@@ -481,7 +481,7 @@ cite {
     display: flex;
     justify-content: space-around;
     padding: 50px;
-    background-color: #2f3344;
+    background-color: #000000;
 }
 
 .project-inquiry {
