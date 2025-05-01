@@ -147,26 +147,81 @@ document.addEventListener('DOMContentLoaded', function() {
         themeToggle.textContent = '🌙';
     }
 
-    // Project Filter Functionality
+    // Enhanced Timeline Interaction
+    function initTimeline() {
+        const events = document.querySelectorAll('.event');
+        
+        events.forEach(event => {
+            // Add click handler to expand/collapse details
+            event.addEventListener('click', function() {
+                this.classList.toggle('expanded');
+                
+                // Animate the content
+                const content = this.querySelector('.event-content');
+                content.style.transition = 'all 0.4s ease';
+                
+                if (this.classList.contains('expanded')) {
+                    content.style.transform = 'translateY(-5px) scale(1.03)';
+                    content.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.15)';
+                } else {
+                    content.style.transform = 'translateY(0) scale(1)';
+                    content.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.05)';
+                }
+            });
+            
+            // Add hover effects
+            event.addEventListener('mouseenter', function() {
+                this.style.zIndex = '10';
+            });
+            
+            event.addEventListener('mouseleave', function() {
+                this.style.zIndex = '1';
+            });
+        });
+        
+        // Animate timeline in sequence
+        const timelineObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 200);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.event').forEach(el => timelineObserver.observe(el));
+    }
+
+    // Initialize timeline if it exists
+    if (document.querySelector('.event')) {
+        initTimeline();
+    }
+
+    // Enhanced Project Filter Functionality with animations
     const filterButtons = document.querySelectorAll('.filter-btn');
     filterButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-            // Remove active class from all buttons
             filterButtons.forEach(b => b.classList.remove('active'));
-            // Add active class to clicked button
             btn.classList.add('active');
             
             const filter = btn.dataset.filter;
-            document.querySelectorAll('.service-item').forEach(item => {
+            const items = document.querySelectorAll('.service-item');
+            
+            items.forEach((item, index) => {
                 if (filter === 'all' || item.classList.contains(filter)) {
-                    item.style.display = 'block';
-                    // Add animation class
-                    item.classList.add('animate-on-scroll');
-                    // Trigger reflow to restart animation
-                    void item.offsetWidth;
-                    item.classList.add('visible');
+                    setTimeout(() => {
+                        item.style.display = 'block';
+                        item.style.animation = 'fadeIn 0.5s ease forwards';
+                        // Ensure it's observed for scroll animations
+                        item.classList.add('animate-on-scroll');
+                        observer.observe(item);
+                    }, index * 100);
                 } else {
-                    item.style.display = 'none';
+                    item.style.animation = 'fadeOut 0.3s ease forwards';
+                    setTimeout(() => {
+                        item.style.display = 'none';
+                    }, 300);
                 }
             });
         });
@@ -191,6 +246,20 @@ document.addEventListener('DOMContentLoaded', function() {
         item.classList.add('animate-on-scroll');
         observer.observe(item);
     });
+
+    // Add animation keyframes
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeOut {
+            from { opacity: 1; transform: translateY(0); }
+            to { opacity: 0; transform: translateY(20px); }
+        }
+    `;
+    document.head.appendChild(style);
 
     // Email form submission
     window.sendEmail = function() {
