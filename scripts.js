@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         const offset = -currentSlide * (100 / slidesToShow);
+        slidesContainer.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
         slidesContainer.style.transform = `translateX(${offset}%)`;
 
         updateActiveBullet();
@@ -93,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Auto slide
     let autoSlide = setInterval(() => {
         changeSlide(1);
-    }, 5000);
+    }, 6000);
 
     // Pause auto slide on hover
     const slider = document.querySelector('.slider');
@@ -182,12 +183,16 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             
             // Add hover effects
-            event.addEventListener('mouseenter', function() {
-                this.style.zIndex = '10';
-            });
-            
-            event.addEventListener('mouseleave', function() {
-                this.style.zIndex = '1';
+            events.forEach(event => {
+                event.addEventListener('mouseenter', () => {
+                    event.style.transition = 'all 0.5s ease-out';
+                    event.querySelector('.event-content').style.transform = 'translateY(-8px) scale(1.03)';
+                });
+                
+                event.addEventListener('mouseleave', () => {
+                    event.style.transition = 'all 0.4s ease-out';
+                    event.querySelector('.event-content').style.transform = 'translateY(0) scale(1)';
+                });
             });
         });
         
@@ -358,23 +363,25 @@ document.addEventListener('DOMContentLoaded', function() {
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
         // Typing animation with RAF for smoothness
-        function typeWriter(elementId, text) {
-            const element = document.querySelector(elementId);
-            if (!element) return;
-            
-            let i = 0;
-            const speed = 30;
-            
-            function type() {
-                if (i < text.length) {
-                    requestAnimationFrame(() => {
-                        element.textContent = text.substring(0, i+1);
+        function typeWriter(elementId, text, delay = 0) {
+            setTimeout(() => {
+                const element = document.querySelector(elementId);
+                let i = 0;
+                const speed = 40;
+                
+                function type() {
+                    if (i < text.length) {
+                        element.innerHTML = text.substring(0, i+1) + 
+                            '<span class="blinking-cursor">|</span>';
                         i++;
                         setTimeout(type, speed);
-                    });
+                    } else {
+                        element.innerHTML = text + 
+                            '<span class="blinking-cursor" style="opacity:0">|</span>';
+                    }
                 }
-            }
-            type();
+                type();
+            }, delay);
         }
 
         // 3D Card effect with performance throttle
