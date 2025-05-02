@@ -311,14 +311,6 @@
         (function() {
             emailjs.init('UETHVMIaZExRj5Bm-');
         })();
-        
-        // Only initialize animations if user doesn't prefer reduced motion
-        window.addEventListener('load', () => {
-            document.body.classList.add('animations-ready');
-            if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                // Your existing animation initialization code would go here
-            }
-        });
     </script>
 </body>
 </html>
