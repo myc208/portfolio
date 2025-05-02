@@ -850,6 +850,7 @@ body.dark-mode header {
 }
 
 body.dark-mode .logo h1,
+body.dark-mode .logo a,
 body.dark-mode nav a,
 body.dark-mode .small-heading,
 body.dark-mode .right-side h2,
@@ -871,10 +872,13 @@ body.dark-mode .post-excerpt {
     color: #b0b0b0;
 }
 
-body.dark-mode .service-item,
-body.dark-mode .card-item,
-body.dark-mode .testimonial-card,
-body.dark-mode .project-estimate,
+body.dark-mode .intro-section,
+body.dark-mode .contact-experience,
+body.dark-mode .services,
+boday.dark-mode .clients,
+body.dark-mode .slider-section,
+body.dark-mode .testimonial,
+body.dark-mode .contact,
 body.dark-mode .event-content {
     background-color: #1e1e1e;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
@@ -1021,13 +1025,18 @@ body.dark-mode .timeline-section {
 }
 
 body.dark-mode .filter-btn {
-    background: #333;
+    background: #3f3f3f;
     color: #f5f5f5;
 }
 
 .filter-btn.active {
     background: linear-gradient(90deg, #3498db, #9b59b6);
     color: white;
+}
+
+body.dark-mode .filter-btn.active {
+    background: #3f3f3f;
+    color: #dfff95;
 }
 
 /* Animation Classes */
