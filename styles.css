@@ -782,38 +782,22 @@ footer p {
 
 /* Dark Mode Styles */
 body.dark-mode {
-    background-color: #121212;
+    background-color: #000000; /* Pure black */
     color: #e0e0e0;
 }
 
+/* Make header darker in dark mode */
 body.dark-mode header {
-    background-color: #1e1e1e;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+    background-color: #000000;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
 }
 
-body.dark-mode .logo h1,
-body.dark-mode .logo div a,
-body.dark-mode nav a,
-body.dark-mode .small-heading,
-body.dark-mode .right-side h2,
-body.dark-mode .contact-section h3,
-body.dark-mode .service-item h2,
-body.dark-mode .card-title,
-body.dark-mode h1,
-body.dark-mode h2,
-body.dark-mode h3,
-body.dark-mode h4 {
-    color: #ffffff;
+/* Fix social media icons in dark mode */
+body.dark-mode .social-icons img {
+    filter: brightness(0) invert(1); /* Makes black icons white */
 }
 
-body.dark-mode p,
-body.dark-mode .company,
-body.dark-mode .duration,
-body.dark-mode .description,
-body.dark-mode .post-excerpt {
-    color: #b0b0b0;
-}
-
+/* Make all section backgrounds black in dark mode */
 body.dark-mode .intro-section,
 body.dark-mode .contact-experience,
 body.dark-mode .services,
@@ -821,23 +805,26 @@ body.dark-mode .clients,
 body.dark-mode .slider-section,
 body.dark-mode .testimonial,
 body.dark-mode .contact,
+body.dark-mode .timeline-section,
 body.dark-mode .event-content {
-    background-color: #1e1e1e;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    background-color: #000000;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
+/* Darken the cards and form elements more */
 body.dark-mode .service-item,
 body.dark-mode .card-item,
 body.dark-mode .testimonial-card,
 body.dark-mode .project-estimate {
-    background-color: #3a3a3a;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    background-color: #1a1a1a;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
+/* Darken form inputs more */
 body.dark-mode .form-group input,
 body.dark-mode .form-group textarea {
-    background-color: #2d2d2d;
-    border-color: #444;
+    background-color: #1a1a1a;
+    border-color: #333;
     color: #e0e0e0;
 }
 
