@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize slider
     let currentSlide = 0;
     let slidesToShow = 3; // Default for larger screens
-    let slideTransitionDuration = 1000; // 1 second
+    let slideTransitionDuration = 2500; // 2.5 second
     const slides = document.querySelectorAll('.slide');
     const totalSlides = slides.length;
     const slidesContainer = document.querySelector('.slides');
