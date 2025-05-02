@@ -29,7 +29,10 @@
         <nav class="nav-links">
             <a href="index.html" class="active">About</a>
             <a href="works.html">Works</a>
-            <button id="theme-toggle" aria-label="Toggle dark mode">🌓</button>
+            <button id="theme-toggle" aria-label="Toggle dark mode">
+                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </button>
         </nav>
     </header>
 
@@ -42,20 +45,23 @@
         </div>
         <div class="right-side">
             <p class="small-heading">— Introduction</p>
-            <h2>Year 1 Undergraduate</h2>
+            <h2>Fintech & Applied Computing Student</h2>
             <p>
                 Currently diving deep into the world of Applied Computing with a Fintech specialization at Singapore Institute of Technology—3 years of coding, crunching numbers, and caffeine-powered innovation!
             </p>
-            <a href="#" class="cta-button">My story →</a>
+            <div class="cta-buttons">
+                <a href="#" class="cta-button">View My Resume →</a>
+                <a href="#slider" class="cta-button secondary">Explore Projects →</a>
+            </div>
         </div>
     </section>
 
-    <!-- New Interactive Timeline Section -->
     <section class="timeline-section animate-on-scroll">
         <h2 class="section-title">My Journey</h2>
         <div class="timeline">
             <div class="event" data-year="2021">
                 <div class="event-content">
+                    <div class="event-icon">🖥️</div>
                     <h3>Database Engineer Intern</h3>
                     <p class="company">AiDA Technologies</p>
                     <p class="event-description">Tested and implemented new database software, developed algorithms to flag sensitive words in communications.</p>
@@ -63,6 +69,7 @@
             </div>
             <div class="event" data-year="2022">
                 <div class="event-content">
+                    <div class="event-icon">⚔️</div>
                     <h3>Commando Trooper</h3>
                     <p class="company">SAF 1st Commando Battalion</p>
                     <p class="event-description">Operated in small discreet forces to obtain mission success through team planning.</p>
@@ -70,9 +77,10 @@
             </div>
             <div class="event" data-year="2024">
                 <div class="event-content">
+                    <div class="event-icon">🛍️</div>
                     <h3>Retail Assistant</h3>
                     <p class="company">Lotte Travel Retail</p>
-                    <p class="event-description">Completed 62 projects during my tenure.</p>
+                    <p class="event-description">Completed 62 customer service and inventory management projects during my tenure.</p>
                 </div>
             </div>
         </div>
@@ -113,6 +121,9 @@
                 <p class="company">AiDA Technologies Pte Ltd</p>
                 <p class="duration">September 2021 ~ February 2022</p>
                 <p class="description">Test and implement new database software, develop algorithms to flag sensitive words in communications, participate in daily standup meetings, and document test failures and solutions.</p>
+                <div class="achievement">
+                    Reduced data processing time when utilising new ecosystem through optimized algorithms
+                </div>
             </div>
             <div class="service-item military">
                 <div class="service-icon">
@@ -122,6 +133,9 @@
                 <p class="company">SAF 1st Commando Battalion</p>
                 <p class="duration">June 2022 ~ April 2024</p>
                 <p class="description">Operate in small discreet forces to obtain mission success through team planning, backbrief to ensure complete understanding of mission and execution profile.</p>
+                <div class="achievement">
+                    Awarded as best operational company and best combat unit 2025
+                </div>
             </div>
             <div class="service-item retail">
                 <div class="service-icon">
@@ -130,7 +144,10 @@
                 <h2>Retail Assistant</h2>
                 <p class="company">Lotte Travel Retail</p>
                 <p class="duration">July 2024 ~ August 2024</p>
-                <p class="description">62 Projects</p>
+                <p class="description">Provided exceptional customer service in a high-traffic retail environment, supported daily sales operations, managed inventory restocking, and ensured optimal product presentation to enhance the customer shopping experience.</p>
+                <div class="achievement">
+                    Consistently exceeded daily sales targets through proactive customer engagement and upselling techniques
+                </div>
             </div>
         </div>
     </section>
@@ -286,22 +303,6 @@
         (function() {
             emailjs.init('UETHVMIaZExRj5Bm-');
         })();
-        
-        function sendEmail() {
-            var templateParams = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                message: document.getElementById('message').value
-            };
-            
-            emailjs.send('service_m86enjx', 'template_m86enjx', templateParams)
-                .then(function(response) {
-                    alert('Email sent successfully!');
-                    document.getElementById('contact-form').reset();
-                }, function(error) {
-                    alert('Failed to send email. Please try again later.');
-                });
-        }
     </script>
 </body>
 </html>

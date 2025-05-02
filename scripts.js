@@ -147,9 +147,21 @@ document.addEventListener('DOMContentLoaded', function() {
         themeToggle.textContent = '🌙';
     }
 
-    // Enhanced Timeline Interaction
+    // Enhanced Timeline with Progress Bar
     function initTimeline() {
+        const timeline = document.querySelector('.timeline');
         const events = document.querySelectorAll('.event');
+        
+        // Add timeline progress bar observer
+        const timelineObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    timeline.classList.add('in-view');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        timelineObserver.observe(timeline);
         
         events.forEach(event => {
             // Add click handler to expand/collapse details
@@ -179,8 +191,8 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
         
-        // Animate timeline in sequence
-        const timelineObserver = new IntersectionObserver((entries) => {
+        // Animate timeline events in sequence
+        const eventObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry, index) => {
                 if (entry.isIntersecting) {
                     setTimeout(() => {
@@ -192,12 +204,39 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }, { threshold: 0.1 });
         
-        document.querySelectorAll('.event').forEach(el => timelineObserver.observe(el));
+        document.querySelectorAll('.event').forEach(el => eventObserver.observe(el));
     }
 
     // Initialize timeline if it exists
     if (document.querySelector('.event')) {
         initTimeline();
+    }
+
+    // Form Auto-Save Functionality
+    function saveForm() {
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            message: document.getElementById('message').value
+        };
+        localStorage.setItem('contactFormData', JSON.stringify(formData));
+    }
+
+    function loadForm() {
+        const savedData = localStorage.getItem('contactFormData');
+        if (savedData) {
+            const formData = JSON.parse(savedData);
+            document.getElementById('name').value = formData.name || '';
+            document.getElementById('email').value = formData.email || '';
+            document.getElementById('message').value = formData.message || '';
+        }
+    }
+
+    // Initialize form auto-save
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('input', saveForm);
+        loadForm();
     }
 
     // Enhanced Project Filter Functionality with animations
@@ -307,6 +346,8 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(function(response) {
                 alert('Email sent successfully!');
                 document.getElementById('contact-form').reset();
+                // Clear saved form data after successful submission
+                localStorage.removeItem('contactFormData');
             }, function(error) {
                 alert('Failed to send email. Please try again later.');
             });
