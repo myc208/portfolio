@@ -529,64 +529,6 @@ nav a.active {
     background-color: #3498db;
 }
 
-/* Blog Section */
-.blog {
-    padding: 5rem 5%;
-    background-color: white;
-}
-
-.blog h2 {
-    font-size: 2.5rem;
-    color: #2c3e50;
-    margin-bottom: 3rem;
-    text-align: center;
-    position: relative;
-}
-
-.blog h2::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background: linear-gradient(90deg, #3498db, #9b59b6);
-}
-
-.blog-posts {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.blog-post {
-    margin-bottom: 2rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid #eee;
-}
-
-.blog-post:last-child {
-    border-bottom: none;
-}
-
-.blog-post a {
-    font-size: 1.2rem;
-    color: #2c3e50;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-.blog-post a:hover {
-    color: #3498db;
-}
-
-.post-excerpt {
-    color: #7f8c8d;
-    font-size: 0.95rem;
-}
 
 /* Testimonial Section */
 .testimonial {
@@ -850,7 +792,7 @@ body.dark-mode header {
 }
 
 body.dark-mode .logo h1,
-body.dark-mode .logo a,
+body.dark-mode .logo div a,
 body.dark-mode nav a,
 body.dark-mode .small-heading,
 body.dark-mode .right-side h2,
@@ -875,7 +817,7 @@ body.dark-mode .post-excerpt {
 body.dark-mode .intro-section,
 body.dark-mode .contact-experience,
 body.dark-mode .services,
-boday.dark-mode .clients,
+body.dark-mode .clients,
 body.dark-mode .slider-section,
 body.dark-mode .testimonial,
 body.dark-mode .contact,
@@ -1044,7 +986,7 @@ body.dark-mode .filter-btn {
 
 body.dark-mode .filter-btn.active {
     background: #3f3f3f;
-    color: #dfff95;
+    color: #3498db;
 }
 
 /* Animation Classes */
