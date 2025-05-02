@@ -1,8 +1,18 @@
-/* Modern Reset */
-* {
+/* Modern Reset with Performance Optimizations */
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
 }
 
 /* Base Styles */
@@ -12,6 +22,13 @@ body {
     color: #333;
     line-height: 1.6;
     scroll-behavior: smooth;
+}
+
+/* Critical Loading States */
+body:not(.animations-ready) .holographic-card,
+body:not(.animations-ready) #animated-title {
+    animation: none !important;
+    transform: none !important;
 }
 
 /* Typography */
@@ -24,6 +41,21 @@ h1, h2, h3, h4 {
 p {
     font-size: 1.05rem;
     color: #555;
+}
+
+/* Hardware-Accelerated Typing Animation */
+#animated-title {
+    transform: translate3d(0,0,0);
+    background: linear-gradient(90deg, #3498db, #9b59b6, #e74c3c);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: gradientText 3s linear infinite;
+}
+
+@keyframes gradientText {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
 }
 
 /* Header Styles */
@@ -134,6 +166,7 @@ nav a.active {
     position: relative;
 }
 
+/* GPU-Accelerated Glass Morphism */
 .profile-image-container {
     width: 350px;
     height: 350px;
@@ -141,6 +174,10 @@ nav a.active {
     overflow: hidden;
     position: relative;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    transform: translate3d(0,0,0);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 .profile-image {
@@ -232,6 +269,21 @@ nav a.active {
     0% { transform: translateY(-3px); }
     50% { transform: translateY(-6px); }
     100% { transform: translateY(-3px); }
+}
+
+/* Optimized 3D Cards */
+.holographic-card {
+    transform-style: preserve-3d;
+    transform: translate3d(0,0,0);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.holographic-card:hover {
+    transform: 
+        perspective(1000px)
+        rotateX(3deg)
+        rotateY(3deg)
+        translate3d(0, -5px, 10px);
 }
 
 /* Contact & Experience Section */

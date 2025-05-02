@@ -352,4 +352,78 @@ document.addEventListener('DOMContentLoaded', function() {
                 alert('Failed to send email. Please try again later.');
             });
     };
+
+    // Animation Initialization (only when animations are allowed)
+    function initAnimations() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        // Typing animation with RAF for smoothness
+        function typeWriter(elementId, text) {
+            const element = document.querySelector(elementId);
+            if (!element) return;
+            
+            let i = 0;
+            const speed = 30;
+            
+            function type() {
+                if (i < text.length) {
+                    requestAnimationFrame(() => {
+                        element.textContent = text.substring(0, i+1);
+                        i++;
+                        setTimeout(type, speed);
+                    });
+                }
+            }
+            type();
+        }
+
+        // 3D Card effect with performance throttle
+        function initParallaxCards() {
+            const cards = document.querySelectorAll('.holographic-card');
+            let lastTime = 0;
+            const throttleDelay = 16; // ~60fps
+            
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const now = Date.now();
+                    if (now - lastTime < throttleDelay) return;
+                    lastTime = now;
+                    
+                    requestAnimationFrame(() => {
+                        const rect = card.getBoundingClientRect();
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+                        const centerX = rect.width / 2;
+                        const centerY = rect.height / 2;
+                        
+                        card.style.transform = `
+                            perspective(1000px)
+                            rotateX(${(y - centerY) / 20}deg)
+                            rotateY(${(centerX - x) / 20}deg)
+                            translate3d(0, 0, 10px)
+                        `;
+                    });
+                });
+
+                // Reset card position when mouse leaves
+                card.addEventListener('mouseleave', () => {
+                    requestAnimationFrame(() => {
+                        card.style.transform = '';
+                    });
+                });
+            });
+        }
+
+        // Initialize animations
+        typeWriter('#animated-title', 'Fintech & Applied Computing Student');
+        initParallaxCards();
+    }
+
+    // Load animations safely after page load
+    window.addEventListener('load', () => {
+        document.body.classList.add('animations-ready');
+        if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            initAnimations();
+        }
+    });
 });
