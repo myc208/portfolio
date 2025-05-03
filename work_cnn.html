@@ -3,89 +3,45 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <base href="/portfolio/" />
-  <title>Convolutional Neural Network – Project Details</title>
+  <title>Convolutional Neural Network – Ming Yang</title>
   <link rel="stylesheet" href="works.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
 </head>
-<body>
+<body class="light-mode">
   <header class="top-header">
-    <div class="container">
-      <div class="logo">
-        <h1>Ming Yang</h1>
-      </div>
-      <nav class="nav-links">
-        <a href="index.html">About</a>
-        <a href="works.html" class="active">Works</a>
-        <label class="switch">
-          <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
-          <span class="slider-ios"></span>
-        </label>
-      </nav>
-    </div>
+    <h1>Ming Yang – Convolutional Neural Network</h1>
+    <a href="works.html" class="drive-button">← Back to All Works</a>
   </header>
 
   <main class="main-content">
-    <article class="project-details variant-f">
-      <h2 class="project-title">Development of Convolutional Neural Network</h2>
-      <p class="project-summary">Designing a CNN from scratch and benchmarking it against VGG16 for food image classification.</p>
+    <div id="view-cnn" class="project-view active cnn-theme">
+      <h2 class="cnn-header">Convolutional Neural Network</h2>
+      <p class="cnn-subtitle">Building, training, and evaluating CNN vs VGG16</p>
 
-      <section class="project-section">
-        <h3>Purpose</h3>
-        <p>The aim was to evaluate model performance and speed across a custom CNN versus a pre-trained VGG16 model using the same dataset.</p>
-      </section>
-
-      <section class="project-section">
-        <h3>Environment</h3>
-        <ul class="tech-list">
-          <li>Python</li>
-          <li>Google Colab</li>
-          <li>TensorFlow</li>
-          <li>Kaggle Datasets</li>
+      <div class="cnn-card">
+        <h4>Project Goals:</h4>
+        <ul>
+          <li>Create a lightweight CNN from scratch</li>
+          <li>Benchmark against pretrained VGG16</li>
+          <li>Analyze accuracy and training time</li>
         </ul>
-      </section>
+      </div>
 
-      <section class="project-section">
-        <h3>Steps Taken</h3>
-        <ol>
-          <li>Build a simple CNN from scratch</li>
-          <li>Compare structure and results to VGG16</li>
-          <li>Log accuracy, loss, and inference time</li>
-        </ol>
-      </section>
-
-      <section class="project-section">
-        <h3>Visual Comparison</h3>
-        <div class="image-grid">
-          <div class="image-item">
-            <img src="cnn_self.png" alt="Custom CNN model" />
-            <p class="image-caption">Self-trained CNN model</p>
-          </div>
-          <div class="image-item">
-            <img src="cnn_pre.png" alt="Pre-trained VGG16" />
-            <p class="image-caption">VGG16 Pre-trained model</p>
-          </div>
-          <div class="image-item">
-            <img src="cnn_result.png" alt="Result chart" />
-            <p class="image-caption">Result Comparison Chart</p>
-          </div>
+      <div class="cnn-grid">
+        <div class="cnn-img-box">
+          <img src="cnn_self.png" alt="Custom CNN" />
+          <span>Self-Trained CNN</span>
         </div>
-      </section>
-
-      <section class="project-section">
-        <h3>Analysis</h3>
-        <ul class="insight-list">
-          <li><strong>Accuracy:</strong> VGG16 outperformed custom CNN on all metrics.</li>
-          <li><strong>Training Time:</strong> VGG16 converged faster despite larger size due to pre-trained weights.</li>
-          <li><strong>Architecture Depth:</strong> Custom CNN lacked deep enough convolutional layers for complex features.</li>
-        </ul>
-      </section>
-    </article>
+        <div class="cnn-img-box">
+          <img src="cnn_pre.png" alt="VGG16 Pretrained" />
+          <span>VGG16</span>
+        </div>
+        <div class="cnn-img-box wide">
+          <img src="cnn_result.png" alt="Result Comparison" />
+          <span>Performance Graph</span>
+        </div>
+      </div>
+    </div>
   </main>
-
-  <footer>
-    <p>&copy; 2024 Ming Yang. Convolution is key to clarity.</p>
-  </footer>
 
   <script src="works.js"></script>
 </body>

@@ -3,77 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Works – Ming Yang</title>
-  <base href="/portfolio/" />
+  <title>Works – Ming Yang</title>
   <link rel="stylesheet" href="works.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
   <header class="top-header">
-    <div class="container">
-      <div class="logo">
-        <h1>Ming Yang</h1>
-      </div>
-      <nav class="nav-links">
-        <a href="index.html">About</a>
-        <a class="active" href="works.html">Works</a>
-        <label class="switch">
-          <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
-          <span class="slider-ios"></span>
-        </label>
-      </nav>
-    </div>
+    <h1>Ming Yang – Projects</h1>
+    <label class="switch">
+      <input type="checkbox" id="theme-toggle" />
+      <span class="slider-ios"></span>
+    </label>
   </header>
 
+  <!-- Radial Menu Trigger -->
+  <button id="menu-button" class="menu-button">+</button>
+  <div id="radial-menu" class="radial-menu">
+    <button data-project="hnn" class="menu-item">HNN</button>
+    <button data-project="cnn" class="menu-item">CNN</button>
+    <button data-project="rnn" class="menu-item">RNN</button>
+    <button data-project="elastic" class="menu-item">Elastic</button>
+    <button data-project="fse" class="menu-item">FSE</button>
+    <button data-project="grade" class="menu-item">Grade</button>
+    <button data-project="dv" class="menu-item">Tableau</button>
+    <button data-project="cs" class="menu-item">C#</button>
+    <button data-project="aa" class="menu-item">Storyboard</button>
+  </div>
+
+  <!-- Project Views -->
   <main class="main-content">
-    <section class="section-intro">
-      <h2 class="section-title">All Past Projects</h2>
-      <p class="intro-paragraph">These projects reflect a range of technical explorations and teamwork. I’ve included summaries, tech stacks, goals, and links wherever applicable. Browse through and feel free to reach out for more info!</p>
-    </section>
-
-    <section class="project-grid">
-      <div class="project-card"><a href="work_hnn.html">
-        <h3>Hybrid Neural Network</h3>
-        <p>Combining CNN with LSTM for phishing detection.</p></a>
-      </div>
-      <div class="project-card"><a href="work_elastic.html">
-        <h3>ElasticSearch DB Ecosystem</h3>
-        <p>Dockerized ElasticStack with real-time logging.</p></a>
-      </div>
-      <div class="project-card"><a href="work_cnn.html">
-        <h3>Convolutional Neural Network</h3>
-        <p>Image classification using self vs pre-trained models.</p></a>
-      </div>
-      <div class="project-card"><a href="work_rnn.html">
-        <h3>Recurrent Neural Network</h3>
-        <p>Text generation with RNN for paragraph continuation.</p></a>
-      </div>
-      <div class="project-card"><a href="work_aa.html">
-        <h3>Storyboard Mapping</h3>
-        <p>Linking visualizations for holistic insights.</p></a>
-      </div>
-      <div class="project-card"><a href="work_fse.html">
-        <h3>Excel Spreadsheet Engineering</h3>
-        <p>Data automation with formulas and macros.</p></a>
-      </div>
-      <div class="project-card"><a href="work_dv.html">
-        <h3>Data Viz with Tableau</h3>
-        <p>Visual storytelling with sample datasets.</p></a>
-      </div>
-      <div class="project-card"><a href="work_cs.html">
-        <h3>C# Employee Management App</h3>
-        <p>OOP design with full employee CRUD support.</p></a>
-      </div>
-      <div class="project-card"><a href="work_grade.html">
-        <h3>Grades DB in C</h3>
-        <p>Manage student records with file persistence.</p></a>
-      </div>
-    </section>
+    <div id="view-hnn" class="project-view active">Hybrid Neural Network content...</div>
+    <div id="view-cnn" class="project-view">Convolutional Neural Network content...</div>
+    <div id="view-rnn" class="project-view">Recurrent Neural Network content...</div>
+    <div id="view-elastic" class="project-view">ElasticSearch Project content...</div>
+    <div id="view-fse" class="project-view">Excel Spreadsheet Engineering content...</div>
+    <div id="view-grade" class="project-view">Student Grades System content...</div>
+    <div id="view-dv" class="project-view">Tableau Visualizations content...</div>
+    <div id="view-cs" class="project-view">C# Employee App content...</div>
+    <div id="view-aa" class="project-view">Storyboard Mapping content...</div>
   </main>
-
-  <footer>
-    <p>&copy; 2024 Ming Yang. Creativity grows through sharing.</p>
-  </footer>
 
   <script src="works.js"></script>
 </body>

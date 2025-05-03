@@ -3,80 +3,51 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <base href="/portfolio/" />
-  <title>Data Viz with Tableau – Project Details</title>
+  <title>Data Visualization – Ming Yang</title>
   <link rel="stylesheet" href="works.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
 </head>
-<body>
+<body class="light-mode">
   <header class="top-header">
-    <div class="container">
-      <div class="logo">
-        <h1>Ming Yang</h1>
-      </div>
-      <nav class="nav-links">
-        <a href="index.html">About</a>
-        <a href="works.html" class="active">Works</a>
-        <label class="switch">
-          <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
-          <span class="slider-ios"></span>
-        </label>
-      </nav>
-    </div>
+    <h1>Ming Yang – Data Visualization (Tableau)</h1>
+    <a href="works.html" class="drive-button">← Back to All Works</a>
   </header>
 
   <main class="main-content">
-    <article class="project-details variant-h">
-      <h2 class="project-title">Data Visualizations & Analysis with Tableau</h2>
-      <p class="project-summary">Exploring and analyzing structured datasets using interactive Tableau dashboards and graphs.</p>
+    <div id="view-dv" class="project-view active dv-theme">
+      <h2 class="dv-title">Data Visualization with Tableau</h2>
+      <p class="dv-subtext">Analyzing business metrics using dynamic dashboards and interactive charts.</p>
 
-      <section class="project-section">
-        <h3>Project Goal</h3>
-        <p>Create dashboards that allow stakeholders to quickly explore key insights and detect patterns through interactive visual elements.</p>
-      </section>
-
-      <section class="project-section">
-        <h3>Technologies Used</h3>
-        <ul class="tech-list">
-          <li>Tableau Public</li>
-          <li>Google Sheets</li>
-          <li>Sample Datasets (Retail & Sales)</li>
-        </ul>
-      </section>
-
-      <section class="project-section">
-        <h3>Process Steps</h3>
-        <ol>
-          <li>Data cleansing and preparation</li>
-          <li>Selection of key dimensions and metrics</li>
-          <li>Design of charts (heatmaps, bar, pie, line)</li>
-          <li>Integration into story-driven dashboards</li>
-        </ol>
-      </section>
-
-      <section class="project-section">
-        <h3>Dashboards</h3>
-        <div class="image-grid">
-          <div class="image-item">
-            <img src="tableau1.png" alt="Sales dashboard" />
-            <p class="image-caption">Sales Trends Dashboard</p>
-          </div>
-          <div class="image-item">
-            <img src="tableau2.png" alt="Region filter" />
-            <p class="image-caption">Interactive Filters by Region</p>
-          </div>
-          <div class="image-item">
-            <img src="tableau3.png" alt="Time analysis" />
-            <p class="image-caption">Time-Based Performance Insights</p>
-          </div>
+      <div class="dv-kpi">
+        <div class="tile">
+          <h4>💰 Total Sales</h4>
+          <p>$1.2M</p>
         </div>
-      </section>
-    </article>
-  </main>
+        <div class="tile">
+          <h4>📦 Top Product</h4>
+          <p>Smart Speaker</p>
+        </div>
+        <div class="tile">
+          <h4>🌍 Highest Region</h4>
+          <p>North America</p>
+        </div>
+      </div>
 
-  <footer>
-    <p>&copy; 2024 Ming Yang. Visualization turns data into dialogue.</p>
-  </footer>
+      <div class="dv-gallery">
+        <div class="dv-chart">
+          <img src="tableau1.png" alt="Sales Trends" />
+          <span class="chart-caption">Monthly Revenue Trends</span>
+        </div>
+        <div class="dv-chart">
+          <img src="tableau2.png" alt="Geo Analysis" />
+          <span class="chart-caption">Geo Distribution</span>
+        </div>
+        <div class="dv-chart">
+          <img src="tableau3.png" alt="Time Breakdown" />
+          <span class="chart-caption">Category Performance</span>
+        </div>
+      </div>
+    </div>
+  </main>
 
   <script src="works.js"></script>
 </body>

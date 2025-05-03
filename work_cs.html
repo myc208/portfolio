@@ -3,90 +3,51 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <base href="/portfolio/" />
-  <title>Employee App in C# – Project Details</title>
+  <title>Employee Management System – Ming Yang</title>
   <link rel="stylesheet" href="works.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
 </head>
-<body>
+<body class="light-mode">
   <header class="top-header">
-    <div class="container">
-      <div class="logo">
-        <h1>Ming Yang</h1>
-      </div>
-      <nav class="nav-links">
-        <a href="index.html">About</a>
-        <a href="works.html" class="active">Works</a>
-        <label class="switch">
-          <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
-          <span class="slider-ios"></span>
-        </label>
-      </nav>
-    </div>
+    <h1>Ming Yang – Employee Management System (C#)</h1>
+    <a href="works.html" class="drive-button">← Back to All Works</a>
   </header>
 
   <main class="main-content">
-    <article class="project-details variant-i">
-      <h2 class="project-title">C# Employee Management Application</h2>
-      <p class="project-summary">A desktop app that manages different employee types using class inheritance and pay calculation logic.</p>
+    <div id="view-cs" class="project-view active cs-theme">
+      <h2 class="cs-title">C# Employee Management System</h2>
+      <p class="cs-description">A class-based application handling full-time, part-time, and commission-based employee types using inheritance.</p>
 
-      <section class="project-section">
-        <h3>Objective</h3>
-        <p>To demonstrate class hierarchy in C# through a system that manages Full-Time, Part-Time, and Sales employees, with pay calculations and basic CRUD functionality.</p>
-      </section>
-
-      <section class="project-section">
-        <h3>Technologies Used</h3>
-        <ul class="tech-list">
-          <li>C#</li>
-          <li>Visual Studio Code</li>
-          <li>.NET Framework</li>
-        </ul>
-      </section>
-
-      <section class="project-section">
-        <h3>Structure</h3>
-        <ul>
-          <li><strong>Employee (Abstract):</strong> Shared properties (ID, Name), `CalculatePay()`</li>
-          <li><strong>FullTimeEmployee:</strong> Adds Basic Pay and Allowance</li>
-          <li><strong>PartTimeEmployee:</strong> Uses Daily Rate x Days Worked</li>
-          <li><strong>SalesEmployee:</strong> Inherits from FullTime, adds commission logic</li>
-        </ul>
-      </section>
-
-      <section class="project-section">
-        <h3>Example – FullTimeEmployee.cs</h3>
-        <pre class="code-block"><code>
-class FullTimeEmployee : Employee {
-    public double BasicPay { get; set; }
-    public double Allowance { get; set; }
-
-    public override double CalculatePay() {
-        return BasicPay + Allowance;
-    }
-
-    public override string ToString() {
-        return base.ToString() + $"\tPay: {CalculatePay()}";
-    }
-}
-        </code></pre>
-      </section>
-
-      <section class="project-section">
-        <h3>Interface Preview</h3>
-        <div class="image-grid">
-          <div class="image-item">
-            <img src="cs.png" alt="App UI" />
-            <p class="image-caption">Simple console-based interface</p>
-          </div>
+      <div class="cs-tabs">
+        <div class="tab-box active">
+          <h4>🧩 Class Hierarchy</h4>
+          <ul>
+            <li><strong>Employee (Abstract)</strong> – Base class</li>
+            <li><strong>FullTimeEmployee</strong> – BasePay + Allowance</li>
+            <li><strong>PartTimeEmployee</strong> – DailyRate × Days</li>
+            <li><strong>SalesEmployee</strong> – Inherits FullTime + Commission</li>
+          </ul>
         </div>
-      </section>
-    </article>
-  </main>
 
-  <footer>
-    <p>&copy; 2024 Ming Yang. Classes are how logic becomes structured.</p>
-  </footer>
+        <div class="tab-box">
+          <h4>💻 Application Features</h4>
+          <ul>
+            <li>Object creation and polymorphism</li>
+            <li>Interface-based pay calculation</li>
+            <li>Console-based CRUD operations</li>
+          </ul>
+        </div>
+
+        <div class="tab-box">
+          <h4>📄 Sample Output</h4>
+          <pre class="cs-output">
+Name: Jane Doe
+Type: SalesEmployee
+Pay: RM 5800.00
+          </pre>
+        </div>
+      </div>
+    </div>
+  </main>
 
   <script src="works.js"></script>
 </body>

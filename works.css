@@ -1,239 +1,631 @@
+/* Base Layout */
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f8f9fa;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+body.dark-mode {
+  background: #121212;
+  color: #e4e4e4;
+}
+.top-header {
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+}
+body.dark-mode .top-header {
+  background: #1e1e1e;
+  border-color: #444;
+}
+
+/* Theme Toggle – iOS Style */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider-ios {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  background-color: #ccc;
+  border-radius: 24px;
+}
+.slider-ios::before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+input:checked + .slider-ios {
+  background-color: #007bff;
+}
+input:checked + .slider-ios::before {
+  transform: translateX(26px);
+}
+
+/* Radial Menu Styling */
+.menu-button {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 60px;
+  height: 60px;
+  background-color: #007bff;
+  color: white;
+  font-size: 2rem;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1001;
+}
+.radial-menu {
+  position: fixed;
+  bottom: 70px;
+  right: 70px;
+  width: 0;
+  height: 0;
+  transition: all 0.4s ease-in-out;
+  pointer-events: none;
+}
+.radial-menu.active {
+  width: 300px;
+  height: 300px;
+  pointer-events: auto;
+}
+.menu-item {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: #fff;
+  border: 2px solid #007bff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 46px;
+  font-size: 0.7rem;
+  cursor: pointer;
+  transform: scale(0);
+  transition: transform 0.3s ease;
+}
+.radial-menu.active .menu-item {
+  transform: scale(1);
+}
+.project-view {
+  display: none;
+  padding: 2rem;
+}
+.project-view.active {
+  display: block;
+}
+
 /* ==========================================================================
-   GLOBAL RESET & BASE TYPOGRAPHY
+   HNN Project Custom Theme
    ========================================================================== */
-   * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+#view-hnn.hnn-theme {
+  background: linear-gradient(135deg, #ffffff, #f5f7fa);
+  border-left: 5px solid #007bff;
+}
+body.dark-mode #view-hnn.hnn-theme {
+  background: linear-gradient(135deg, #1c1c24, #0e0e12);
+}
+.title-glow {
+  font-size: 2rem;
+  color: #007bff;
+  text-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+.sub-text {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+body.dark-mode .sub-text {
+  color: #aaa;
+}
+.tech-box {
+  background: #e9f5ff;
+  padding: 1rem;
+  border-left: 4px solid #007bff;
+  margin-bottom: 1.5rem;
+  border-radius: 6px;
+}
+body.dark-mode .tech-box {
+  background: #1a2733;
+}
+.visual-panel {
+  text-align: center;
+  margin: 2rem 0;
+}
+.visual-panel img {
+  width: 80%;
+  max-width: 500px;
+  border-radius: 8px;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+}
+.caption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+body.dark-mode .caption {
+  color: #bbb;
+}
+.steps-card {
+  background: #f4f4f4;
+  padding: 1rem 1.5rem;
+  border-radius: 6px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+body.dark-mode .steps-card {
+  background: #191919;
+  box-shadow: 0 3px 10px rgba(255,255,255,0.05);
+}
+
+/* ==========================================================================
+   CNN Project Theme
+   ========================================================================== */
+   #view-cnn.cnn-theme {
+    background: #fffaf5;
+    border-left: 5px solid #fd7e14;
   }
-  
-  html, body {
-    font-family: 'Inter', sans-serif;
-    background-color: #f8f9fa;
-    color: #1e1e1e;
-    scroll-behavior: smooth;
+  body.dark-mode #view-cnn.cnn-theme {
+    background: #19110f;
   }
-  
-  body.dark-mode {
-    background-color: #121212;
-    color: #e0e0e0;
-  }
-  
-  /* ==========================================================================
-     HEADER & NAVIGATION
-     ========================================================================== */
-  .top-header {
-    background: #fff;
-    padding: 1.2rem 2rem;
-    border-bottom: 1px solid #e2e2e2;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-  
-  body.dark-mode .top-header {
-    background-color: #1c1c1c;
-    border-color: #333;
-  }
-  
-  .logo h1 {
-    font-size: 1.5rem;
-    font-weight: 700;
-  }
-  
-  .nav-links {
-    display: flex;
-    gap: 1.2rem;
-    align-items: center;
-  }
-  
-  .nav-links a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    transition: color 0.3s;
-  }
-  
-  .nav-links a:hover,
-  .nav-links a.active {
-    color: #007bff;
-  }
-  
-  body.dark-mode .nav-links a {
-    color: #bbb;
-  }
-  
-  body.dark-mode .nav-links a.active {
-    color: #66aaff;
-  }
-  
-  /* ==========================================================================
-     iOS-STYLE THEME TOGGLE SWITCH
-     ========================================================================== */
-  .switch {
-    position: relative;
-    display: inline-block;
-    width: 50px;
-    height: 26px;
-  }
-  
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  .slider-ios {
-    position: absolute;
-    cursor: pointer;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-color: #ccc;
-    border-radius: 34px;
-    transition: 0.4s;
-  }
-  
-  .slider-ios::before {
-    content: "";
-    position: absolute;
-    height: 20px;
-    width: 20px;
-    left: 3px;
-    bottom: 3px;
-    background-color: white;
-    border-radius: 50%;
-    transition: 0.4s;
-  }
-  
-  input:checked + .slider-ios {
-    background-color: #007bff;
-  }
-  
-  input:checked + .slider-ios::before {
-    transform: translateX(24px);
-  }
-  
-  /* ==========================================================================
-     MAIN CONTENT LAYOUT
-     ========================================================================== */
-  .main-content {
-    padding: 2rem 1rem 3rem;
-    max-width: 960px;
-    margin: 0 auto;
-  }
-  
-  .project-details {
-    padding: 1.5rem;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-    margin-top: 2rem;
-  }
-  
-  body.dark-mode .project-details {
-    background: #1a1a1a;
-    box-shadow: 0 2px 12px rgba(255, 255, 255, 0.05);
-  }
-  
-  /* Style Variants for Unique Feel Per Page */
-  .variant-a { border-left: 6px solid #007bff; }
-  .variant-b { border-top: 3px solid #6f42c1; }
-  .variant-c { border-bottom: 4px solid #17a2b8; }
-  .variant-d { border-left: 6px double #28a745; }
-  .variant-e { border-left: 4px dotted #ffc107; }
-  .variant-f { border-left: 4px solid #fd7e14; }
-  .variant-g { border-left: 6px solid #6610f2; }
-  .variant-h { border-left: 6px solid #20c997; }
-  .variant-i { border-left: 6px solid #e83e8c; }
-  
-  /* ==========================================================================
-     SECTION STYLES
-     ========================================================================== */
-  .project-title {
+  .cnn-header {
     font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #fd7e14;
   }
-  
-  .project-summary {
+  .cnn-subtitle {
     font-size: 1.1rem;
     color: #555;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
-  
-  .project-section {
-    margin-top: 1.5rem;
+  body.dark-mode .cnn-subtitle {
+    color: #aaa;
   }
-  
-  .project-section h3 {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
-    color: #007bff;
-  }
-  
-  .tech-list,
-  .insight-list,
-  .code-snippet {
-    padding-left: 1.5rem;
-    list-style: disc;
-  }
-  
-  .code-block {
-    background: #222;
-    color: #f1f1f1;
-    padding: 1rem;
-    font-family: monospace;
+  .cnn-card {
+    background: #fff0e0;
+    padding: 1rem 1.5rem;
+    border-left: 4px solid #fd7e14;
     border-radius: 6px;
-    overflow-x: auto;
-    font-size: 0.9rem;
+    margin-bottom: 2rem;
   }
-  
-  .image-grid {
+  body.dark-mode .cnn-card {
+    background: #301c13;
+  }
+  .cnn-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1rem;
-    margin-top: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
   }
-  
-  .image-item img {
-    border-radius: 6px;
-    width: 100%;
-  }
-  
-  .image-caption {
-    font-size: 0.85rem;
+  .cnn-img-box {
+    position: relative;
     text-align: center;
-    margin-top: 0.3rem;
-    color: #666;
-  }
-  
-  .drive-button {
-    display: inline-block;
-    padding: 12px 20px;
-    background-color: #007bff;
-    color: white;
-    font-weight: bold;
+    background: #fefefe;
     border-radius: 6px;
-    margin-top: 1rem;
-    transition: background 0.3s;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
   }
-  
-  .drive-button:hover {
-    background-color: #0056b3;
+  body.dark-mode .cnn-img-box {
+    background: #1e1e1e;
+  }
+  .cnn-img-box img {
+    width: 100%;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .cnn-img-box:hover img {
+    transform: scale(1.05);
+  }
+  .cnn-img-box span {
+    display: block;
+    font-size: 0.9rem;
+    padding: 0.5rem;
+    color: #444;
+  }
+  body.dark-mode .cnn-img-box span {
+    color: #ccc;
+  }
+  .cnn-img-box.wide {
+    grid-column: span 2;
   }
   
   /* ==========================================================================
-     FOOTER
+     RNN Project Theme
      ========================================================================== */
-  footer {
-    padding: 2rem;
-    text-align: center;
-    font-size: 0.9rem;
-    color: #888;
-    border-top: 1px solid #eee;
+  #view-rnn.rnn-theme {
+    background: linear-gradient(to bottom right, #eef2f7, #ffffff);
+    border-left: 5px solid #6f42c1;
+  }
+  body.dark-mode #view-rnn.rnn-theme {
+    background: linear-gradient(to bottom right, #1b1b2f, #111122);
+  }
+  .rnn-title {
+    font-size: 2rem;
+    color: #6f42c1;
+  }
+  .rnn-subtext {
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 1.5rem;
+  }
+  body.dark-mode .rnn-subtext {
+    color: #aaa;
+  }
+  .rnn-section {
+    background: #f3ecfa;
+    border-left: 4px solid #6f42c1;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-bottom: 2rem;
+  }
+  body.dark-mode .rnn-section {
+    background: #2a1e3d;
+  }
+  .rnn-terminal {
+    font-family: 'Courier New', monospace;
+    background: #111;
+    color: #0f0;
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: inset 0 0 10px rgba(0,255,0,0.3);
+    margin-bottom: 2rem;
+  }
+  .rnn-terminal .prompt {
+    margin-bottom: 0.5rem;
+  }
+  .rnn-terminal .typed-text {
+    color: #0ff;
+  }
+  .rnn-terminal .response {
+    white-space: pre-wrap;
+    font-weight: bold;
+  }
+  .rnn-insight {
+    background: #e9e2f8;
+    padding: 1rem;
+    border-radius: 6px;
+  }
+  body.dark-mode .rnn-insight {
+    background: #261a3a;
   }
   
-  body.dark-mode footer {
-    border-color: #444;
+  /* ==========================================================================
+     ElasticSearch Project Theme
+     ========================================================================== */
+  #view-elastic.elastic-theme {
+    background: #0f1115;
+    color: #d0d0d0;
+    border-left: 5px solid #17a2b8;
+  }
+  .elastic-header {
+    font-size: 2rem;
+    color: #17a2b8;
+  }
+  .elastic-subtext {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    color: #bbb;
+  }
+  .terminal-box {
+    background: #111;
+    color: #0f0;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-bottom: 2rem;
+    box-shadow: inset 0 0 15px rgba(0, 255, 0, 0.15);
+  }
+  .elastic-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  @media (min-width: 768px) {
+    .elastic-grid {
+      flex-direction: row;
+    }
+  }
+  .elastic-card {
+    flex: 1;
+    background: #1a1a1f;
+    border: 1px solid #2a2a2f;
+    border-left: 4px solid #17a2b8;
+    padding: 1rem 1.5rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(0,255,255,0.05);
+  }
+  .elastic-card h4 {
+    color: #17a2b8;
+  }
+  .elastic-card ul, .elastic-card p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  /* ==========================================================================
+   FSE Project Theme (Spreadsheet Look)
+   ========================================================================== */
+#view-fse.fse-theme {
+  background: #f4f9ff;
+  border-left: 5px solid #28a745;
+}
+body.dark-mode #view-fse.fse-theme {
+  background: #0e1a12;
+}
+.fse-title {
+  font-size: 2rem;
+  color: #28a745;
+}
+.fse-description {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: #444;
+}
+body.dark-mode .fse-description {
+  color: #aaa;
+}
+.fse-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+.fse-cell {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.03);
+  transition: transform 0.2s ease;
+}
+body.dark-mode .fse-cell {
+  background: #1f2f1f;
+  border-color: #333;
+}
+.fse-cell:hover {
+  transform: translateY(-4px);
+}
+.formula-box pre {
+  background: #f7f7f7;
+  padding: 0.5rem;
+  font-family: monospace;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+body.dark-mode .formula-box pre {
+  background: #222;
+  color: #0f0;
+}
+.fse-note {
+  margin-top: 1.5rem;
+  background: #e0f9ea;
+  padding: 1rem;
+  font-size: 0.95rem;
+  border-left: 4px solid #28a745;
+  border-radius: 6px;
+}
+body.dark-mode .fse-note {
+  background: #183f2e;
+}
+
+/* ==========================================================================
+   Grade Project Theme – Terminal Editor Look
+   ========================================================================== */
+#view-grade.grade-theme {
+  background: #f5f5f5;
+  border-left: 5px solid #ffc107;
+}
+body.dark-mode #view-grade.grade-theme {
+  background: #151515;
+}
+.grade-title {
+  font-size: 2rem;
+  color: #ffc107;
+}
+.grade-summary {
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+  color: #666;
+}
+body.dark-mode .grade-summary {
+  color: #bbb;
+}
+.code-editor {
+  display: flex;
+  background: #2b2b2b;
+  color: #f8f8f2;
+  font-family: 'Courier New', monospace;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+.line-numbers {
+  background: #1e1e1e;
+  color: #888;
+  padding: 1rem 0.5rem;
+  text-align: right;
+  user-select: none;
+}
+.line-numbers span {
+  display: block;
+  padding: 0 0.5rem;
+}
+.code-block {
+  margin: 0;
+  padding: 1rem;
+  overflow-x: auto;
+}
+.code-block code {
+  white-space: pre;
+  display: block;
+  font-size: 0.95rem;
+}
+.grade-list {
+  background: #fffdf0;
+  padding: 1rem 1.5rem;
+  border-left: 4px solid #ffc107;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+body.dark-mode .grade-list {
+  background: #2a2a1e;
+}
+
+/* ==========================================================================
+   DV Project Theme – Dashboard Layout
+   ========================================================================== */
+#view-dv.dv-theme {
+  background: #fdfaf2;
+  border-left: 5px solid #20c997;
+}
+body.dark-mode #view-dv.dv-theme {
+  background: #10201b;
+}
+.dv-title {
+  font-size: 2rem;
+  color: #20c997;
+}
+.dv-subtext {
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+body.dark-mode .dv-subtext {
+  color: #bbb;
+}
+.dv-kpi {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+.tile {
+  flex: 1;
+  min-width: 160px;
+  background: #e2f7f2;
+  padding: 1rem;
+  border-left: 4px solid #20c997;
+  border-radius: 6px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.tile h4 {
+  margin-bottom: 0.5rem;
+}
+.tile p {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+body.dark-mode .tile {
+  background: #163f3a;
+  color: #d4f8ef;
+}
+.dv-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+.dv-chart {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+  background: #fff;
+}
+.dv-chart img {
+  width: 100%;
+  display: block;
+}
+.chart-caption {
+  display: block;
+  padding: 0.6rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+  background: #f7f7f7;
+}
+body.dark-mode .dv-chart {
+  background: #1a1a1a;
+}
+body.dark-mode .chart-caption {
+  background: #111;
+  color: #ccc;
+}
+
+/* ==========================================================================
+   CS Project Theme – Class System Layout
+   ========================================================================== */
+   #view-cs.cs-theme {
+    background: #f1f5ff;
+    border-left: 5px solid #e83e8c;
+  }
+  body.dark-mode #view-cs.cs-theme {
+    background: #1a1a24;
+  }
+  
+  .cs-title {
+    font-size: 2rem;
+    color: #e83e8c;
+  }
+  
+  .cs-description {
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+    color: #444;
+  }
+  body.dark-mode .cs-description {
     color: #aaa;
+  }
+  
+  .cs-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .tab-box {
+    flex: 1;
+    min-width: 280px;
+    background: #ffffff;
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    border-left: 4px solid #e83e8c;
+  }
+  
+  body.dark-mode .tab-box {
+    background: #2a2a3a;
+  }
+  
+  .cs-output {
+    background: #212529;
+    color: #0f0;
+    padding: 0.8rem;
+    font-family: monospace;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    white-space: pre-wrap;
   }
   

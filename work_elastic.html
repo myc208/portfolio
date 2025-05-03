@@ -3,82 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <base href="/portfolio/" />
-  <title>ElasticSearch DB Ecosystem – Project Details</title>
+  <title>ElasticSearch Stack – Ming Yang</title>
   <link rel="stylesheet" href="works.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
 </head>
-<body>
+<body class="light-mode">
   <header class="top-header">
-    <div class="container">
-      <div class="logo">
-        <h1>Ming Yang</h1>
-      </div>
-      <nav class="nav-links">
-        <a href="index.html">About</a>
-        <a href="works.html" class="active">Works</a>
-        <label class="switch">
-          <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
-          <span class="slider-ios"></span>
-        </label>
-      </nav>
-    </div>
+    <h1>Ming Yang – ElasticSearch Stack</h1>
+    <a href="works.html" class="drive-button">← Back to All Works</a>
   </header>
 
   <main class="main-content">
-    <article class="project-details variant-c">
-      <h2 class="project-title">Establishing ElasticSearch DB Ecosystem</h2>
-      <p class="project-summary">Testing ElasticSearch over MSSQL for speed, logging, and modularity in a real-time data setting.</p>
+    <div id="view-elastic" class="project-view active elastic-theme">
+      <h2 class="elastic-header">ElasticSearch DB Ecosystem</h2>
+      <p class="elastic-subtext">Containerized search engine stack with Logstash and Kibana dashboards.</p>
 
-      <section class="project-section card-style">
-        <h3>Overview</h3>
-        <p>As a database engineering intern, I was tasked with building and testing an ElasticStack pipeline including ElasticSearch, Logstash, and Kibana. The goal was to evaluate its viability and performance in contrast to MSSQL.</p>
-      </section>
+      <div class="terminal-box">
+        <pre>
+$ docker run elasticsearch
+✔ Service Started on port 9200
 
-      <section class="project-section card-style">
-        <h3>Technologies</h3>
-        <ul class="tech-list">
-          <li>Docker</li>
-          <li>ElasticSearch</li>
-          <li>Logstash</li>
-          <li>Kibana</li>
-          <li>MSSQL</li>
-          <li>Python</li>
-          <li>Google Collab</li>
-        </ul>
-      </section>
+$ curl http://localhost:9200/_cat/indices?v
+✔ index1        ✔ index2        ✔ index3
+        </pre>
+      </div>
 
-      <section class="project-section card-style">
-        <h3>Primary Tasks</h3>
-        <ol>
-          <li>Set up ElasticSearch DB and ensure Docker container health</li>
-          <li>Integrate Logstash for live MSSQL stream ingestion</li>
-          <li>Build data visualizations via Kibana</li>
-          <li>Compare query latency and setup complexity vs MSSQL</li>
-        </ol>
-      </section>
-
-      <section class="project-section card-style">
-        <h3>Team Collaboration</h3>
-        <ul>
-          <li>Daily stand-ups with engineering team</li>
-          <li>Peer review and feedback loops</li>
-          <li>Version-controlled deployment trials</li>
-        </ul>
-      </section>
-
-      <section class="project-section card-style">
-        <h3>Project Files</h3>
-        <a href="https://drive.google.com/file/d/1joVp-wwvxye8Z3Vq2ULARjOh21ga-7JC/view?usp=drive_link" target="_blank" class="drive-button">
-          <span class="icon">📄</span> View Technical Report
-        </a>
-      </section>
-    </article>
+      <div class="elastic-grid">
+        <div class="elastic-card">
+          <h4>Tools Used</h4>
+          <ul>
+            <li>Docker Compose</li>
+            <li>ElasticSearch 7.x</li>
+            <li>Logstash</li>
+            <li>Kibana</li>
+            <li>PostgreSQL</li>
+          </ul>
+        </div>
+        <div class="elastic-card">
+          <h4>Project Objectives</h4>
+          <p>Compare query speed, live logging, and scalability between ElasticSearch and traditional SQL servers.</p>
+        </div>
+      </div>
+    </div>
   </main>
-
-  <footer>
-    <p>&copy; 2024 Ming Yang. Every pipeline begins with a solid foundation.</p>
-  </footer>
 
   <script src="works.js"></script>
 </body>

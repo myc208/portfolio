@@ -3,71 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <base href="/portfolio/" />
-  <title>Recurrent Neural Network – Project Details</title>
+  <title>Recurrent Neural Network – Ming Yang</title>
   <link rel="stylesheet" href="works.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
 </head>
-<body>
+<body class="light-mode">
   <header class="top-header">
-    <div class="container">
-      <div class="logo">
-        <h1>Ming Yang</h1>
-      </div>
-      <nav class="nav-links">
-        <a href="index.html">About</a>
-        <a href="works.html" class="active">Works</a>
-        <label class="switch">
-          <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
-          <span class="slider-ios"></span>
-        </label>
-      </nav>
-    </div>
+    <h1>Ming Yang – Recurrent Neural Network</h1>
+    <a href="works.html" class="drive-button">← Back to All Works</a>
   </header>
 
   <main class="main-content">
-    <article class="project-details variant-b">
-      <header class="hero-header">
-        <h2 class="project-title">Development of Recurrent Neural Network</h2>
-        <p class="project-summary">Text classification and generation using RNN-based architecture.</p>
-      </header>
+    <div id="view-rnn" class="project-view active rnn-theme">
+      <h2 class="rnn-title">Recurrent Neural Network (RNN)</h2>
+      <p class="rnn-subtext">Generating full paragraphs from sentence seeds using GRU/LSTM models.</p>
 
-      <section class="project-section">
-        <h3>Objective</h3>
-        <p>Build a model that learns from text paragraphs and continues incomplete sentences to generate coherent paragraphs. Accuracy and fluency are key evaluation metrics.</p>
-      </section>
+      <div class="rnn-section">
+        <h4>Challenge</h4>
+        <p>Train a model to read sentence structures and output predictive paragraph continuations with coherence and tone control.</p>
+      </div>
 
-      <section class="project-section">
-        <h3>Tools & Stack</h3>
-        <ul class="tech-list">
-          <li>Google Colab</li>
+      <div class="rnn-terminal">
+        <p class="prompt">Input ➜ <span class="typed-text" id="typed-seed">"Technology is evolving"</span></p>
+        <p class="response" id="typed-response">|</p>
+      </div>
+
+      <div class="rnn-insight">
+        <h4>Technologies Used:</h4>
+        <ul>
           <li>Python</li>
-          <li>Kaggle Datasets</li>
+          <li>Keras (LSTM, GRU)</li>
+          <li>Google Colab</li>
+          <li>Tokenizer + Seq2Seq pipeline</li>
         </ul>
-      </section>
-
-      <section class="project-section">
-        <h3>Steps Taken</h3>
-        <ol>
-          <li>Train model on labeled sentence pairs</li>
-          <li>Tune hyperparameters (e.g., hidden units, epochs)</li>
-          <li>Evaluate results on test data</li>
-          <li>Log and document key decisions</li>
-        </ol>
-      </section>
-
-      <section class="project-section">
-        <h3>Project Resource</h3>
-        <a href="https://drive.google.com/file/d/1BSPrPeOsLpx13QJDcfxCqEjvP_3VSUn_/view?usp=drive_link" target="_blank" class="drive-button">
-          <span class="icon">📄</span> View Report on Google Drive
-        </a>
-      </section>
-    </article>
+      </div>
+    </div>
   </main>
-
-  <footer>
-    <p>&copy; 2024 Ming Yang. The future speaks in sequences.</p>
-  </footer>
 
   <script src="works.js"></script>
 </body>

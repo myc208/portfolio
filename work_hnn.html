@@ -3,81 +3,45 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <base href="/portfolio/" />
-  <title>Hybrid Neural Network – Project Details</title>
+  <title>Hybrid Neural Network – Ming Yang</title>
   <link rel="stylesheet" href="works.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
 </head>
-<body>
+<body class="light-mode">
   <header class="top-header">
-    <div class="container">
-      <div class="logo">
-        <h1>Ming Yang</h1>
-      </div>
-      <nav class="nav-links">
-        <a href="index.html">About</a>
-        <a href="works.html" class="active">Works</a>
-        <label class="switch">
-          <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
-          <span class="slider-ios"></span>
-        </label>
-      </nav>
-    </div>
+    <h1>Ming Yang – Hybrid Neural Network</h1>
+    <a href="works.html" class="drive-button">← Back to All Works</a>
   </header>
 
   <main class="main-content">
-    <article class="project-details variant-a">
-      <h2 class="project-title">Development of Hybrid Neural Network</h2>
-      <p class="project-summary">Optimizing algorithm learning through convergence of convolutional layers with LSTM/GRU layers.</p>
+    <div id="view-hnn" class="project-view active hnn-theme">
+      <h2 class="title-glow">Hybrid Neural Network (CNN + RNN)</h2>
+      <p class="sub-text">Phishing email detection using hybrid model layers</p>
 
-      <section class="project-section">
-        <h3>Overview</h3>
-        <p>Develop a neural network model for prediction accuracy comparison with generative learning algorithms. The goal is to identify the best-performing method for phishing email detection (spam vs ham).</p>
-      </section>
-
-      <section class="project-section">
-        <h3>Technologies Used</h3>
-        <ul class="tech-list">
+      <div class="tech-box">
+        <h4>Tools Used:</h4>
+        <ul>
+          <li>Python (TensorFlow, Keras)</li>
           <li>Google Colab</li>
-          <li>Python</li>
           <li>Kaggle Datasets</li>
         </ul>
-      </section>
+      </div>
 
-      <section class="project-section">
-        <h3>Workflow</h3>
+      <div class="visual-panel">
+        <img src="hnn.png" alt="HNN Diagram" />
+        <div class="caption">Model Architecture</div>
+      </div>
+
+      <div class="steps-card">
+        <h4>Approach Summary:</h4>
         <ol>
-          <li>Identify relevant datasets from Kaggle</li>
-          <li>Clean and merge data</li>
-          <li>Build baseline model with CNN</li>
-          <li>Incorporate RNN layers (LSTM/GRU)</li>
-          <li>Evaluate performance vs other models</li>
+          <li>Load and clean dataset</li>
+          <li>Construct CNN base with 1D conv layers</li>
+          <li>Attach LSTM/GRU layers for memory tracking</li>
+          <li>Compare against standalone RNN and SVM</li>
         </ol>
-      </section>
-
-      <section class="project-section">
-        <h3>Gallery</h3>
-        <div class="image-grid">
-          <div class="image-item">
-            <img src="hnn.png" alt="Base model" />
-            <p class="image-caption">Base CNN structure</p>
-          </div>
-          <div class="image-item">
-            <img src="hnn_result.png.jpg" alt="Result" />
-            <p class="image-caption">Model evaluation results</p>
-          </div>
-          <div class="image-item">
-            <img src="hnn_new.png.jpg" alt="Improved model" />
-            <p class="image-caption">Improved hybrid model with RNN</p>
-          </div>
-        </div>
-      </section>
-    </article>
+      </div>
+    </div>
   </main>
-
-  <footer>
-    <p>&copy; 2024 Ming Yang. Every model is a new experiment in creativity.</p>
-  </footer>
 
   <script src="works.js"></script>
 </body>

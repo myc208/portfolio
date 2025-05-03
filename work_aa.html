@@ -3,77 +3,51 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <base href="/portfolio/" />
-  <title>Storyboard Mapping – Project Details</title>
+  <title>Storyboard Mapping – Ming Yang</title>
   <link rel="stylesheet" href="works.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
 </head>
-<body>
+<body class="light-mode">
   <header class="top-header">
-    <div class="container">
-      <div class="logo">
-        <h1>Ming Yang</h1>
-      </div>
-      <nav class="nav-links">
-        <a href="index.html">About</a>
-        <a href="works.html" class="active">Works</a>
-        <label class="switch">
-          <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
-          <span class="slider-ios"></span>
-        </label>
-      </nav>
-    </div>
+    <h1>Ming Yang – Storyboard Mapping</h1>
+    <a href="works.html" class="drive-button">← Back to All Works</a>
   </header>
 
   <main class="main-content">
-    <article class="project-details variant-g">
-      <h2 class="project-title">Creation of Storyboard: Mapping of Visualizations</h2>
-      <p class="project-summary">Designing multiple views to tell a story across graphs using Tableau, Excel, and Jupyter.</p>
+    <div id="view-aa" class="project-view active">
+      <h2 class="cs-title">Storyboard Mapping</h2>
+      <p class="cs-description">A narrative planning project using visual sequencing and text overlays to organize a storytelling framework.</p>
 
-      <section class="project-section">
-        <h3>Project Purpose</h3>
-        <p>Enable deeper understanding of datasets by using visual mapping strategies to guide the viewer through meaningful steps and conclusions.</p>
-      </section>
-
-      <section class="project-section">
-        <h3>Visualization Tools</h3>
-        <ul class="tech-list">
-          <li>Tableau</li>
-          <li>Microsoft Excel</li>
-          <li>Python + Jupyter Notebooks</li>
-          <li>Google Collab</li>
-        </ul>
-      </section>
-
-      <section class="project-section">
-        <h3>Development Process</h3>
-        <ol>
-          <li>Explore dataset structure</li>
-          <li>Identify insight opportunities</li>
-          <li>Select best graphs for each story point</li>
-          <li>Create visual progression with annotations</li>
-        </ol>
-      </section>
-
-      <section class="project-section">
-        <h3>Story Gallery</h3>
-        <div class="image-grid">
-          <div class="image-item">
-            <img src="tableau.gif" alt="Tableau storyboard demo" />
-            <p class="image-caption">Linked views in Tableau storyboard</p>
-          </div>
-          <div class="image-item">
-            <img src="jupyter.gif" alt="Jupyter visualization" />
-            <p class="image-caption">Python-based custom visuals</p>
-          </div>
+      <div class="cs-tabs">
+        <div class="tab-box active">
+          <h4>🎬 Visual Plan</h4>
+          <ul>
+            <li>Color-coded frame breakdowns</li>
+            <li>Scene-by-scene logic blocks</li>
+            <li>Metadata tags: emotion, pacing, subject</li>
+          </ul>
         </div>
-      </section>
-    </article>
-  </main>
 
-  <footer>
-    <p>&copy; 2024 Ming Yang. Data is only powerful when it's understood.</p>
-  </footer>
+        <div class="tab-box">
+          <h4>🖼️ Tools & Assets</h4>
+          <ul>
+            <li>Adobe XD / Illustrator</li>
+            <li>Custom icons & shapes</li>
+            <li>Script import + frame sync</li>
+          </ul>
+        </div>
+
+        <div class="tab-box">
+          <h4>📌 Output Snippet</h4>
+          <pre class="cs-output">
+            Frame 05:
+            Scene: Tension Rising
+            Emotion: Suspense
+            Focus: Character silhouette
+          </pre>
+        </div>
+      </div>
+    </div>
+  </main>
 
   <script src="works.js"></script>
 </body>

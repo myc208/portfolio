@@ -3,88 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <base href="/portfolio/" />
-  <title>Excel Spreadsheet Engineering – Project Details</title>
+  <title>Spreadsheet Engineering – Ming Yang</title>
   <link rel="stylesheet" href="works.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
 </head>
-<body>
+<body class="light-mode">
   <header class="top-header">
-    <div class="container">
-      <div class="logo">
-        <h1>Ming Yang</h1>
-      </div>
-      <nav class="nav-links">
-        <a href="index.html">About</a>
-        <a href="works.html" class="active">Works</a>
-        <label class="switch">
-          <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
-          <span class="slider-ios"></span>
-        </label>
-      </nav>
-    </div>
+    <h1>Ming Yang – Spreadsheet Engineering</h1>
+    <a href="works.html" class="drive-button">← Back to All Works</a>
   </header>
 
   <main class="main-content">
-    <article class="project-details variant-d">
-      <h2 class="project-title">Microsoft Excel Spreadsheet Engineering</h2>
-      <p class="project-summary">Automating calculations and data visualizations through formulas, VLOOKUP, macros, and charts.</p>
+    <div id="view-fse" class="project-view active fse-theme">
+      <h2 class="fse-title">Spreadsheet Engineering (Excel & Google Sheets)</h2>
+      <p class="fse-description">Designing automated workflows using advanced formulas, cross-sheet linking, and dashboard charts.</p>
 
-      <section class="project-section">
-        <h3>Purpose</h3>
-        <p>Make data manipulation and visualization more efficient by applying formulas, interlinked fields, and macro automation in Excel and Google Sheets.</p>
-      </section>
-
-      <section class="project-section">
-        <h3>Tools Used</h3>
-        <ul class="tech-list">
-          <li>Microsoft Excel</li>
-          <li>Google Spreadsheet</li>
-          <li>Python (Jupyter Notebooks)</li>
-          <li>Sample Dataset</li>
-        </ul>
-      </section>
-
-      <section class="project-section">
-        <h3>Techniques Demonstrated</h3>
-        <ol>
-          <li>Formula chains for interlinked data (SUM, COUNTIF, IF)</li>
-          <li>Use of macros for routine operations</li>
-          <li>Cross-sheet referencing for dashboarding</li>
-          <li>Tableau-style charts inside Excel</li>
-        </ol>
-      </section>
-
-      <section class="project-section">
-        <h3>Example Formulas</h3>
-        <ul class="code-snippet">
-          <li>=SUM(A1:A10)</li>
-          <li>=AVERAGE(B1:B5)</li>
-          <li>=IF(C1&gt;100, "Over 100", "Under 100")</li>
-          <li>=VLOOKUP(D1, A2:B10, 2, FALSE)</li>
-          <li>=COUNTIF(E1:E10, "Apple")</li>
-        </ul>
-      </section>
-
-      <section class="project-section">
-        <h3>Gallery</h3>
-        <div class="image-grid">
-          <div class="image-item">
-            <img src="fse1.gif" alt="GIF of chart usage" />
-            <p class="image-caption">Graphical visualizations in Excel</p>
-          </div>
-          <div class="image-item">
-            <img src="fse2.gif" alt="GIF of macro use" />
-            <p class="image-caption">Macro automation in action</p>
-          </div>
+      <div class="fse-grid">
+        <div class="fse-cell">
+          <h4>Macro Automation</h4>
+          <p>Record, edit, and trigger repetitive tasks across sheets.</p>
         </div>
-      </section>
-    </article>
-  </main>
+        <div class="fse-cell">
+          <h4>Interlinked Formulas</h4>
+          <p>Use <code>=IF</code>, <code>=VLOOKUP</code>, and <code>=COUNTIF</code> across sheets.</p>
+        </div>
+        <div class="fse-cell formula-box">
+          <h4>Example Formula</h4>
+          <pre>=IF(A1>100, "High", "Low")</pre>
+        </div>
+        <div class="fse-cell formula-box">
+          <h4>Lookup</h4>
+          <pre>=VLOOKUP(ID, A2:C100, 3, FALSE)</pre>
+        </div>
+      </div>
 
-  <footer>
-    <p>&copy; 2024 Ming Yang. Spreadsheets that think before you do.</p>
-  </footer>
+      <div class="fse-note">
+        <strong>Tools:</strong> Excel 365, Google Sheets, Python (Data Cleaning)
+      </div>
+    </div>
+  </main>
 
   <script src="works.js"></script>
 </body>

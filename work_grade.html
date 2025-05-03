@@ -3,93 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <base href="/portfolio/" />
-  <title>Student Grades DB in C – Project Details</title>
+  <title>Grades Record System – Ming Yang</title>
   <link rel="stylesheet" href="works.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
 </head>
-<body>
+<body class="light-mode">
   <header class="top-header">
-    <div class="container">
-      <div class="logo">
-        <h1>Ming Yang</h1>
-      </div>
-      <nav class="nav-links">
-        <a href="index.html">About</a>
-        <a href="works.html" class="active">Works</a>
-        <label class="switch">
-          <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
-          <span class="slider-ios"></span>
-        </label>
-      </nav>
-    </div>
+    <h1>Ming Yang – Grades Record System</h1>
+    <a href="works.html" class="drive-button">← Back to All Works</a>
   </header>
 
   <main class="main-content">
-    <article class="project-details variant-e">
-      <h2 class="project-title">Student Grades Database in C</h2>
-      <p class="project-summary">Console-based application for managing academic records using file I/O and structured programming in C.</p>
+    <div id="view-grade" class="project-view active grade-theme">
+      <h2 class="grade-title">Grades Record System (C Language)</h2>
+      <p class="grade-summary">Manage student records with file persistence and console-based commands.</p>
 
-      <section class="project-section">
-        <h3>Objective</h3>
-        <p>To develop a lightweight, command-line application that reads, writes, and manages student records using a structured `.txt` file as a basic database.</p>
-      </section>
-
-      <section class="project-section">
-        <h3>Tools & Language</h3>
-        <ul class="tech-list">
-          <li>C Programming Language</li>
-          <li>Visual Studio Code</li>
-          <li>Standard Library I/O</li>
-        </ul>
-      </section>
-
-      <section class="project-section">
-        <h3>Functional Breakdown</h3>
-        <ol>
-          <li>File read on open (creates default if not found)</li>
-          <li>Search by ID or name</li>
-          <li>Insert, update, and delete student records</li>
-          <li>Save back to the `.txt` file</li>
-        </ol>
-      </section>
-
-      <section class="project-section">
-        <h3>Example Code – Open Database File</h3>
-        <pre class="code-block"><code>
-void openDb(const char *filename) {
-    FILE *file = fopen(filename, "a+");
-    if (file == NULL) {
-        printf("Error opening file.\n");
-        return;
+      <div class="code-editor">
+        <div class="line-numbers">
+          <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+        </div>
+        <pre class="code-block">
+<code>
+void saveGrades(Student *head) {
+    FILE *fp = fopen("grades.txt", "w");
+    while (head) {
+        fprintf(fp, "%s %d\\n", head->name, head->score);
+        head = head->next;
     }
-
-    fseek(file, 0, SEEK_END);
-    if (ftell(file) == 0) {
-        fprintf(file, "ID\tName\t\tProgramme\t\tMark\n");
-    }
-    rewind(file);
-    // Parse student records...
-    fclose(file);
+    fclose(fp);
 }
-        </code></pre>
-      </section>
+</code>
+        </pre>
+      </div>
 
-      <section class="project-section">
-        <h3>Key Logic Notes</h3>
+      <div class="grade-list">
+        <h4>Features:</h4>
         <ul>
-          <li>Uses `a+` mode to auto-create missing files</li>
-          <li>Validates each line before parsing</li>
-          <li>Dynamic memory for linked list records</li>
-          <li>Backed by structured design: `struct`, `Node`, and `Linked List`</li>
+          <li>Dynamic linked list of student structs</li>
+          <li>Save/load from text file with validation</li>
+          <li>Sort, search, and update records via command input</li>
         </ul>
-      </section>
-    </article>
+      </div>
+    </div>
   </main>
-
-  <footer>
-    <p>&copy; 2024 Ming Yang. Simplicity meets precision in every loop.</p>
-  </footer>
 
   <script src="works.js"></script>
 </body>
