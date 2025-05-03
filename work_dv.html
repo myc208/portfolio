@@ -1,117 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <base href="/portfolio/">
-        <link rel="stylesheet" href="works.css">
-    </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <base href="/portfolio/" />
+  <title>Data Viz with Tableau – Project Details</title>
+  <link rel="stylesheet" href="works.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+</head>
 <body>
-    <header>
-
-    </header>
-
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <a href="index.html#slider" class="sidebar-link">
-            <span class="icon">🏠</span>
-            <span class="label">Home</span>
-        </a>
-        <a href="blog.html" class="sidebar-link">
-            <span class="icon">📝</span>
-            <span class="label">Blog</span>
-        </a>
-        <div class="sidebar-link dropdown">
-            <span class="icon">💼</span>
-            <span class="label">Projects</span>
-            <!-- Dropdown menu for projects -->
-            <div class="dropdown-content">
-                <a href="work_hnn.html" class="dropdown-item">Development of Hybrid Neural Network</a>
-                <a href="work_elastic.html" class="dropdown-item">Establishing ElasticSearch DB Ecosystem</a>
-                <a href="work_cnn.html" class="dropdown-item">Development of Convolutional Neural Network</a>
-                <a href="work_rnn.html" class="dropdown-item">Development of Recurrent Neural Network</a>
-                <a href="work_aa.html" class="dropdown-item">Creation of Storyboard: Mapping of Visualizations</a>
-                <a href="work_fse.html" class="dropdown-item">Microsoft Excel Spreadsheet Engineering</a>
-                <a href="work_cs.html" class="dropdown-item">Employee Application Development Using C#</a>
-                <a href="work_grade.html" class="dropdown-item">Student Grades Database Implementation Using C</a>
-                <!-- Add more projects as needed -->
-            </div>
-        </div>
-        <a href="index.html#contact" class="sidebar-link">
-            <span class="icon">📬</span>
-            <span class="label">Contact</span>
-        </a>
-    </div>
-
+  <header class="top-header">
     <div class="container">
-        <!-- Project Header -->
-        <div class="project-header">
-            <h1 class="project-title">Data Visualizations and Analysis with Tableau</h1>
-            <p class="project-summary">Allow better conceptualisation of data through graphical representations.</p>
-        </div>
-
-        <!-- Project Description -->
-        <div class="project-description">
-            <h2>Project Description</h2>
-            <p>Explore and familiarize with various graphical functions within the application.</p>
-        </div>
-
-        <!-- Project Technologies -->
-        <div class="project-technologies">
-            <h2>Technologies Used</h2>
-            <ul>
-                <li>Google Spreadsheet</li>
-                <li>Python</li>
-                <li>Microsoft Excel</li>
-                <li>Provided sample dataset</li>
-                <li>Kaggle</li>
-                <li>Tableau</li>
-                <li>Jupyter Notebook</li>
-                <li>Google Collab</li>
-            </ul>
-        </div>
-
-        <div class="project-task">
-            <h2>Developments</h2>
-            <ul>
-                <li>Explore and cleanse dataset</li>
-                <li>Upload and read dataset from accessible applications</li>
-                <li>Explore various graphs</li>
-                <li>Examine which graph best depicts the information to be conveyed for analysis</li>
-            </ul>
-        </div>
-
-        <!-- Project Gallery -->
-        <div class="description-gallery">
-            <h2>Project Gallery</h2>
-            <div class="image-grid">
-                <div class="image-item">
-                    <img src="graph1.png" alt="Project Image 1">
-                </div>
-                <!-- Additional images can be added here -->
-            </div>
-        </div>
-
-        <div class="description-gallery">
-            <h2></h2>
-            <div class="image-grid">
-                <div class="image-item">
-                    <img src="graph2.png" alt="Project Image 1">
-                </div>
-                <!-- Additional images can be added here -->
-            </div>
-        </div>
-
-        <!-- Project Links -->
-        <!--div class="project-links">
-            <h2>Project Links</h2>
-            <a href="*" target="_blank" class="project-link">GitHub Repository</a>
-            <a href="*" target="_blank" class="project-link">Live Project</a>
-        </div-->
+      <div class="logo">
+        <h1>Ming Yang</h1>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">About</a>
+        <a href="works.html" class="active">Works</a>
+        <label class="switch">
+          <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
+          <span class="slider-ios"></span>
+        </label>
+      </nav>
     </div>
+  </header>
 
-    <footer>
-        <p>&copy; 2024 Your Name. You can't use up creativity, the more you use, the more you have in your significant mind.</p>
-    </footer>
+  <main class="main-content">
+    <article class="project-details variant-h">
+      <h2 class="project-title">Data Visualizations & Analysis with Tableau</h2>
+      <p class="project-summary">Exploring and analyzing structured datasets using interactive Tableau dashboards and graphs.</p>
+
+      <section class="project-section">
+        <h3>Project Goal</h3>
+        <p>Create dashboards that allow stakeholders to quickly explore key insights and detect patterns through interactive visual elements.</p>
+      </section>
+
+      <section class="project-section">
+        <h3>Technologies Used</h3>
+        <ul class="tech-list">
+          <li>Tableau Public</li>
+          <li>Google Sheets</li>
+          <li>Sample Datasets (Retail & Sales)</li>
+        </ul>
+      </section>
+
+      <section class="project-section">
+        <h3>Process Steps</h3>
+        <ol>
+          <li>Data cleansing and preparation</li>
+          <li>Selection of key dimensions and metrics</li>
+          <li>Design of charts (heatmaps, bar, pie, line)</li>
+          <li>Integration into story-driven dashboards</li>
+        </ol>
+      </section>
+
+      <section class="project-section">
+        <h3>Dashboards</h3>
+        <div class="image-grid">
+          <div class="image-item">
+            <img src="tableau1.png" alt="Sales dashboard" />
+            <p class="image-caption">Sales Trends Dashboard</p>
+          </div>
+          <div class="image-item">
+            <img src="tableau2.png" alt="Region filter" />
+            <p class="image-caption">Interactive Filters by Region</p>
+          </div>
+          <div class="image-item">
+            <img src="tableau3.png" alt="Time analysis" />
+            <p class="image-caption">Time-Based Performance Insights</p>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Ming Yang. Visualization turns data into dialogue.</p>
+  </footer>
+
+  <script src="works.js"></script>
 </body>
 </html>

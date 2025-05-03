@@ -1,119 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <base href="/portfolio/">
-        <link rel="stylesheet" href="works.css">
-    </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <base href="/portfolio/" />
+  <title>Storyboard Mapping – Project Details</title>
+  <link rel="stylesheet" href="works.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+</head>
 <body>
-    <header>
-
-    </header>
-
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <a href="index.html#slider" class="sidebar-link">
-            <span class="icon">🏠</span>
-            <span class="label">Home</span>
-        </a>
-        <a href="blog.html" class="sidebar-link">
-            <span class="icon">📝</span>
-            <span class="label">Blog</span>
-        </a>
-        <div class="sidebar-link dropdown">
-            <span class="icon">💼</span>
-            <span class="label">Projects</span>
-            <!-- Dropdown menu for projects -->
-            <div class="dropdown-content">
-                <a href="work_hnn.html" class="dropdown-item">Development of Hybrid Neural Network</a>
-                <a href="work_elastic.html" class="dropdown-item">Establishing ElasticSearch DB Ecosystem</a>
-                <a href="work_cnn.html" class="dropdown-item">Development of Convolutional Neural Network</a>
-                <a href="work_rnn.html" class="dropdown-item">Development of Recurrent Neural Network</a>
-                <a href="work_fse.html" class="dropdown-item">Microsoft Excel Spreadsheet Engineering</a>
-                <a href="work_dv.html" class="dropdown-item">Data Visualizations and Analysis with Tableau</a>
-                <a href="work_cs.html" class="dropdown-item">Employee Application Development Using C#</a>
-                <a href="work_grade.html" class="dropdown-item">Student Grades Database Implementation Using C</a>
-                <!-- Add more projects as needed -->
-            </div>
-        </div>
-        <a href="index.html#contact" class="sidebar-link">
-            <span class="icon">📬</span>
-            <span class="label">Contact</span>
-        </a>
-    </div>
-
+  <header class="top-header">
     <div class="container">
-        <!-- Project Header -->
-        <div class="project-header">
-            <h1 class="project-title">Creation of Storyboard: Mapping of Visualizations</h1>
-            <p class="project-summary">Allow better conceptualisation of data through graphical storyboard.</p>
-        </div>
-
-        <!-- Project Description -->
-        <div class="project-description">
-            <h2>Project Description</h2>
-            <p>Explore and familiarize with displaying multiple graphs within the same view to provide a link and more in-depth analysis.</p>
-        </div>
-
-        <!-- Project Technologies -->
-        <div class="project-technologies">
-            <h2>Technologies Used</h2>
-            <ul>
-                <li>Google Spreadsheet</li>
-                <li>Python</li>
-                <li>Microsoft Excel</li>
-                <li>Provided sample dataset</li>
-                <li>Kaggle</li>
-                <li>Tableau</li>
-                <li>Jupyter Notebook</li>
-                <li>Google Collab</li>
-            </ul>
-        </div>
-
-        <div class="project-task">
-            <h2>Developments</h2>
-            <ul>
-                <li>Explore and cleanse dataset</li>
-                <li>Upload and read dataset from accessible applications</li>
-                <li>Explore various graphs</li>
-                <li>Examine which graph best depicts the information to be conveyed for analysis</li>
-                <li>Explore problem statements</li>
-                <li>Map various graphs to customize a solution for the identified problem statement</li>
-            </ul>
-        </div>
-
-        <!-- Project Gallery -->
-        <div class="description-gallery">
-            <h2>Project Gallery</h2>
-            <div class="image-grid">
-                <div class="image-item">
-                    <img src="tableau.gif" alt="Project Image 1">
-                </div>
-                <!-- Additional images can be added here -->
-            </div>
-        </div>
-
-        <div class="description-gallery">
-            <h2></h2>
-            <div class="image-grid">
-                <div class="image-item">
-                    <img src="jupyter.gif" alt="Project Image 1">
-                </div>
-                <!-- Additional images can be added here -->
-            </div>
-        </div>
-
-        <!-- Project Links -->
-        <!--div class="project-links">
-            <h2>Project Links</h2>
-            <a href="*" target="_blank" class="project-link">GitHub Repository</a>
-            <a href="*" target="_blank" class="project-link">Live Project</a>
-        </div-->
+      <div class="logo">
+        <h1>Ming Yang</h1>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">About</a>
+        <a href="works.html" class="active">Works</a>
+        <label class="switch">
+          <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
+          <span class="slider-ios"></span>
+        </label>
+      </nav>
     </div>
+  </header>
 
-    <footer>
-        <p>&copy; 2024 Your Name. You can't use up creativity, the more you use, the more you have in your significant mind.</p>
-    </footer>
+  <main class="main-content">
+    <article class="project-details variant-g">
+      <h2 class="project-title">Creation of Storyboard: Mapping of Visualizations</h2>
+      <p class="project-summary">Designing multiple views to tell a story across graphs using Tableau, Excel, and Jupyter.</p>
+
+      <section class="project-section">
+        <h3>Project Purpose</h3>
+        <p>Enable deeper understanding of datasets by using visual mapping strategies to guide the viewer through meaningful steps and conclusions.</p>
+      </section>
+
+      <section class="project-section">
+        <h3>Visualization Tools</h3>
+        <ul class="tech-list">
+          <li>Tableau</li>
+          <li>Microsoft Excel</li>
+          <li>Python + Jupyter Notebooks</li>
+          <li>Google Collab</li>
+        </ul>
+      </section>
+
+      <section class="project-section">
+        <h3>Development Process</h3>
+        <ol>
+          <li>Explore dataset structure</li>
+          <li>Identify insight opportunities</li>
+          <li>Select best graphs for each story point</li>
+          <li>Create visual progression with annotations</li>
+        </ol>
+      </section>
+
+      <section class="project-section">
+        <h3>Story Gallery</h3>
+        <div class="image-grid">
+          <div class="image-item">
+            <img src="tableau.gif" alt="Tableau storyboard demo" />
+            <p class="image-caption">Linked views in Tableau storyboard</p>
+          </div>
+          <div class="image-item">
+            <img src="jupyter.gif" alt="Jupyter visualization" />
+            <p class="image-caption">Python-based custom visuals</p>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Ming Yang. Data is only powerful when it's understood.</p>
+  </footer>
+
+  <script src="works.js"></script>
 </body>
 </html>

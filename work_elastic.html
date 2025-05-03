@@ -1,133 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <base href="/portfolio/">
-        <link rel="stylesheet" href="works.css">
-    </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <base href="/portfolio/" />
+  <title>ElasticSearch DB Ecosystem – Project Details</title>
+  <link rel="stylesheet" href="works.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+</head>
 <body>
-    <header>
-
-    </header>
-
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <a href="index.html#slider" class="sidebar-link">
-            <span class="icon">🏠</span>
-            <span class="label">Home</span>
-        </a>
-        <a href="blog.html" class="sidebar-link">
-            <span class="icon">📝</span>
-            <span class="label">Blog</span>
-        </a>
-        <div class="sidebar-link dropdown">
-            <span class="icon">💼</span>
-            <span class="label">Projects</span>
-            <!-- Dropdown menu for projects -->
-            <div class="dropdown-content">
-                <a href="work_hnn.html" class="dropdown-item">Development of Hybrid Neural Network</a>
-                <a href="work_cnn.html" class="dropdown-item">Development of Convolutional Neural Network</a>
-                <a href="work_rnn.html" class="dropdown-item">Development of Recurrent Neural Network</a>
-                <a href="work_aa.html" class="dropdown-item">Creation of Storyboard: Mapping of Visualizations</a>
-                <a href="work_fse.html" class="dropdown-item">Microsoft Excel Spreadsheet Engineering</a>
-                <a href="work_dv.html" class="dropdown-item">Data Visualizations and Analysis with Tableau</a>
-                <a href="work_cs.html" class="dropdown-item">Employee Application Development Using C#</a>
-                <a href="work_grade.html" class="dropdown-item">Student Grades Database Implementation Using C</a>
-                <!-- Add more projects as needed -->
-            </div>
-        </div>
-        <a href="index.html#contact" class="sidebar-link">
-            <span class="icon">📬</span>
-            <span class="label">Contact</span>
-        </a>
-    </div>
-
+  <header class="top-header">
     <div class="container">
-        <!-- Project Header -->
-        <div class="project-header">
-            <h1 class="project-title">Establishing ElasticSearch DB Ecosystem</h1>
-            <p class="project-summary">Test viability, efficiency and effectiveness of ElasticSearch DB over MSSQL for speed and functionality.</p>
-        </div>
-
-        <!-- Project Description -->
-        <div class="project-description">
-            <h2>Project Description</h2>
-            <p>As a database engineer intern, my task was to establish a working database on elasticsearch and learn about the ecosystem that revolves around it, known as the elasticstack. Through that, I can simplify the implementation process of various other features such as real-time data logging, data visualizations, as well as the community discussion group to query and seek professional help from.</p>
-        </div>
-
-        <!-- Project Technologies -->
-        <div class="project-technologies">
-            <h2>Technologies Used</h2>
-            <ul>
-                <li>Google Meet</li>
-                <li>Python</li>
-                <li>Google collab</li>
-                <li>MSSQL</li>
-                <li>Docker</li>
-                <li>Kibana</li>
-                <li>Logstash</li>
-                <li>ElasticSearch</li>
-                <li>Provided sample dataset</li>
-            </ul>
-        </div>
-
-        <div class="project-task">
-            <h2>Steps for Primary Task</h2>
-            <p>Establishing DB and ensure connectivity within ElasticStack ecosystem</p>
-            <ul>
-                <li>Research and learn about ElasticSearch</li>
-                <li>Implementation of ElasticSearch DB on Docker (containerization platform)</li>
-                <li>Check DB status on Kibana (visualization tool)</li>
-                <li>Attempt connection to MSSQL using Logstash (data processing pipeline)</li>
-                <li>Implement real-time data logging feature</li>
-                <li>Log and record obstacles faced and solutions implemented</li>
-                <li>Test full functionality with sample data in MSSQL</li>
-            </ul>
-        </div>
-
-        <div class="project-task">
-            <h2>Steps for Secondary Task</h2>
-            <p>Develop flagging algorithm for logged data</p>
-            <ul>
-                <li>Implement sample words to be flagged</li>
-                <li>Develop flagging algorithm</li>
-                <li>Test algorithm functionality</li>
-                <li>Log and record obstacles faced and solutions implemented</li>
-                <li>Send algorithm to supervisors for UAT</li>
-                <li>Make changes based on feedbacks before repeating development and testing process</li>
-            </ul>
-        </div>
-
-        <div class="project-analysis">
-            <h2>Working in a team setting</h2>
-            <ul>
-                <li>Perform daily standup meetings in the morning to check in on each individual's goals for the day</li>
-                <li>Many seniors to consult when faced with impediments</li>
-                <li>Lots of learning opportunities from others in the same field</li>
-                <li>Increased engagement which elevates work experience</li>
-            </ul>
-        </div>
-        
-        <!-- Project Gallery -->
-        <div class="project-gallery">
-            <h2>Project Gallery</h2>
-            <a href="https://drive.google.com/file/d/1joVp-wwvxye8Z3Vq2ULARjOh21ga-7JC/view?usp=drive_link" target="_blank" class="drive-button">
-                <span class="icon">📄</span> <!-- Document icon -->
-                View Project Report
-            </a>
-        </div>
-
-        <!-- Project Links -->
-        <!--div class="project-links">
-            <h2>Project Links</h2>
-            <a href="*" target="_blank" class="project-link">GitHub Repository</a>
-            <a href="*" target="_blank" class="project-link">Live Project</a>
-        </div-->
+      <div class="logo">
+        <h1>Ming Yang</h1>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">About</a>
+        <a href="works.html" class="active">Works</a>
+        <label class="switch">
+          <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
+          <span class="slider-ios"></span>
+        </label>
+      </nav>
     </div>
+  </header>
 
-    <footer>
-        <p>&copy; 2024 Your Name. You can't use up creativity, the more you use, the more you have in your significant mind.</p>
-    </footer>
+  <main class="main-content">
+    <article class="project-details variant-c">
+      <h2 class="project-title">Establishing ElasticSearch DB Ecosystem</h2>
+      <p class="project-summary">Testing ElasticSearch over MSSQL for speed, logging, and modularity in a real-time data setting.</p>
+
+      <section class="project-section card-style">
+        <h3>Overview</h3>
+        <p>As a database engineering intern, I was tasked with building and testing an ElasticStack pipeline including ElasticSearch, Logstash, and Kibana. The goal was to evaluate its viability and performance in contrast to MSSQL.</p>
+      </section>
+
+      <section class="project-section card-style">
+        <h3>Technologies</h3>
+        <ul class="tech-list">
+          <li>Docker</li>
+          <li>ElasticSearch</li>
+          <li>Logstash</li>
+          <li>Kibana</li>
+          <li>MSSQL</li>
+          <li>Python</li>
+          <li>Google Collab</li>
+        </ul>
+      </section>
+
+      <section class="project-section card-style">
+        <h3>Primary Tasks</h3>
+        <ol>
+          <li>Set up ElasticSearch DB and ensure Docker container health</li>
+          <li>Integrate Logstash for live MSSQL stream ingestion</li>
+          <li>Build data visualizations via Kibana</li>
+          <li>Compare query latency and setup complexity vs MSSQL</li>
+        </ol>
+      </section>
+
+      <section class="project-section card-style">
+        <h3>Team Collaboration</h3>
+        <ul>
+          <li>Daily stand-ups with engineering team</li>
+          <li>Peer review and feedback loops</li>
+          <li>Version-controlled deployment trials</li>
+        </ul>
+      </section>
+
+      <section class="project-section card-style">
+        <h3>Project Files</h3>
+        <a href="https://drive.google.com/file/d/1joVp-wwvxye8Z3Vq2ULARjOh21ga-7JC/view?usp=drive_link" target="_blank" class="drive-button">
+          <span class="icon">📄</span> View Technical Report
+        </a>
+      </section>
+    </article>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Ming Yang. Every pipeline begins with a solid foundation.</p>
+  </footer>
+
+  <script src="works.js"></script>
 </body>
 </html>

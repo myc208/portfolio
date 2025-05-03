@@ -1,66 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <base href="/portfolio/">
-        <link rel="stylesheet" href="works.css">
-        <title>Projects</title>
-    </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Works – Ming Yang</title>
+  <base href="/portfolio/" />
+  <link rel="stylesheet" href="works.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+</head>
 <body>
-    <header>
-        <!-- Add header content if needed -->
-    </header>
-
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <a href="index.html#slider" class="sidebar-link">
-            <span class="icon">🏠</span>
-            <span class="label">Home</span>
-        </a>
-        <a href="blog.html" class="sidebar-link">
-            <span class="icon">📝</span>
-            <span class="label">Blog</span>
-        </a>
-        <div class="sidebar-link dropdown">
-            <span class="icon">💼</span>
-            <span class="label">Projects</span>
-            <!-- Dropdown menu for projects -->
-            <div class="dropdown-content">
-                <a href="work_hnn.html" class="dropdown-item">Development of Hybrid Neural Network</a>
-                <a href="work_elastic.html" class="dropdown-item">Establishing ElasticSearch DB Ecosystem</a>
-                <a href="work_cnn.html" class="dropdown-item">Development of Convolutional Neural Network</a>
-                <a href="work_rnn.html" class="dropdown-item">Development of Recurrent Neural Network</a>
-                <a href="work_aa.html" class="dropdown-item">Creation of Storyboard: Mapping of Visualizations</a>
-                <a href="work_fse.html" class="dropdown-item">Microsoft Excel Spreadsheet Engineering</a>
-                <a href="work_dv.html" class="dropdown-item">Data Visualizations and Analysis with Tableau</a>
-                <a href="work_cs.html" class="dropdown-item">Employee Application Development Using C#</a>
-                <a href="work_grade.html" class="dropdown-item">Student Grades Database Implementation Using C</a>
-                <!-- Add more projects as needed -->
-            </div>
-        </div>
-        <a href="index.html#contact" class="sidebar-link">
-            <span class="icon">📬</span>
-            <span class="label">Contact</span>
-        </a>
-    </div>
-
+  <header class="top-header">
     <div class="container">
-        <!-- Project Header -->
-        <div class="project-header">
-            <h1 class="project-title">All Past Projects</h1>
-        </div>
-
-        <!-- Project Description -->
-        <div class="showcase-description">
-            <p>The projects showcased here are a mix of individual creations and exciting team collaborations, all crafted during my polytechnic journey and current university adventures. Each project tells a story of creativity, growth, and a whole lot of fun along the way!</p>
-            <p>For each project, I’ve included the tools and technologies used, as well as the general goals to provide context and insight into my approach. Additionally, you’ll find a few project-related files and resources that you can dig into for a deeper dive into the process and outcomes.</p>
-            <p>Feel free to explore and reach out if you have any questions or just want to chat about these projects—I’d love to connect!</p>
-        </div>
+      <div class="logo">
+        <h1>Ming Yang</h1>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">About</a>
+        <a class="active" href="works.html">Works</a>
+        <label class="switch">
+          <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
+          <span class="slider-ios"></span>
+        </label>
+      </nav>
     </div>
+  </header>
 
-    <footer>
-        <p>&copy; 2024 Your Name. You can't use up creativity; the more you use, the more you have in your significant mind.</p>
-    </footer>
+  <main class="main-content">
+    <section class="section-intro">
+      <h2 class="section-title">All Past Projects</h2>
+      <p class="intro-paragraph">These projects reflect a range of technical explorations and teamwork. I’ve included summaries, tech stacks, goals, and links wherever applicable. Browse through and feel free to reach out for more info!</p>
+    </section>
+
+    <section class="project-grid">
+      <div class="project-card"><a href="work_hnn.html">
+        <h3>Hybrid Neural Network</h3>
+        <p>Combining CNN with LSTM for phishing detection.</p></a>
+      </div>
+      <div class="project-card"><a href="work_elastic.html">
+        <h3>ElasticSearch DB Ecosystem</h3>
+        <p>Dockerized ElasticStack with real-time logging.</p></a>
+      </div>
+      <div class="project-card"><a href="work_cnn.html">
+        <h3>Convolutional Neural Network</h3>
+        <p>Image classification using self vs pre-trained models.</p></a>
+      </div>
+      <div class="project-card"><a href="work_rnn.html">
+        <h3>Recurrent Neural Network</h3>
+        <p>Text generation with RNN for paragraph continuation.</p></a>
+      </div>
+      <div class="project-card"><a href="work_aa.html">
+        <h3>Storyboard Mapping</h3>
+        <p>Linking visualizations for holistic insights.</p></a>
+      </div>
+      <div class="project-card"><a href="work_fse.html">
+        <h3>Excel Spreadsheet Engineering</h3>
+        <p>Data automation with formulas and macros.</p></a>
+      </div>
+      <div class="project-card"><a href="work_dv.html">
+        <h3>Data Viz with Tableau</h3>
+        <p>Visual storytelling with sample datasets.</p></a>
+      </div>
+      <div class="project-card"><a href="work_cs.html">
+        <h3>C# Employee Management App</h3>
+        <p>OOP design with full employee CRUD support.</p></a>
+      </div>
+      <div class="project-card"><a href="work_grade.html">
+        <h3>Grades DB in C</h3>
+        <p>Manage student records with file persistence.</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Ming Yang. Creativity grows through sharing.</p>
+  </footer>
+
+  <script src="works.js"></script>
 </body>
 </html>

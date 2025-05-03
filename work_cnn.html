@@ -1,160 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <base href="/portfolio/">
-        <link rel="stylesheet" href="works.css">
-    </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <base href="/portfolio/" />
+  <title>Convolutional Neural Network – Project Details</title>
+  <link rel="stylesheet" href="works.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+</head>
 <body>
-    <header>
-
-    </header>
-
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <a href="index.html#slider" class="sidebar-link">
-            <span class="icon">🏠</span>
-            <span class="label">Home</span>
-        </a>
-        <a href="blog.html" class="sidebar-link">
-            <span class="icon">📝</span>
-            <span class="label">Blog</span>
-        </a>
-        <div class="sidebar-link dropdown">
-            <span class="icon">💼</span>
-            <span class="label">Projects</span>
-            <!-- Dropdown menu for projects -->
-            <div class="dropdown-content">
-                <a href="work_hnn.html" class="dropdown-item">Development of Hybrid Neural Network</a>
-                <a href="work_elastic.html" class="dropdown-item">Establishing ElasticSearch DB Ecosystem</a>
-                <a href="work_rnn.html" class="dropdown-item">Development of Recurrent Neural Network</a>
-                <a href="work_aa.html" class="dropdown-item">Creation of Storyboard: Mapping of Visualizations</a>
-                <a href="work_fse.html" class="dropdown-item">Microsoft Excel Spreadsheet Engineering</a>
-                <a href="work_dv.html" class="dropdown-item">Data Visualizations and Analysis with Tableau</a>
-                <a href="work_cs.html" class="dropdown-item">Employee Application Development Using C#</a>
-                <a href="work_grade.html" class="dropdown-item">Student Grades Database Implementation Using C</a>
-                <!-- Add more projects as needed -->
-            </div>
-        </div>
-        <a href="index.html#contact" class="sidebar-link">
-            <span class="icon">📬</span>
-            <span class="label">Contact</span>
-        </a>
-    </div>
-
+  <header class="top-header">
     <div class="container">
-        <!-- Project Header -->
-        <div class="project-header">
-            <h1 class="project-title">Development of Convolutional Neural Network</h1>
-            <p class="project-summary">Comparing self-trained models to pre-trained model (VGG16)</p>
-        </div>
-
-        <!-- Project Description -->
-        <div class="project-description">
-            <h2>Project Description</h2>
-            <p>Develop a neural network model for prediction accuracy comparison with other pre-trained learning algorithms such as VGG16, ResNet, InceptionV3, and MobileNet. The outcome of the project is to identify an algorithm that most accurately classifies an image to the name of the food that is shown within.</p>
-        </div>
-
-        <!-- Project Technologies -->
-        <div class="project-technologies">
-            <h2>Technologies Used</h2>
-            <ul>
-                <li>Google Collab</li>
-                <li>Python</li>
-                <li>Search Engine</li>
-                <li>Provided dataset</li>
-            </ul>
-        </div>
-
-        <div class="project-steps">
-            <h2>Summary of Steps</h2>
-            <ul>
-                <li>Develop a self-trained model</li>
-                <li>Research on various pre-trained models</li>
-                <li>Develop model based on selected choice of pre-trained models</li>
-                <li>Analyse results</li>
-                <li>Use untrained data for testing</li>
-                <li>Record analysis results and findings</li>
-            </ul>
-        </div>
-
-        <div class="project-analysis">
-            <h2>Choice of pre-trained model</h2>
-            <p>VGG16 was chosen due to the simplicity to understand it and few of the advantages that it provides in comparison to other pre-trained models. These benefits include:</p>
-            <ul>
-                <li>Image classification benefits greatly from transfer learning</li>
-                <li>Dataset was small and not complex</li>
-                <li>Simple model structure aids educational learning</li>
-                <li>Such a simple model structure sets a good baseline score for pre-trained models</li>
-                <li>Consists of deep convolutional layers to capture rich features essential for image classification</li>
-            </ul>
-        </div>
-        
-        <!-- Project Gallery -->
-        <div class="project-gallery">
-            <h2>Project Gallery</h2>
-            <div class="image-grid">
-                <div class="image-item">
-                    <img src="cnn_self.png" alt="Project Image 1">
-                    <p class="image-description">Self-trained model</p>
-                </div>
-                <div class="image-item">
-                    <img src="cnn_pre.png" alt="Project Image 3">
-                    <p class="image-description">Pre-trained model</p>
-                </div>
-                <div class="image-item">
-                    <img src="cnn_result.png" alt="Project Image 4">
-                    <p class="image-description">Results</p>
-                </div>
-                <!-- Additional images can be added here -->
-            </div>
-        </div>
-
-        <div class="project-changes">
-            <h2>Observations</h2>
-            <ol class="change-list">
-                <li>
-                    <span>Model performance:</span>
-                    <p>The VGG16 pre-trained model performs better in terms of accuracy compared to the self-trained CNN model. This is likely due to the extensive feature extraction capabilities of VGG16, which has been trained on a much larger dataset, enabling it to recognize more complex patterns.</p>
-                </li>
-                <li>
-                    <span>Training Efficiency:</span>
-                    <p>Despite the smaller batch size and increased evaluation steps, the pre-trained model utilizing VGG16 still achieved better accuracy, suggesting that it handles smaller, more frequent updates effectively, which might have contributed to its superior performance.</p>
-                </li>
-                <li>
-                    <span>Model Architecture:</span>
-                    <p>The pre-trained VGG16 model has a much larger parameter count and leverages pre-trained weights. This makes it more powerful in recognizing complex features, whereas the self-trained CNN model, with fewer parameters and no pre-trained knowledge, performs less effectively in comparison.</p>
-                </li>
-                <li>
-                    <span>Inference Time:</span>
-                    <p>The inference time per step for the VGG16 model is slightly shorter (74ms/step) than the self-trained model (106ms/step), despite the higher parameter count. This might be due to VGG16's optimized architecture for image recognition tasks.</p>
-                </li>
-                <li>
-                    <span>Dense layer design impact:</span>
-                    <p>The additional dense layer in VGG16 allows for more abstracted feature transformation before the final classification, which could contribute to its better accuracy, as it enables a more refined mapping between extracted features and classes.</p>
-                </li>
-            </ol>
-        </div>
-
-        <!-- Project Gallery -->
-        <div class="project-gallery">
-            <h2>Project Gallery</h2>
-            <a href="https://colab.research.google.com/drive/1bfh-3cp90Xb5IcDCKLUkt1MFN-nelDJd?usp=drive_link" target="_blank" class="drive-button">
-                <span class="icon">📄</span> <!-- Document icon -->
-                View Project File
-            </a>
-        </div>
-        <!-- Project Links -->
-        <!--div class="project-links">
-            <h2>Project Links</h2>
-            <a href="*" target="_blank" class="project-link">GitHub Repository</a>
-            <a href="*" target="_blank" class="project-link">Live Project</a>
-        </div-->
+      <div class="logo">
+        <h1>Ming Yang</h1>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">About</a>
+        <a href="works.html" class="active">Works</a>
+        <label class="switch">
+          <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
+          <span class="slider-ios"></span>
+        </label>
+      </nav>
     </div>
+  </header>
 
-    <footer>
-        <p>&copy; 2024 Your Name. You can't use up creativity, the more you use, the more you have in your significant mind.</p>
-    </footer>
+  <main class="main-content">
+    <article class="project-details variant-f">
+      <h2 class="project-title">Development of Convolutional Neural Network</h2>
+      <p class="project-summary">Designing a CNN from scratch and benchmarking it against VGG16 for food image classification.</p>
+
+      <section class="project-section">
+        <h3>Purpose</h3>
+        <p>The aim was to evaluate model performance and speed across a custom CNN versus a pre-trained VGG16 model using the same dataset.</p>
+      </section>
+
+      <section class="project-section">
+        <h3>Environment</h3>
+        <ul class="tech-list">
+          <li>Python</li>
+          <li>Google Colab</li>
+          <li>TensorFlow</li>
+          <li>Kaggle Datasets</li>
+        </ul>
+      </section>
+
+      <section class="project-section">
+        <h3>Steps Taken</h3>
+        <ol>
+          <li>Build a simple CNN from scratch</li>
+          <li>Compare structure and results to VGG16</li>
+          <li>Log accuracy, loss, and inference time</li>
+        </ol>
+      </section>
+
+      <section class="project-section">
+        <h3>Visual Comparison</h3>
+        <div class="image-grid">
+          <div class="image-item">
+            <img src="cnn_self.png" alt="Custom CNN model" />
+            <p class="image-caption">Self-trained CNN model</p>
+          </div>
+          <div class="image-item">
+            <img src="cnn_pre.png" alt="Pre-trained VGG16" />
+            <p class="image-caption">VGG16 Pre-trained model</p>
+          </div>
+          <div class="image-item">
+            <img src="cnn_result.png" alt="Result chart" />
+            <p class="image-caption">Result Comparison Chart</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="project-section">
+        <h3>Analysis</h3>
+        <ul class="insight-list">
+          <li><strong>Accuracy:</strong> VGG16 outperformed custom CNN on all metrics.</li>
+          <li><strong>Training Time:</strong> VGG16 converged faster despite larger size due to pre-trained weights.</li>
+          <li><strong>Architecture Depth:</strong> Custom CNN lacked deep enough convolutional layers for complex features.</li>
+        </ul>
+      </section>
+    </article>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Ming Yang. Convolution is key to clarity.</p>
+  </footer>
+
+  <script src="works.js"></script>
 </body>
 </html>
