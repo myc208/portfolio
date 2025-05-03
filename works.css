@@ -349,6 +349,14 @@ footer {
 /* Ensure radial menu does not overlap content */
 .project-view {
   padding-bottom: 8rem;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 /* Responsive fix for image-heavy views */
@@ -357,6 +365,13 @@ footer {
   height: auto;
   display: block;
   margin: 0 auto 1.5rem;
+}
+
+.project-view.active {
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
+  position: relative;
 }
 
 /* Header/navbar matching index.html */
