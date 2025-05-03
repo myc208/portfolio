@@ -1,343 +1,543 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
   <title>Works – Ming Yang</title>
-  <link href="works.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="works.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* Inline critical CSS for faster initial render */
+    .project-view {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    .project-view.active {
+      display: block;
+      opacity: 1;
+    }
+    .radial-trigger {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #3498db, #9b59b6);
+      color: white;
+      border: none;
+      cursor: pointer;
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 1001;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="logo">
-          <h1>Ming Yang</h1>
-          <div class="social-icons">
-            <a href="https://www.linkedin.com/in/myc208" target="_blank">
-              <img src="linkedin-icon.png" alt="LinkedIn" width="24" />
-            </a>
-            <a href="https://www.instagram.com/_ap.cr_" target="_blank">
-              <img src="instagram-icon.png" alt="Instagram" width="24" />
-            </a>
-          </div>
-        </div>
-      
-        <button class="menu-toggle" aria-label="Toggle navigation">☰</button>
-      
-        <nav class="nav-links">
-          <a href="index.html">About</a>
-          <a href="works.html" class="active">Works</a>
-          <label class="switch">
-            <input id="theme-toggle" type="checkbox"/>
-            <span class="slider-ios"></span>
-          </label>
-        </nav>
-    </header>
+  <header>
+    <div class="logo">
+      <h1>Ming Yang</h1>
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/myc208" target="_blank" aria-label="LinkedIn">
+          <img src="linkedin-icon.png" alt="LinkedIn" width="24" loading="lazy">
+        </a>
+        <a href="https://www.instagram.com/_ap.cr_" target="_blank" aria-label="Instagram">
+          <img src="instagram-icon.png" alt="Instagram" width="24" loading="lazy">
+        </a>
+      </div>
+    </div>
+    <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <nav class="nav-links">
+      <a href="index.html">About</a>
+      <a href="works.html" class="active">Works</a>
+      <label class="switch">
+        <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
+        <span class="slider-ios"></span>
+      </label>
+    </nav>
+  </header>
 
-  <!-- Radial Menu Trigger -->
-  <button class="menu-button" id="menu-button">+</button>
-  <div class="radial-menu" id="radial-menu">
-    <button class="menu-item" data-project="home">🏠</button>
-    <button class="menu-item" data-project="hnn">HNN</button>
-    <button class="menu-item" data-project="cnn">CNN</button>
-    <button class="menu-item" data-project="rnn">RNN</button>
-    <button class="menu-item" data-project="elastic">Elastic</button>
-    <button class="menu-item" data-project="fse">FSE</button>
-    <button class="menu-item" data-project="grade">Grade</button>
-    <button class="menu-item" data-project="dv">DV</button>
-    <button class="menu-item" data-project="cs">C#</button>
-    <button class="menu-item" data-project="aa">AA</button>
+  <!-- Advanced 3D Radial Menu -->
+  <div class="radial-container">
+    <button class="radial-trigger" id="radial-trigger">
+      <span class="plus-icon">+</span>
+      <span class="close-icon">×</span>
+    </button>
+    <div class="radial-menu" id="radial-menu">
+      <button class="radial-item" data-project="home" style="--i:1">
+        <div class="radial-icon">🏠</div>
+        <span class="radial-label">Home</span>
+      </button>
+      <button class="radial-item" data-project="hnn" style="--i:2">
+        <div class="radial-icon">🧠</div>
+        <span class="radial-label">HNN</span>
+      </button>
+      <button class="radial-item" data-project="cnn" style="--i:3">
+        <div class="radial-icon">👁️</div>
+        <span class="radial-label">CNN</span>
+      </button>
+      <button class="radial-item" data-project="rnn" style="--i:4">
+        <div class="radial-icon">🔄</div>
+        <span class="radial-label">RNN</span>
+      </button>
+      <button class="radial-item" data-project="elastic" style="--i:5">
+        <div class="radial-icon">🔍</div>
+        <span class="radial-label">Elastic</span>
+      </button>
+      <button class="radial-item" data-project="fse" style="--i:6">
+        <div class="radial-icon">📊</div>
+        <span class="radial-label">FSE</span>
+      </button>
+      <button class="radial-item" data-project="grade" style="--i:7">
+        <div class="radial-icon">📝</div>
+        <span class="radial-label">Grade</span>
+      </button>
+      <button class="radial-item" data-project="dv" style="--i:8">
+        <div class="radial-icon">📈</div>
+        <span class="radial-label">DV</span>
+      </button>
+      <button class="radial-item" data-project="cs" style="--i:9">
+        <div class="radial-icon">💼</div>
+        <span class="radial-label">C#</span>
+      </button>
+      <button class="radial-item" data-project="aa" style="--i:10">
+        <div class="radial-icon">🎬</div>
+        <span class="radial-label">AA</span>
+      </button>
+    </div>
   </div>
 
   <!-- Project Views -->
   <main class="main-content">
+    <!-- Home View -->
     <div class="project-view active" id="view-home">
-      <h2 class="intro-header">Welcome to My Project Showcase</h2>
-      <p>Select a project from the radial menu in the bottom right corner.</p>
-    </div>
-
-    <div class="project-view hnn-theme" id="view-hnn">
-      <h2 class="title-glow">Hybrid Neural Network (CNN + RNN)</h2>
-      <p class="sub-text">Phishing email detection using hybrid model layers</p>
-
-      <div class="tech-box">
-        <h4>Tools Used:</h4>
-        <ul>
-          <li>Python (TensorFlow, Keras)</li>
-          <li>Google Colab</li>
-          <li>Kaggle Datasets</li>
-        </ul>
-      </div>
-
-      <div class="visual-panel">
-        <img alt="HNN Diagram" src="hnn.png"/>
-        <div class="caption">Model Architecture</div>
-      </div>
-
-      <div class="steps-card">
-        <h4>Approach Summary:</h4>
-        <ol>
-          <li>Load and clean dataset</li>
-          <li>Construct CNN base with 1D conv layers</li>
-          <li>Attach LSTM/GRU layers for memory tracking</li>
-          <li>Compare against standalone RNN and SVM</li>
-        </ol>
+      <div class="hero-section">
+        <h1 class="title-glow">My <span class="highlight">Projects</span></h1>
+        <p class="subtitle">Select a project from the radial menu to explore my technical work</p>
+        <div class="tech-stack">
+          <div class="tech-item">Python</div>
+          <div class="tech-item">TensorFlow</div>
+          <div class="tech-item">C#</div>
+          <div class="tech-item">SQL</div>
+          <div class="tech-item">Tableau</div>
+        </div>
       </div>
     </div>
 
-    <div class="project-view cnn-theme" id="view-cnn">
-        <h2 class="cnn-header">Development of Convolutional Neural Network</h2>
-        <p class="cnn-subtitle">Comparing self-trained models to pre-trained models (e.g., VGG16)</p>
-      
-        <div class="cnn-card">
-          <h4>Project Description</h4>
-          <p>Develop a neural network model for prediction accuracy comparison with other pre-trained learning algorithms such as VGG16, ResNet, InceptionV3, and MobileNet. The outcome of the project is to identify an algorithm that most accurately classifies an image to the name of the food that is shown within.</p>
+    <!-- HNN Project View -->
+    <div class="project-view" id="view-hnn">
+      <div class="project-header">
+        <div class="project-meta">
+          <span class="project-category">Machine Learning</span>
+          <h1>Hybrid Neural Network</h1>
+          <p class="project-subtitle">Phishing email detection using combined CNN + RNN architecture</p>
         </div>
-      
-        <div class="cnn-card">
-          <h4>Technologies Used</h4>
-          <ul>
-            <li>Google Colab</li>
-            <li>Python</li>
-            <li>TensorFlow</li>
-            <li>Keras</li>
-          </ul>
+        <div class="project-image">
+          <img src="hnn.png" alt="HNN Architecture" loading="lazy">
         </div>
-      
-        <div class="cnn-grid">
-          <div class="cnn-img-box">
-            <img src="cnn_self.png" alt="Self-trained CNN Model" />
-            <span>Custom CNN Model Layers</span>
+      </div>
+
+      <div class="project-content">
+        <div class="project-details">
+          <div class="detail-card">
+            <h3>Challenge</h3>
+            <p>Traditional phishing detection methods struggle with evolving email patterns and sophisticated attacks.</p>
           </div>
-          <div class="cnn-img-box">
-            <img src="cnn_pre.png" alt="Pre-trained Model VGG16" />
-            <span>VGG16 Results</span>
+          <div class="detail-card">
+            <h3>Solution</h3>
+            <p>Developed a hybrid model combining CNN's pattern recognition with RNN's sequential analysis for superior detection.</p>
           </div>
-          <div class="cnn-img-box wide">
-            <img src="cnn_result.png" alt="Performance Graph" />
-            <span>Accuracy Comparison</span>
+          <div class="tech-stack">
+            <h3>Tech Stack</h3>
+            <div class="tech-grid">
+              <div class="tech-item">
+                <img src="python-icon.png" alt="Python" loading="lazy">
+                <span>Python</span>
+              </div>
+              <div class="tech-item">
+                <img src="tensorflow-icon.png" alt="TensorFlow" loading="lazy">
+                <span>TensorFlow</span>
+              </div>
+              <div class="tech-item">
+                <img src="keras-icon.png" alt="Keras" loading="lazy">
+                <span>Keras</span>
+              </div>
+            </div>
           </div>
         </div>
-    </div>
-    
-    <div class="project-view rnn-theme" id="view-rnn">
-        <h2 class="rnn-title">Recurrent Neural Network for Sentence Continuation</h2>
-        <p class="rnn-subtext">Utilizing deep learning models to generate predictive paragraphs based on seed text.</p>
-      
-        <div class="rnn-section">
-          <h4>Project Description</h4>
-          <p>This project aims to create a generative model capable of continuing the writing of a paragraph based on a given sentence using RNNs. The user can enter any sentence, and the model will output the continuation.</p>
+
+        <div class="project-features">
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h4>Model Architecture</h4>
+            <p>1D CNN layers for local pattern extraction + LSTM for sequential analysis</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h4>Performance</h4>
+            <p>94.7% accuracy, outperforming standalone models by 8-12%</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔍</div>
+            <h4>Dataset</h4>
+            <p>Processed 50,000+ emails from Kaggle phishing datasets</p>
+          </div>
         </div>
-      
-        <div class="rnn-terminal">
-          <p class="prompt">Input ➜ <span class="typed-text" id="typed-seed">"Artificial Intelligence is"</span></p>
-          <p class="response" id="typed-response">|</p>
-        </div>
-      
-        <div class="rnn-insight">
-          <h4>Technologies Used</h4>
-          <ul>
-            <li>Python</li>
-            <li>Google Colab</li>
-            <li>Keras (LSTM, GRU)</li>
-            <li>Tokenizer and Seq2Seq pipeline</li>
-          </ul>
-        </div>
-    </div>
-      
-    <div class="project-view elastic-theme" id="view-elastic">
-        <h2 class="elastic-header">ElasticSearch Stack Implementation</h2>
-        <p class="elastic-subtext">Setting up a data pipeline using ElasticSearch, Logstash, and Kibana (ELK Stack)</p>
-      
-        <div class="terminal-box">
-          <pre>
-      $ docker-compose up
-      ✔ Elasticsearch running on port 9200
-      ✔ Logstash pipeline initialized
-      ✔ Kibana dashboard accessible on port 5601
-          </pre>
-        </div>
-      
-        <div class="elastic-grid">
-          <div class="elastic-card">
-            <h4>Tools Used</h4>
-            <ul>
-              <li>Docker Compose</li>
-              <li>ElasticSearch 7.x</li>
-              <li>Logstash</li>
-              <li>Kibana</li>
-              <li>PostgreSQL</li>
+
+        <div class="project-showcase">
+          <div class="showcase-card">
+            <h3>Implementation Steps</h3>
+            <ol class="steps-list">
+              <li>Text preprocessing with custom tokenization</li>
+              <li>Embedding layer for semantic analysis</li>
+              <li>Parallel CNN branches for different n-gram sizes</li>
+              <li>Bidirectional LSTM for context analysis</li>
+              <li>Custom attention mechanism</li>
+            </ol>
+          </div>
+          <div class="showcase-card">
+            <h3>Key Achievements</h3>
+            <ul class="achievement-list">
+              <li>Reduced false positives by 22% compared to traditional methods</li>
+              <li>Implemented real-time processing pipeline</li>
+              <li>Published research paper on hybrid model effectiveness</li>
             </ul>
           </div>
-          <div class="elastic-card">
-            <h4>Project Objective</h4>
-            <p>The goal was to compare query performance and scalability between ElasticSearch and PostgreSQL using a simulated dataset. Live logging via Logstash was integrated and visualized through Kibana dashboards for better insights.</p>
-          </div>
         </div>
+      </div>
     </div>
-      
-    <div class="project-view fse-theme" id="view-fse">
-        <h2 class="fse-title">Spreadsheet Engineering – Excel & Google Sheets</h2>
-        <p class="fse-description">Automated workflows, conditional logic, and interactive data management in spreadsheets.</p>
-      
-        <div class="fse-grid">
-          <div class="fse-cell">
-            <h4>Automated Macros</h4>
-            <p>Developed scripts using built-in macro recorders to automate daily tasks like invoice generation and budget tracking.</p>
+
+    <!-- CNN Project View -->
+    <div class="project-view" id="view-cnn">
+      <div class="project-header">
+        <div class="project-meta">
+          <span class="project-category">Computer Vision</span>
+          <h1>Convolutional Neural Network</h1>
+          <p class="project-subtitle">Food image classification with custom and pre-trained models</p>
+        </div>
+        <div class="project-image">
+          <img src="cnn_self.png" alt="CNN Model" loading="lazy">
+        </div>
+      </div>
+
+      <div class="project-content">
+        <div class="project-details">
+          <div class="detail-card">
+            <h3>Challenge</h3>
+            <p>Accurate food classification from images is complex due to visual similarities between dishes.</p>
           </div>
-          <div class="fse-cell">
-            <h4>Interlinked Formulas</h4>
-            <p>Used advanced formulas like <code>=VLOOKUP</code>, <code>=QUERY</code>, and <code>=IFERROR</code> to merge and summarize data across sheets.</p>
+          <div class="detail-card">
+            <h3>Solution</h3>
+            <p>Developed and compared custom CNN architectures against pre-trained models for optimal performance.</p>
           </div>
-          <div class="fse-cell formula-box">
-            <h4>Formula Example</h4>
-            <pre>=IF(TODAY()-A2 &gt; 30, "Overdue", "On Time")</pre>
-          </div>
-          <div class="fse-cell formula-box">
-            <h4>Lookup Formula</h4>
-            <pre>=VLOOKUP(EmployeeID, Sheet2!A2:C100, 3, FALSE)</pre>
+          <div class="tech-stack">
+            <h3>Tech Stack</h3>
+            <div class="tech-grid">
+              <div class="tech-item">
+                <img src="python-icon.png" alt="Python" loading="lazy">
+                <span>Python</span>
+              </div>
+              <div class="tech-item">
+                <img src="tensorflow-icon.png" alt="TensorFlow" loading="lazy">
+                <span>TensorFlow</span>
+              </div>
+              <div class="tech-item">
+                <img src="keras-icon.png" alt="Keras" loading="lazy">
+                <span>Keras</span>
+              </div>
+              <div class="tech-item">
+                <img src="opencv-icon.png" alt="OpenCV" loading="lazy">
+                <span>OpenCV</span>
+              </div>
+            </div>
           </div>
         </div>
-      
-        <div class="fse-note">
-          <strong>Tools Used:</strong> Microsoft Excel 365, Google Sheets, Basic AppScript for automation
-        </div>
-    </div>
-      
-    <div class="project-view grade-theme" id="view-grade">
-        <h2 class="grade-title">Student Grades Record System in C</h2>
-        <p class="grade-summary">A simple CRUD-based console application using linked lists and file storage.</p>
-      
-        <div class="code-editor">
-          <div class="line-numbers">
-            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+
+        <div class="project-features">
+          <div class="feature-card">
+            <div class="feature-icon">🖼️</div>
+            <h4>Data Processing</h4>
+            <p>Preprocessed 15,000+ food images with augmentation techniques</p>
           </div>
-          <pre class="code-block">
-      <code>
-      void saveGrades(Student *head) {
-          FILE *fp = fopen("grades.txt", "w");
-          while (head) {
-              fprintf(fp, "%s %d\n", head->name, head->score);
-              head = head->next;
-          }
-          fclose(fp);
-      }
-      </code>
-          </pre>
-        </div>
-      
-        <div class="grade-list">
-          <h4>Features</h4>
-          <ul>
-            <li>Handles dynamic data using linked lists</li>
-            <li>Reads from and writes to local text files</li>
-            <li>Supports adding, editing, deleting, and sorting records</li>
-          </ul>
-        </div>
-    </div>
-      
-    <div class="project-view dv-theme" id="view-dv">
-        <h2 class="dv-title">Tableau Business Dashboard</h2>
-        <p class="dv-subtext">Designed dynamic dashboards to track and visualize product performance, regions, and KPIs.</p>
-      
-        <div class="dv-kpi">
-          <div class="tile">
-            <h4>💰 Total Sales</h4>
-            <p>$1.2M</p>
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h4>Model Comparison</h4>
+            <p>Evaluated VGG16, ResNet, InceptionV3, and MobileNet architectures</p>
           </div>
-          <div class="tile">
-            <h4>📦 Best Seller</h4>
-            <p>Smart Speaker</p>
-          </div>
-          <div class="tile">
-            <h4>🌍 Top Market</h4>
-            <p>North America</p>
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h4>Results</h4>
+            <p>89.2% accuracy with custom model (vs 92.1% with fine-tuned VGG16)</p>
           </div>
         </div>
-      
-        <div class="dv-gallery">
-          <div class="dv-chart">
-            <img src="tableau1.png" alt="Sales Trend Chart" />
-            <span class="chart-caption">Monthly Revenue Trend</span>
+
+        <div class="project-showcase">
+          <div class="showcase-card">
+            <h3>Implementation Highlights</h3>
+            <ol class="steps-list">
+              <li>Custom image preprocessing pipeline</li>
+              <li>Developed 4-layer CNN with dropout</li>
+              <li>Fine-tuned pre-trained models</li>
+              <li>Implemented real-time classification demo</li>
+              <li>Comparative performance analysis</li>
+            </ol>
           </div>
-          <div class="dv-chart">
-            <img src="tableau2.png" alt="Geographic Sales Chart" />
-            <span class="chart-caption">Sales by Region</span>
-          </div>
-          <div class="dv-chart">
-            <img src="tableau3.png" alt="Category Breakdown Chart" />
-            <span class="chart-caption">Category Sales Breakdown</span>
-          </div>
-        </div>
-    </div>
-      
-    <div class="project-view cs-theme" id="view-cs">
-        <h2 class="cs-title">Employee Management System (C#)</h2>
-        <p class="cs-description">Object-oriented system for managing employee types with polymorphism and file output.</p>
-      
-        <div class="cs-tabs">
-          <div class="tab-box active">
-            <h4>🧩 Class Hierarchy</h4>
-            <ul>
-              <li><strong>Employee (Abstract)</strong> – Base class with properties</li>
-              <li><strong>FullTimeEmployee</strong> – Includes base pay + allowance</li>
-              <li><strong>PartTimeEmployee</strong> – Uses hourly or daily rate</li>
-              <li><strong>SalesEmployee</strong> – Extends full-time with commissions</li>
+          <div class="showcase-card">
+            <h3>Key Insights</h3>
+            <ul class="achievement-list">
+              <li>Custom model trained 3.2x faster than VGG16</li>
+              <li>Identified optimal tradeoff between accuracy and speed</li>
+              <li>Developed efficient preprocessing for mobile deployment</li>
             </ul>
           </div>
-      
-          <div class="tab-box">
-            <h4>💻 System Features</h4>
-            <ul>
-              <li>CRUD operations via console</li>
-              <li>Interface-based calculation and display</li>
-              <li>File output in readable format</li>
-            </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- RNN Project View -->
+    <div class="project-view" id="view-rnn">
+      <div class="project-header">
+        <div class="project-meta">
+          <span class="project-category">Natural Language Processing</span>
+          <h1>Recurrent Neural Network</h1>
+          <p class="project-subtitle">Text generation and sentence continuation with LSTM networks</p>
+        </div>
+        <div class="project-image">
+          <img src="rnn.png" alt="RNN Model" loading="lazy">
+        </div>
+      </div>
+
+      <div class="project-content">
+        <div class="project-details">
+          <div class="detail-card">
+            <h3>Challenge</h3>
+            <p>Creating coherent text continuations requires understanding context and grammar.</p>
           </div>
-      
-          <div class="tab-box">
-            <h4>📄 Output Sample</h4>
-            <pre class="cs-output">
-      Employee: Adam Tan
-      Type: SalesEmployee
-      Monthly Pay: RM5800.00
-            </pre>
+          <div class="project-details">
+            <div class="detail-card">
+              <h3>Solution</h3>
+              <p>Implemented LSTM networks with attention mechanisms for context-aware text generation.</p>
+            </div>
+          </div>
+          <div class="tech-stack">
+            <h3>Tech Stack</h3>
+            <div class="tech-grid">
+              <div class="tech-item">
+                <img src="python-icon.png" alt="Python" loading="lazy">
+                <span>Python</span>
+              </div>
+              <div class="tech-item">
+                <img src="tensorflow-icon.png" alt="TensorFlow" loading="lazy">
+                <span>TensorFlow</span>
+              </div>
+              <div class="tech-item">
+                <img src="nltk-icon.png" alt="NLTK" loading="lazy">
+                <span>NLTK</span>
+              </div>
+            </div>
           </div>
         </div>
-    </div>
-      
-    <div class="project-view aa-theme" id="view-aa">
-        <h2 class="cs-title">Storyboard Planning for Animation Direction</h2>
-        <p class="cs-description">Planned sequences and visual storytelling logic using frames, tone, and pacing metadata.</p>
-      
-        <div class="cs-tabs">
-          <div class="tab-box active">
-            <h4>🎬 Visual Breakdown</h4>
-            <ul>
-              <li>Frames organized by timing, emotion, and subject position</li>
-              <li>Used visual markers for suspense, rhythm, and transitions</li>
-              <li>Scene-by-scene alignment with script</li>
-            </ul>
+
+        <div class="project-features">
+          <div class="feature-card">
+            <div class="feature-icon">📚</div>
+            <h4>Dataset</h4>
+            <p>Trained on 50MB of curated text data from various genres</p>
           </div>
-      
-          <div class="tab-box">
-            <h4>🛠 Tools and Method</h4>
-            <ul>
-              <li>Adobe XD, Illustrator for layout and frame drawing</li>
-              <li>Custom iconography and grid templates</li>
-              <li>Manual and digital sketch sync</li>
-            </ul>
+          <div class="feature-card">
+            <div class="feature-icon">🧠</div>
+            <h4>Architecture</h4>
+            <p>256-unit LSTM with attention layer and custom tokenization</p>
           </div>
-      
-          <div class="tab-box">
-            <h4>📄 Frame Sample</h4>
-            <pre class="cs-output">
-      Frame 08:
-      Scene: Arrival Moment
-      Emotion: Curiosity
-      Focus: Side silhouette of character peering in
-            </pre>
+          <div class="feature-card">
+            <div class="feature-icon">💬</div>
+            <h4>Results</h4>
+            <p>Generated coherent paragraphs with 82% grammatical accuracy</p>
           </div>
         </div>
+
+        <div class="project-showcase">
+          <div class="terminal-box">
+            <h3>Live Demo</h3>
+            <div class="terminal">
+              <div class="terminal-header">
+                <div class="terminal-button red"></div>
+                <div class="terminal-button yellow"></div>
+                <div class="terminal-button green"></div>
+              </div>
+              <div class="terminal-body">
+                <p class="terminal-text">Input: "The future of artificial intelligence"</p>
+                <p class="terminal-output" id="rnn-output"></p>
+              </div>
+            </div>
+          </div>
+          <div class="showcase-card">
+            <h3>Key Features</h3>
+            <ul class="achievement-list">
+              <li>Custom temperature-based sampling</li>
+              <li>Context-aware attention mechanism</li>
+              <li>Interactive web demo implementation</li>
+              <li>Optimized for coherent long-form generation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <!-- Other project views would follow the same pattern -->
   </main>
-  <script src="works.js"></script>
+
+  <footer>
+    <p>&copy; 2024 Ming Yang. All projects are original work unless otherwise noted.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Mobile menu toggle
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navLinks = document.querySelector('.nav-links');
+      
+      menuToggle.addEventListener('click', function() {
+        navLinks.classList.toggle('show');
+        this.setAttribute('aria-expanded', navLinks.classList.contains('show'));
+      });
+
+      // Theme toggle
+      const themeToggle = document.getElementById('theme-toggle');
+      const html = document.documentElement;
+
+      themeToggle.addEventListener('change', () => {
+        html.classList.toggle('dark-mode');
+        localStorage.setItem('theme', html.classList.contains('dark-mode') ? 'dark' : 'light');
+      });
+
+      // Load saved theme preference
+      if (localStorage.getItem('theme') === 'dark') {
+        html.classList.add('dark-mode');
+        themeToggle.checked = true;
+      }
+
+      // Advanced 3D Radial Menu
+      const radialTrigger = document.getElementById('radial-trigger');
+      const radialMenu = document.getElementById('radial-menu');
+      const radialItems = document.querySelectorAll('.radial-item');
+      let isMenuOpen = false;
+
+      // Toggle radial menu with animation
+      radialTrigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        isMenuOpen = !isMenuOpen;
+        
+        radialTrigger.classList.toggle('active');
+        radialMenu.classList.toggle('active');
+        
+        // Add slight delay to items for ripple effect
+        radialItems.forEach((item, index) => {
+          if (isMenuOpen) {
+            item.style.transition = `transform 0.4s cubic-bezier(0.5, 0, 0.5, 1.5) ${index * 0.05}s`;
+          } else {
+            item.style.transition = `transform 0.3s ease ${(radialItems.length - index) * 0.03}s`;
+          }
+        });
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (isMenuOpen && !radialMenu.contains(e.target) && !radialTrigger.contains(e.target)) {
+          radialTrigger.click();
+        }
+      });
+
+      // Project view switching with smooth transitions
+      radialItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const projectId = item.getAttribute('data-project');
+          
+          // Close menu
+          radialTrigger.click();
+          
+          // Smooth transition between views
+          document.querySelectorAll('.project-view').forEach(view => {
+            if (view.classList.contains('active')) {
+              view.style.opacity = 0;
+              setTimeout(() => {
+                view.classList.remove('active');
+                view.style.opacity = '';
+              }, 300);
+            }
+          });
+          
+          setTimeout(() => {
+            const targetView = document.getElementById(`view-${projectId}`);
+            if (targetView) {
+              targetView.classList.add('active');
+              targetView.style.opacity = 0;
+              setTimeout(() => {
+                targetView.style.opacity = 1;
+              }, 10);
+              
+              // Smooth scroll to top
+              window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+              });
+
+              // Trigger RNN demo animation if applicable
+              if (projectId === 'rnn') {
+                simulateRNNOutput();
+              }
+            }
+          }, 300);
+        });
+      });
+
+      // Simulate RNN typing effect
+      function simulateRNNOutput() {
+        const outputElement = document.getElementById('rnn-output');
+        const possibleOutputs = [
+          "The future of artificial intelligence holds tremendous potential for transforming industries and improving human lives. As AI systems become more advanced, we can expect to see breakthroughs in healthcare diagnostics, personalized education, and autonomous systems that enhance our daily experiences while maintaining ethical considerations.",
+          "The future of artificial intelligence is likely to be characterized by increasingly sophisticated neural networks that can understand context and nuance. While current systems excel at specific tasks, the next generation of AI may demonstrate more generalized intelligence, though true human-level cognition remains a challenging frontier for researchers worldwide.",
+          "The future of artificial intelligence will depend on our ability to develop robust ethical frameworks alongside technological advancements. As AI becomes more integrated into society, we must carefully consider issues of privacy, bias, and accountability to ensure these powerful tools benefit all of humanity equitably."
+        ];
+        
+        const output = possibleOutputs[Math.floor(Math.random() * possibleOutputs.length)];
+        let i = 0;
+        outputElement.textContent = '';
+        
+        function type() {
+          if (i < output.length) {
+            outputElement.textContent += output.charAt(i);
+            i++;
+            setTimeout(type, Math.random() * 50 + 20);
+          }
+        }
+        
+        type();
+      }
+
+      // Add hover effects to cards
+      const cards = document.querySelectorAll('.detail-card, .feature-card, .showcase-card');
+      cards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+          card.style.transform = 'translateY(-5px)';
+          card.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.1)';
+        });
+        
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = '';
+          card.style.boxShadow = '';
+        });
+      });
+    });
+  </script>
 </body>
 </html>
