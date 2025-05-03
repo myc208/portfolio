@@ -54,6 +54,18 @@ document.addEventListener('DOMContentLoaded', function() {
         showSlide(currentSlide + direction);
     }
 
+    // strong sense of motion
+    slides.forEach((slide, i) => {
+        if (i >= currentSlide && i < currentSlide + slidesToShow) {
+            slide.style.opacity = '1';
+            slide.style.transform = 'scale(1) translateZ(0)';
+        } else {
+            slide.style.opacity = '0.5';
+            slide.style.transform = 'scale(0.95) translateZ(-30px)';
+        }
+    });
+    
+
     // Create navigation bullets
     function renderBullets() {
         bulletsContainer.innerHTML = '';
@@ -133,20 +145,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Dark/Light Mode Toggle
     const themeToggle = document.getElementById('theme-toggle');
-    themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-        localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
-        
-        // Update button emoji
-        themeToggle.textContent = document.body.classList.contains('dark-mode') ? '🌞' : '🌙';
+
+    themeToggle.addEventListener('change', () => {
+        const isDark = themeToggle.checked;
+        document.body.classList.toggle('dark-mode', isDark);
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
     });
 
-    // Check for saved theme preference
+    // Load saved preference
     if (localStorage.getItem('theme') === 'dark') {
         document.body.classList.add('dark-mode');
-        themeToggle.textContent = '🌞';
-    } else {
-        themeToggle.textContent = '🌙';
+        themeToggle.checked = true;
     }
 
     // Enhanced Timeline with Progress Bar
