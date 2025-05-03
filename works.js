@@ -1,50 +1,44 @@
-// Dark mode toggle
-const toggle = document.getElementById('theme-toggle');
-toggle.addEventListener('change', () => {
-  document.body.classList.toggle('dark-mode', toggle.checked);
-  localStorage.setItem('theme', toggle.checked ? 'dark' : 'light');
-});
+document.addEventListener('DOMContentLoaded', function () {
+  // Toggle radial menu
+  const menu = document.getElementById('radial-menu');
+  const menuBtn = document.getElementById('menu-button');
+  const items = document.querySelectorAll('.menu-item');
+  menuBtn.addEventListener('click', () => {
+    menu.classList.toggle('active');
+  });
 
-window.addEventListener('DOMContentLoaded', () => {
-  const saved = localStorage.getItem('theme');
-  if (saved === 'dark') {
-    document.body.classList.add('dark-mode');
-    toggle.checked = true;
-
-
-
-  }
-});
-
-// Radial menu logic
-const menuBtn = document.getElementById('menu-button');
-const menu = document.getElementById('radial-menu');
-const items = menu.querySelectorAll('.menu-item');
-const radius = 120;
-
-menuBtn.addEventListener('click', () => {
-  menu.classList.toggle('active');
-  if (menu.classList.contains('active')) {
-    items.forEach((item, i) => {
-      const angle = (Math.PI / (items.length - 1)) * i;
-      const x = radius * Math.cos(angle);
-      const y = radius * Math.sin(angle);
-      item.style.transform = `translate(-${x}px, -${y}px)`;
+  // View switching
+  items.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = btn.getAttribute('data-project');
+      document.querySelectorAll('.project-view').forEach(view => {
+        view.classList.remove('active');
+      });
+      const view = document.getElementById(`view-${id}`);
+      if (view) view.classList.add('active');
+      menu.classList.remove('active');
     });
-  } else {
-    items.forEach(item => item.style.transform = 'scale(0)');
-  }
-});
+  });
 
-// Switching views
-items.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const id = btn.getAttribute('data-project');
-    document.querySelectorAll('.project-view').forEach(view => {
-      view.classList.remove('active');
-    });
-    const view = document.getElementById(`view-${id}`);
-    if (view) view.classList.add('active');
-    menu.classList.remove('active');
+  // Dark mode toggle
+  const themeToggle = document.getElementById('theme-toggle');
+  const html = document.documentElement;
+
+  themeToggle.addEventListener('change', () => {
+    html.classList.toggle('dark-mode');
+    localStorage.setItem('theme', html.classList.contains('dark-mode') ? 'dark' : 'light');
+  });
+
+  // Persist dark mode preference
+  if (localStorage.getItem('theme') === 'dark') {
+    html.classList.add('dark-mode');
+    themeToggle.checked = true;
+  }
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!menu.contains(e.target) && !menuBtn.contains(e.target)) {
+      menu.classList.remove('active');
+    }
   });
 });
