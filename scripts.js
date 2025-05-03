@@ -53,17 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function changeSlide(direction) {
         showSlide(currentSlide + direction);
     }
-
-    // strong sense of motion
-    slides.forEach((slide, i) => {
-        if (i >= currentSlide && i < currentSlide + slidesToShow) {
-            slide.style.opacity = '1';
-            slide.style.transform = 'scale(1) translateZ(0)';
-        } else {
-            slide.style.opacity = '0.5';
-            slide.style.transform = 'scale(0.95) translateZ(-30px)';
-        }
-    });
     
 
     // Create navigation bullets
