@@ -10,34 +10,24 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    /* Inline critical CSS for faster initial render */
+    /* Critical CSS to ensure basic functionality */
     .project-view {
       display: none;
       opacity: 0;
-      transition: opacity 0.5s ease;
+      transition: opacity 0.3s ease;
     }
     .project-view.active {
       display: block;
       opacity: 1;
     }
-    .radial-trigger {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #3498db, #9b59b6);
-      color: white;
-      border: none;
-      cursor: pointer;
+    .radial-menu {
+      display: none;
       position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      z-index: 1001;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-      transition: all 0.3s ease;
+      bottom: 80px;
+      right: 20px;
+    }
+    .radial-menu.active {
+      display: block;
     }
   </style>
 </head>
@@ -47,10 +37,10 @@
       <h1>Ming Yang</h1>
       <div class="social-icons">
         <a href="https://www.linkedin.com/in/myc208" target="_blank" aria-label="LinkedIn">
-          <img src="linkedin-icon.png" alt="LinkedIn" width="24" loading="lazy">
+          <img src="linkedin-icon.png" alt="LinkedIn" width="24">
         </a>
         <a href="https://www.instagram.com/_ap.cr_" target="_blank" aria-label="Instagram">
-          <img src="instagram-icon.png" alt="Instagram" width="24" loading="lazy">
+          <img src="instagram-icon.png" alt="Instagram" width="24">
         </a>
       </div>
     </div>
@@ -65,71 +55,26 @@
     </nav>
   </header>
 
-  <!-- Advanced 3D Radial Menu -->
-  <div class="radial-container">
-    <button class="radial-trigger" id="radial-trigger">
-      <span class="plus-icon">+</span>
-      <span class="close-icon">×</span>
-    </button>
-    <div class="radial-menu" id="radial-menu">
-      <button class="radial-item" data-project="home" style="--i:1">
-        <div class="radial-icon">🏠</div>
-        <span class="radial-label">Home</span>
-      </button>
-      <button class="radial-item" data-project="hnn" style="--i:2">
-        <div class="radial-icon">🧠</div>
-        <span class="radial-label">HNN</span>
-      </button>
-      <button class="radial-item" data-project="cnn" style="--i:3">
-        <div class="radial-icon">👁️</div>
-        <span class="radial-label">CNN</span>
-      </button>
-      <button class="radial-item" data-project="rnn" style="--i:4">
-        <div class="radial-icon">🔄</div>
-        <span class="radial-label">RNN</span>
-      </button>
-      <button class="radial-item" data-project="elastic" style="--i:5">
-        <div class="radial-icon">🔍</div>
-        <span class="radial-label">Elastic</span>
-      </button>
-      <button class="radial-item" data-project="fse" style="--i:6">
-        <div class="radial-icon">📊</div>
-        <span class="radial-label">FSE</span>
-      </button>
-      <button class="radial-item" data-project="grade" style="--i:7">
-        <div class="radial-icon">📝</div>
-        <span class="radial-label">Grade</span>
-      </button>
-      <button class="radial-item" data-project="dv" style="--i:8">
-        <div class="radial-icon">📈</div>
-        <span class="radial-label">DV</span>
-      </button>
-      <button class="radial-item" data-project="cs" style="--i:9">
-        <div class="radial-icon">💼</div>
-        <span class="radial-label">C#</span>
-      </button>
-      <button class="radial-item" data-project="aa" style="--i:10">
-        <div class="radial-icon">🎬</div>
-        <span class="radial-label">AA</span>
-      </button>
-    </div>
+  <!-- Radial Menu -->
+  <button class="menu-button" id="menu-button">+</button>
+  <div class="radial-menu" id="radial-menu">
+    <button class="menu-item" data-project="home">🏠</button>
+    <button class="menu-item" data-project="hnn">HNN</button>
+    <button class="menu-item" data-project="cnn">CNN</button>
+    <button class="menu-item" data-project="rnn">RNN</button>
+    <button class="menu-item" data-project="elastic">Elastic</button>
+    <button class="menu-item" data-project="fse">FSE</button>
+    <button class="menu-item" data-project="grade">Grade</button>
+    <button class="menu-item" data-project="dv">DV</button>
+    <button class="menu-item" data-project="cs">C#</button>
+    <button class="menu-item" data-project="aa">AA</button>
   </div>
 
   <!-- Project Views -->
   <main class="main-content">
-    <!-- Home View -->
     <div class="project-view active" id="view-home">
-      <div class="hero-section">
-        <h1 class="title-glow">My <span class="highlight">Projects</span></h1>
-        <p class="subtitle">Select a project from the radial menu to explore my technical work</p>
-        <div class="tech-stack">
-          <div class="tech-item">Python</div>
-          <div class="tech-item">TensorFlow</div>
-          <div class="tech-item">C#</div>
-          <div class="tech-item">SQL</div>
-          <div class="tech-item">Tableau</div>
-        </div>
-      </div>
+      <h2 class="intro-header">Welcome to My Project Showcase</h2>
+      <p>Select a project from the radial menu in the bottom right corner.</p>
     </div>
 
     <!-- HNN Project View -->
@@ -399,144 +344,79 @@
     <p>&copy; 2024 Ming Yang. All projects are original work unless otherwise noted.</p>
   </footer>
 
+  <script src="works.js"></script>
   <script>
+    // Ensure DOM is fully loaded
     document.addEventListener('DOMContentLoaded', function() {
       // Mobile menu toggle
       const menuToggle = document.querySelector('.menu-toggle');
       const navLinks = document.querySelector('.nav-links');
       
-      menuToggle.addEventListener('click', function() {
-        navLinks.classList.toggle('show');
-        this.setAttribute('aria-expanded', navLinks.classList.contains('show'));
-      });
+      if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', function() {
+          navLinks.classList.toggle('show');
+          this.setAttribute('aria-expanded', navLinks.classList.contains('show'));
+        });
+      }
 
       // Theme toggle
       const themeToggle = document.getElementById('theme-toggle');
       const html = document.documentElement;
 
-      themeToggle.addEventListener('change', () => {
-        html.classList.toggle('dark-mode');
-        localStorage.setItem('theme', html.classList.contains('dark-mode') ? 'dark' : 'light');
-      });
+      if (themeToggle) {
+        themeToggle.addEventListener('change', function() {
+          html.classList.toggle('dark-mode');
+          localStorage.setItem('theme', html.classList.contains('dark-mode') ? 'dark' : 'light');
+        });
 
-      // Load saved theme preference
-      if (localStorage.getItem('theme') === 'dark') {
-        html.classList.add('dark-mode');
-        themeToggle.checked = true;
+        // Load saved theme preference
+        if (localStorage.getItem('theme') === 'dark') {
+          html.classList.add('dark-mode');
+          themeToggle.checked = true;
+        }
       }
 
-      // Advanced 3D Radial Menu
-      const radialTrigger = document.getElementById('radial-trigger');
+      // Radial menu functionality
+      const menuButton = document.getElementById('menu-button');
       const radialMenu = document.getElementById('radial-menu');
-      const radialItems = document.querySelectorAll('.radial-item');
-      let isMenuOpen = false;
+      const menuItems = document.querySelectorAll('.menu-item');
 
-      // Toggle radial menu with animation
-      radialTrigger.addEventListener('click', (e) => {
-        e.stopPropagation();
-        isMenuOpen = !isMenuOpen;
-        
-        radialTrigger.classList.toggle('active');
-        radialMenu.classList.toggle('active');
-        
-        // Add slight delay to items for ripple effect
-        radialItems.forEach((item, index) => {
-          if (isMenuOpen) {
-            item.style.transition = `transform 0.4s cubic-bezier(0.5, 0, 0.5, 1.5) ${index * 0.05}s`;
-          } else {
-            item.style.transition = `transform 0.3s ease ${(radialItems.length - index) * 0.03}s`;
-          }
-        });
-      });
-
-      // Close menu when clicking outside
-      document.addEventListener('click', (e) => {
-        if (isMenuOpen && !radialMenu.contains(e.target) && !radialTrigger.contains(e.target)) {
-          radialTrigger.click();
-        }
-      });
-
-      // Project view switching with smooth transitions
-      radialItems.forEach(item => {
-        item.addEventListener('click', (e) => {
+      if (menuButton && radialMenu) {
+        menuButton.addEventListener('click', function(e) {
           e.stopPropagation();
-          const projectId = item.getAttribute('data-project');
-          
-          // Close menu
-          radialTrigger.click();
-          
-          // Smooth transition between views
-          document.querySelectorAll('.project-view').forEach(view => {
-            if (view.classList.contains('active')) {
-              view.style.opacity = 0;
-              setTimeout(() => {
-                view.classList.remove('active');
-                view.style.opacity = '';
-              }, 300);
-            }
-          });
-          
-          setTimeout(() => {
-            const targetView = document.getElementById(`view-${projectId}`);
-            if (targetView) {
-              targetView.classList.add('active');
-              targetView.style.opacity = 0;
-              setTimeout(() => {
-                targetView.style.opacity = 1;
-              }, 10);
-              
-              // Smooth scroll to top
-              window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-              });
-
-              // Trigger RNN demo animation if applicable
-              if (projectId === 'rnn') {
-                simulateRNNOutput();
-              }
-            }
-          }, 300);
+          radialMenu.classList.toggle('active');
         });
-      });
 
-      // Simulate RNN typing effect
-      function simulateRNNOutput() {
-        const outputElement = document.getElementById('rnn-output');
-        const possibleOutputs = [
-          "The future of artificial intelligence holds tremendous potential for transforming industries and improving human lives. As AI systems become more advanced, we can expect to see breakthroughs in healthcare diagnostics, personalized education, and autonomous systems that enhance our daily experiences while maintaining ethical considerations.",
-          "The future of artificial intelligence is likely to be characterized by increasingly sophisticated neural networks that can understand context and nuance. While current systems excel at specific tasks, the next generation of AI may demonstrate more generalized intelligence, though true human-level cognition remains a challenging frontier for researchers worldwide.",
-          "The future of artificial intelligence will depend on our ability to develop robust ethical frameworks alongside technological advancements. As AI becomes more integrated into society, we must carefully consider issues of privacy, bias, and accountability to ensure these powerful tools benefit all of humanity equitably."
-        ];
-        
-        const output = possibleOutputs[Math.floor(Math.random() * possibleOutputs.length)];
-        let i = 0;
-        outputElement.textContent = '';
-        
-        function type() {
-          if (i < output.length) {
-            outputElement.textContent += output.charAt(i);
-            i++;
-            setTimeout(type, Math.random() * 50 + 20);
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+          if (!radialMenu.contains(e.target) && !menuButton.contains(e.target)) {
+            radialMenu.classList.remove('active');
           }
-        }
-        
-        type();
-      }
+        });
 
-      // Add hover effects to cards
-      const cards = document.querySelectorAll('.detail-card, .feature-card, .showcase-card');
-      cards.forEach(card => {
-        card.addEventListener('mouseenter', () => {
-          card.style.transform = 'translateY(-5px)';
-          card.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.1)';
-        });
-        
-        card.addEventListener('mouseleave', () => {
-          card.style.transform = '';
-          card.style.boxShadow = '';
-        });
-      });
+        // Project view switching
+        if (menuItems.length > 0) {
+          menuItems.forEach(item => {
+            item.addEventListener('click', function() {
+              const projectId = this.getAttribute('data-project');
+              
+              // Hide all views
+              document.querySelectorAll('.project-view').forEach(view => {
+                view.classList.remove('active');
+              });
+              
+              // Show selected view
+              const targetView = document.getElementById(`view-${projectId}`);
+              if (targetView) {
+                targetView.classList.add('active');
+              }
+              
+              // Close menu
+              radialMenu.classList.remove('active');
+            });
+          });
+        }
+      }
     });
   </script>
 </body>
