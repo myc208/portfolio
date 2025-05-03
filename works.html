@@ -1,47 +1,322 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <title>Works – Ming Yang</title>
-  <link rel="stylesheet" href="works.css" />
+  <link href="works.css" rel="stylesheet"/>
 </head>
 <body>
   <header class="top-header">
     <h1>Ming Yang – Projects</h1>
     <label class="switch">
-      <input type="checkbox" id="theme-toggle" />
+      <input id="theme-toggle" type="checkbox"/>
       <span class="slider-ios"></span>
     </label>
   </header>
 
   <!-- Radial Menu Trigger -->
-  <button id="menu-button" class="menu-button">+</button>
-  <div id="radial-menu" class="radial-menu">
-    <button data-project="hnn" class="menu-item">HNN</button>
-    <button data-project="cnn" class="menu-item">CNN</button>
-    <button data-project="rnn" class="menu-item">RNN</button>
-    <button data-project="elastic" class="menu-item">Elastic</button>
-    <button data-project="fse" class="menu-item">FSE</button>
-    <button data-project="grade" class="menu-item">Grade</button>
-    <button data-project="dv" class="menu-item">Tableau</button>
-    <button data-project="cs" class="menu-item">C#</button>
-    <button data-project="aa" class="menu-item">Storyboard</button>
+  <button class="menu-button" id="menu-button">+</button>
+  <div class="radial-menu" id="radial-menu">
+    <button class="menu-item" data-project="home">🏠</button>
+    <button class="menu-item" data-project="hnn">HNN</button>
+    <button class="menu-item" data-project="cnn">CNN</button>
+    <button class="menu-item" data-project="rnn">RNN</button>
+    <button class="menu-item" data-project="elastic">Elastic</button>
+    <button class="menu-item" data-project="fse">FSE</button>
+    <button class="menu-item" data-project="grade">Grade</button>
+    <button class="menu-item" data-project="dv">DV</button>
+    <button class="menu-item" data-project="cs">C#</button>
+    <button class="menu-item" data-project="aa">AA</button>
   </div>
 
   <!-- Project Views -->
   <main class="main-content">
-    <div id="view-hnn" class="project-view active">Hybrid Neural Network content...</div>
-    <div id="view-cnn" class="project-view">Convolutional Neural Network content...</div>
-    <div id="view-rnn" class="project-view">Recurrent Neural Network content...</div>
-    <div id="view-elastic" class="project-view">ElasticSearch Project content...</div>
-    <div id="view-fse" class="project-view">Excel Spreadsheet Engineering content...</div>
-    <div id="view-grade" class="project-view">Student Grades System content...</div>
-    <div id="view-dv" class="project-view">Tableau Visualizations content...</div>
-    <div id="view-cs" class="project-view">C# Employee App content...</div>
-    <div id="view-aa" class="project-view">Storyboard Mapping content...</div>
-  </main>
+    <div class="project-view active" id="view-home">
+      <h2 class="intro-header">Welcome to My Project Showcase</h2>
+      <p>Select a project from the radial menu in the bottom right corner.</p>
+    </div>
 
+    <div class="project-view hnn-theme" id="view-hnn">
+      <h2 class="title-glow">Hybrid Neural Network (CNN + RNN)</h2>
+      <p class="sub-text">Phishing email detection using hybrid model layers</p>
+
+      <div class="tech-box">
+        <h4>Tools Used:</h4>
+        <ul>
+          <li>Python (TensorFlow, Keras)</li>
+          <li>Google Colab</li>
+          <li>Kaggle Datasets</li>
+        </ul>
+      </div>
+
+      <div class="visual-panel">
+        <img alt="HNN Diagram" src="hnn.png"/>
+        <div class="caption">Model Architecture</div>
+      </div>
+
+      <div class="steps-card">
+        <h4>Approach Summary:</h4>
+        <ol>
+          <li>Load and clean dataset</li>
+          <li>Construct CNN base with 1D conv layers</li>
+          <li>Attach LSTM/GRU layers for memory tracking</li>
+          <li>Compare against standalone RNN and SVM</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="project-view cnn-theme" id="view-cnn">
+        <h2 class="cnn-header">Convolutional Neural Network</h2>
+        <p class="cnn-subtitle">Building, training, and evaluating CNN vs VGG16</p>
+      
+        <div class="cnn-card">
+          <h4>Project Goals:</h4>
+          <ul>
+            <li>Create a lightweight CNN from scratch</li>
+            <li>Benchmark against pretrained VGG16</li>
+            <li>Analyze accuracy and training time</li>
+          </ul>
+        </div>
+      
+        <div class="cnn-grid">
+          <div class="cnn-img-box">
+            <img src="cnn_self.png" alt="Custom CNN"/>
+            <span>Self-Trained CNN</span>
+          </div>
+          <div class="cnn-img-box">
+            <img src="cnn_pre.png" alt="VGG16 Pretrained"/>
+            <span>VGG16</span>
+          </div>
+          <div class="cnn-img-box wide">
+            <img src="cnn_result.png" alt="Result Comparison"/>
+            <span>Performance Graph</span>
+          </div>
+        </div>
+    </div>
+    
+    <div class="project-view rnn-theme" id="view-rnn">
+        <h2 class="rnn-title">Recurrent Neural Network (RNN)</h2>
+        <p class="rnn-subtext">Generating full paragraphs from sentence seeds using GRU/LSTM models.</p>
+      
+        <div class="rnn-section">
+          <h4>Challenge</h4>
+          <p>Train a model to read sentence structures and output predictive paragraph continuations with coherence and tone control.</p>
+        </div>
+      
+        <div class="rnn-terminal">
+          <p class="prompt">Input ➜ <span class="typed-text" id="typed-seed">"Technology is evolving"</span></p>
+          <p class="response" id="typed-response">|</p>
+        </div>
+      
+        <div class="rnn-insight">
+          <h4>Technologies Used:</h4>
+          <ul>
+            <li>Python</li>
+            <li>Keras (LSTM, GRU)</li>
+            <li>Google Colab</li>
+            <li>Tokenizer + Seq2Seq pipeline</li>
+          </ul>
+        </div>
+    </div>
+    
+    <div class="project-view elastic-theme" id="view-elastic">
+        <h2 class="elastic-header">ElasticSearch DB Ecosystem</h2>
+        <p class="elastic-subtext">Containerized search engine stack with Logstash and Kibana dashboards.</p>
+      
+        <div class="terminal-box">
+          <pre>
+      $ docker run elasticsearch
+      ✔ Service Started on port 9200
+      
+      $ curl http://localhost:9200/_cat/indices?v
+      ✔ index1        ✔ index2        ✔ index3
+          </pre>
+        </div>
+      
+        <div class="elastic-grid">
+          <div class="elastic-card">
+            <h4>Tools Used</h4>
+            <ul>
+              <li>Docker Compose</li>
+              <li>ElasticSearch 7.x</li>
+              <li>Logstash</li>
+              <li>Kibana</li>
+              <li>PostgreSQL</li>
+            </ul>
+          </div>
+          <div class="elastic-card">
+            <h4>Project Objectives</h4>
+            <p>Compare query speed, live logging, and scalability between ElasticSearch and traditional SQL servers.</p>
+          </div>
+        </div>
+    </div>
+    
+    <div class="project-view fse-theme" id="view-fse">
+        <h2 class="fse-title">Spreadsheet Engineering (Excel & Google Sheets)</h2>
+        <p class="fse-description">Designing automated workflows using advanced formulas, cross-sheet linking, and dashboard charts.</p>
+      
+        <div class="fse-grid">
+          <div class="fse-cell">
+            <h4>Macro Automation</h4>
+            <p>Record, edit, and trigger repetitive tasks across sheets.</p>
+          </div>
+          <div class="fse-cell">
+            <h4>Interlinked Formulas</h4>
+            <p>Use <code>=IF</code>, <code>=VLOOKUP</code>, and <code>=COUNTIF</code> across sheets.</p>
+          </div>
+          <div class="fse-cell formula-box">
+            <h4>Example Formula</h4>
+            <pre>=IF(A1&gt;100, "High", "Low")</pre>
+          </div>
+          <div class="fse-cell formula-box">
+            <h4>Lookup</h4>
+            <pre>=VLOOKUP(ID, A2:C100, 3, FALSE)</pre>
+          </div>
+        </div>
+      
+        <div class="fse-note">
+          <strong>Tools:</strong> Excel 365, Google Sheets, Python (Data Cleaning)
+        </div>
+    </div>
+    
+    <div class="project-view grade-theme" id="view-grade">
+        <h2 class="grade-title">Grades Record System (C Language)</h2>
+        <p class="grade-summary">Manage student records with file persistence and console-based commands.</p>
+      
+        <div class="code-editor">
+          <div class="line-numbers">
+            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+          </div>
+          <pre class="code-block">
+      <code>
+      void saveGrades(Student *head) {
+          FILE *fp = fopen("grades.txt", "w");
+          while (head) {
+              fprintf(fp, "%s %d\n", head->name, head->score);
+              head = head->next;
+          }
+          fclose(fp);
+      }
+      </code>
+          </pre>
+        </div>
+      
+        <div class="grade-list">
+          <h4>Features:</h4>
+          <ul>
+            <li>Dynamic linked list of student structs</li>
+            <li>Save/load from text file with validation</li>
+            <li>Sort, search, and update records via command input</li>
+          </ul>
+        </div>
+    </div>
+    
+    <div class="project-view dv-theme" id="view-dv">
+        <h2 class="dv-title">Data Visualization with Tableau</h2>
+        <p class="dv-subtext">Analyzing business metrics using dynamic dashboards and interactive charts.</p>
+      
+        <div class="dv-kpi">
+          <div class="tile">
+            <h4>💰 Total Sales</h4>
+            <p>$1.2M</p>
+          </div>
+          <div class="tile">
+            <h4>📦 Top Product</h4>
+            <p>Smart Speaker</p>
+          </div>
+          <div class="tile">
+            <h4>🌍 Highest Region</h4>
+            <p>North America</p>
+          </div>
+        </div>
+      
+        <div class="dv-gallery">
+          <div class="dv-chart">
+            <img src="tableau1.png" alt="Sales Trends"/>
+            <span class="chart-caption">Monthly Revenue Trends</span>
+          </div>
+          <div class="dv-chart">
+            <img src="tableau2.png" alt="Geo Analysis"/>
+            <span class="chart-caption">Geo Distribution</span>
+          </div>
+          <div class="dv-chart">
+            <img src="tableau3.png" alt="Time Breakdown"/>
+            <span class="chart-caption">Category Performance</span>
+          </div>
+        </div>
+    </div>
+    
+    <div class="project-view cs-theme" id="view-cs">
+        <h2 class="cs-title">C# Employee Management System</h2>
+        <p class="cs-description">A class-based application handling full-time, part-time, and commission-based employee types using inheritance.</p>
+        <div class="cs-tabs">
+          <div class="tab-box active">
+            <h4>🧩 Class Hierarchy</h4>
+            <ul>
+              <li><strong>Employee (Abstract)</strong> – Base class</li>
+              <li><strong>FullTimeEmployee</strong> – BasePay + Allowance</li>
+              <li><strong>PartTimeEmployee</strong> – DailyRate × Days</li>
+              <li><strong>SalesEmployee</strong> – Inherits FullTime + Commission</li>
+            </ul>
+          </div>
+      
+          <div class="tab-box">
+            <h4>💻 Application Features</h4>
+            <ul>
+              <li>Object creation and polymorphism</li>
+              <li>Interface-based pay calculation</li>
+              <li>Console-based CRUD operations</li>
+            </ul>
+          </div>
+      
+          <div class="tab-box">
+            <h4>📄 Sample Output</h4>
+            <pre class="cs-output">
+      Name: Jane Doe
+      Type: SalesEmployee
+      Pay: RM 5800.00
+            </pre>
+          </div>
+        </div>
+    </div>
+    
+    <div class="project-view aa-theme" id="view-aa">
+        <h2 class="cs-title">Storyboard Mapping</h2>
+        <p class="cs-description">A narrative planning project using visual sequencing and text overlays to organize a storytelling framework.</p>
+      
+        <div class="cs-tabs">
+          <div class="tab-box active">
+            <h4>🎬 Visual Plan</h4>
+            <ul>
+              <li>Color-coded frame breakdowns</li>
+              <li>Scene-by-scene logic blocks</li>
+              <li>Metadata tags: emotion, pacing, subject</li>
+            </ul>
+          </div>
+      
+          <div class="tab-box">
+            <h4>🖼️ Tools & Assets</h4>
+            <ul>
+              <li>Adobe XD / Illustrator</li>
+              <li>Custom icons & shapes</li>
+              <li>Script import + frame sync</li>
+            </ul>
+          </div>
+      
+          <div class="tab-box">
+            <h4>📌 Output Snippet</h4>
+            <pre class="cs-output">
+      Frame 05:
+      Scene: Tension Rising
+      Emotion: Suspense
+      Focus: Character silhouette
+            </pre>
+          </div>
+        </div>
+    </div>
+      
+  </main>
   <script src="works.js"></script>
 </body>
 </html>
+      
