@@ -1,48 +1,155 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="project-cnn">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Convolutional Neural Network – Ming Yang</title>
-  <link rel="stylesheet" href="works.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/portfolio/">
+    <title>Ming Yang - CNN Development</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="works.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body class="light-mode">
-  <header class="top-header">
-    <h1>Ming Yang – Convolutional Neural Network</h1>
-    <a href="works.html" class="drive-button">← Back to All Works</a>
-  </header>
-
-  <main class="main-content">
-    <div id="view-cnn" class="project-view active cnn-theme">
-      <h2 class="cnn-header">Convolutional Neural Network</h2>
-      <p class="cnn-subtitle">Building, training, and evaluating CNN vs VGG16</p>
-
-      <div class="cnn-card">
-        <h4>Project Goals:</h4>
-        <ul>
-          <li>Create a lightweight CNN from scratch</li>
-          <li>Benchmark against pretrained VGG16</li>
-          <li>Analyze accuracy and training time</li>
-        </ul>
-      </div>
-
-      <div class="cnn-grid">
-        <div class="cnn-img-box">
-          <img src="cnn_self.png" alt="Custom CNN" />
-          <span>Self-Trained CNN</span>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Ming Yang</h1>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/myc208" target="_blank" aria-label="LinkedIn">
+                    <img src="linkedin-icon.png" alt="LinkedIn" width="24" loading="lazy">
+                </a>
+                <a href="https://www.instagram.com/_ap.cr_" target="_blank" aria-label="Instagram">
+                    <img src="instagram-icon.png" alt="Instagram" width="24" loading="lazy">
+                </a>
+            </div>
         </div>
-        <div class="cnn-img-box">
-          <img src="cnn_pre.png" alt="VGG16 Pretrained" />
-          <span>VGG16</span>
-        </div>
-        <div class="cnn-img-box wide">
-          <img src="cnn_result.png" alt="Result Comparison" />
-          <span>Performance Graph</span>
-        </div>
-      </div>
+    </header>
+
+    <div class="nav-orb" id="navOrb">
+        <i class="fas fa-bars"></i>
     </div>
-  </main>
+    
+    <div class="nav-sphere" id="navSphere">
+        <a href="work_hnn.html"><i class="fas fa-brain"></i> Hybrid Neural Network</a>
+        <a href="work_elastic.html"><i class="fas fa-database"></i> ElasticSearch DB</a>
+        <a href="work_cnn.html" class="active"><i class="fas fa-eye"></i> Convolutional NN</a>
+        <a href="work_rnn.html"><i class="fas fa-language"></i> Recurrent NN</a>
+        <a href="work_aa.html"><i class="fas fa-chart-line"></i> Storyboard Mapping</a>
+        <a href="work_fse.html"><i class="fas fa-file-excel"></i> Excel Engineering</a>
+        <a href="work_dv.html"><i class="fas fa-chart-pie"></i> Data Visualization</a>
+        <a href="work_cs.html"><i class="fas fa-code"></i> C# Application</a>
+        <a href="work_grade.html"><i class="fas fa-graduation-cap"></i> Grades Database</a>
+    </div>
 
-  <script src="works.js"></script>
+    <div class="container">
+        <div class="project-header">
+            <h1 class="project-title">Development of Convolutional Neural Network</h1>
+            <p class="project-summary">Comparing self-trained models to pre-trained model (VGG16)</p>
+        </div>
+
+        <div class="project-description project-section">
+            <h2>Project Description</h2>
+            <p>Develop a neural network model for prediction accuracy comparison with other pre-trained learning algorithms such as VGG16, ResNet, InceptionV3, and MobileNet. The outcome of the project is to identify an algorithm that most accurately classifies an image to the name of the food that is shown within.</p>
+        </div>
+
+        <div class="project-technologies project-section">
+            <h2>Technologies Used</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <i class="fab fa-python"></i>
+                    <span>Python</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-project-diagram"></i>
+                    <span>TensorFlow/Keras</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-cloud"></i>
+                    <span>Google Colab</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-images"></i>
+                    <span>Image Processing</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-comparison project-section">
+            <h2>Model Comparison</h2>
+            <div class="comparison-grid">
+                <div class="comparison-item animate-on-scroll">
+                    <h3>Self-trained CNN</h3>
+                    <ul>
+                        <li>Custom architecture</li>
+                        <li>Smaller parameter count</li>
+                        <li>Faster training time</li>
+                        <li>Lower initial accuracy</li>
+                    </ul>
+                </div>
+                <div class="comparison-item animate-on-scroll">
+                    <h3>VGG16</h3>
+                    <ul>
+                        <li>Pre-trained on ImageNet</li>
+                        <li>Deep architecture (16 layers)</li>
+                        <li>Transfer learning benefits</li>
+                        <li>Higher accuracy</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-gallery project-section">
+            <h2>Visual Results</h2>
+            <div class="image-grid">
+                <div class="image-item animate-on-scroll">
+                    <img src="cnn_self.png" alt="Self-trained model">
+                    <p class="image-caption">Self-trained Model Architecture</p>
+                </div>
+                <div class="image-item animate-on-scroll">
+                    <img src="cnn_pre.png" alt="VGG16 model">
+                    <p class="image-caption">VGG16 Transfer Learning Implementation</p>
+                </div>
+                <div class="image-item animate-on-scroll">
+                    <img src="cnn_result.png" alt="Comparison results">
+                    <p class="image-caption">Accuracy Comparison Results</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-analysis project-section">
+            <h2>Key Findings</h2>
+            <div class="findings-container">
+                <div class="finding-item animate-on-scroll">
+                    <i class="fas fa-chart-line"></i>
+                    <div>
+                        <h3>Performance Advantage</h3>
+                        <p>The VGG16 pre-trained model achieved 15% higher accuracy than the self-trained model, demonstrating the power of transfer learning</p>
+                    </div>
+                </div>
+                <div class="finding-item animate-on-scroll">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h3>Training Efficiency</h3>
+                        <p>Despite the larger architecture, VGG16 converged faster due to pre-trained weights</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-links project-section">
+            <a href="https://colab.research.google.com/drive/1bfh-3cp90Xb5IcDCKLUkt1MFN-nelDJd?usp=drive_link" target="_blank" class="drive-button">
+                <i class="fas fa-file-code"></i>
+                View Project Notebook
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Ming Yang. You can't use up creativity, the more you use, the more you have in your significant mind.</p>
+    </footer>
+
+    <script src="works.js"></script>
 </body>
 </html>

@@ -1,48 +1,183 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="project-hnn">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hybrid Neural Network – Ming Yang</title>
-  <link rel="stylesheet" href="works.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/portfolio/">
+    <title>Ming Yang - Hybrid Neural Network</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="works.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body class="light-mode">
-  <header class="top-header">
-    <h1>Ming Yang – Hybrid Neural Network</h1>
-    <a href="works.html" class="drive-button">← Back to All Works</a>
-  </header>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Ming Yang</h1>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/myc208" target="_blank" aria-label="LinkedIn">
+                    <img src="linkedin-icon.png" alt="LinkedIn" width="24" loading="lazy">
+                </a>
+                <a href="https://www.instagram.com/_ap.cr_" target="_blank" aria-label="Instagram">
+                    <img src="instagram-icon.png" alt="Instagram" width="24" loading="lazy">
+                </a>
+            </div>
+        </div>
+    </header>
 
-  <main class="main-content">
-    <div id="view-hnn" class="project-view active hnn-theme">
-      <h2 class="title-glow">Hybrid Neural Network (CNN + RNN)</h2>
-      <p class="sub-text">Phishing email detection using hybrid model layers</p>
-
-      <div class="tech-box">
-        <h4>Tools Used:</h4>
-        <ul>
-          <li>Python (TensorFlow, Keras)</li>
-          <li>Google Colab</li>
-          <li>Kaggle Datasets</li>
-        </ul>
-      </div>
-
-      <div class="visual-panel">
-        <img src="hnn.png" alt="HNN Diagram" />
-        <div class="caption">Model Architecture</div>
-      </div>
-
-      <div class="steps-card">
-        <h4>Approach Summary:</h4>
-        <ol>
-          <li>Load and clean dataset</li>
-          <li>Construct CNN base with 1D conv layers</li>
-          <li>Attach LSTM/GRU layers for memory tracking</li>
-          <li>Compare against standalone RNN and SVM</li>
-        </ol>
-      </div>
+    <div class="nav-orb" id="navOrb">
+        <i class="fas fa-bars"></i>
     </div>
-  </main>
+    
+    <div class="nav-sphere" id="navSphere">
+        <a href="work_hnn.html" class="active"><i class="fas fa-brain"></i> Hybrid Neural Network</a>
+        <a href="work_elastic.html"><i class="fas fa-database"></i> ElasticSearch DB</a>
+        <a href="work_cnn.html"><i class="fas fa-eye"></i> Convolutional NN</a>
+        <a href="work_rnn.html"><i class="fas fa-language"></i> Recurrent NN</a>
+        <a href="work_aa.html"><i class="fas fa-chart-line"></i> Storyboard Mapping</a>
+        <a href="work_fse.html"><i class="fas fa-file-excel"></i> Excel Engineering</a>
+        <a href="work_dv.html"><i class="fas fa-chart-pie"></i> Data Visualization</a>
+        <a href="work_cs.html"><i class="fas fa-code"></i> C# Application</a>
+        <a href="work_grade.html"><i class="fas fa-graduation-cap"></i> Grades Database</a>
+    </div>
 
-  <script src="works.js"></script>
+    <div class="container">
+        <div class="project-header">
+            <h1 class="project-title">Development of Hybrid Neural Network</h1>
+            <p class="project-summary">Optimizing algorithm learning through convergence of convolutional layers with LSTM/GRU layers</p>
+        </div>
+
+        <div class="project-description project-section">
+            <h2>Project Description</h2>
+            <p>Develop a neural network model for prediction accuracy comparison with other generative learning algorithms such as Naive Bayes, HGBoost, KNN, Random Forest. The outcome of the project is to identify an algorithm that most accurately detects phishing email by classifying it has spam or ham.</p>
+        </div>
+
+        <div class="project-technologies project-section">
+            <h2>Technologies Used</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <i class="fab fa-python"></i>
+                    <span>Python</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-project-diagram"></i>
+                    <span>TensorFlow/Keras</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-cloud"></i>
+                    <span>Google Colab</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-database"></i>
+                    <span>Kaggle Datasets</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-steps project-section">
+            <h2>Development Process</h2>
+            <div class="process-steps">
+                <div class="process-step animate-on-scroll">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Data Collection & Cleaning</h3>
+                        <p>Identified relevant datasets from Kaggle and performed extensive data cleansing after merging various datasets</p>
+                    </div>
+                </div>
+                <div class="process-step animate-on-scroll">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Base Model Development</h3>
+                        <p>Created initial architecture combining CNN and RNN layers for hybrid processing</p>
+                    </div>
+                </div>
+                <div class="process-step animate-on-scroll">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Model Optimization</h3>
+                        <p>Implemented multiple iterations with different hyperparameters and layer configurations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-analysis project-section">
+            <h2>Code Implementation</h2>
+            <div class="code-block">
+                <pre><code class="language-python">
+# Hybrid Model Architecture
+def create_hybrid_model(max_features, embedding_dim, max_length):
+    inputs = Input(shape=(max_length,))
+    embedding = Embedding(max_features, embedding_dim, input_length=max_length)(inputs)
+    
+    # CNN Branch
+    conv1 = Conv1D(128, 5, activation='relu')(embedding)
+    pool1 = MaxPooling1D(5)(conv1)
+    conv2 = Conv1D(128, 5, activation='relu')(pool1)
+    pool2 = MaxPooling1D(5)(conv2)
+    
+    # LSTM Branch
+    lstm1 = LSTM(64, return_sequences=True)(embedding)
+    lstm2 = LSTM(64)(lstm1)
+    
+    # Merge branches
+    merged = concatenate([pool2, lstm2])
+    
+    # Dense layers
+    dense1 = Dense(64, activation='relu')(merged)
+    dropout = Dropout(0.5)(dense1)
+    output = Dense(1, activation='sigmoid')(dropout)
+    
+    model = Model(inputs=inputs, outputs=output)
+    model.compile(loss='binary_crossentropy',
+                 optimizer='adam',
+                 metrics=['accuracy'])
+    return model
+                </code></pre>
+            </div>
+        </div>
+
+        <div class="project-gallery project-section">
+            <h2>Project Gallery</h2>
+            <div class="image-grid">
+                <div class="image-item animate-on-scroll">
+                    <img src="hnn.png" alt="Base model architecture">
+                    <p class="image-caption">Initial Hybrid Model Architecture</p>
+                </div>
+                <div class="image-item animate-on-scroll">
+                    <img src="hnn_result.png" alt="Model results">
+                    <p class="image-caption">Training Results and Metrics</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-changes project-section">
+            <h2>Key Optimizations</h2>
+            <div class="changes-container">
+                <div class="change-item animate-on-scroll">
+                    <div class="change-header">
+                        <i class="fas fa-layer-group"></i>
+                        <h3>Architecture Refinement</h3>
+                    </div>
+                    <p>Redesigned layer connections to better capture both spatial and temporal patterns in the data, improving accuracy by 12%</p>
+                </div>
+                <div class="change-item animate-on-scroll">
+                    <div class="change-header">
+                        <i class="fas fa-sliders-h"></i>
+                        <h3>Hyperparameter Tuning</h3>
+                    </div>
+                    <p>Systematically tested different learning rates, batch sizes, and dropout rates to optimize model performance</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Ming Yang. You can't use up creativity, the more you use, the more you have in your significant mind.</p>
+    </footer>
+
+    <script src="works.js"></script>
 </body>
 </html>

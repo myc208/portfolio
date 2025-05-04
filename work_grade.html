@@ -1,51 +1,178 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="project-grade">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Grades Record System – Ming Yang</title>
-  <link rel="stylesheet" href="works.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/portfolio/">
+    <title>Ming Yang - Grades Database</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="works.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body class="light-mode">
-  <header class="top-header">
-    <h1>Ming Yang – Grades Record System</h1>
-    <a href="works.html" class="drive-button">← Back to All Works</a>
-  </header>
-
-  <main class="main-content">
-    <div id="view-grade" class="project-view active grade-theme">
-      <h2 class="grade-title">Grades Record System (C Language)</h2>
-      <p class="grade-summary">Manage student records with file persistence and console-based commands.</p>
-
-      <div class="code-editor">
-        <div class="line-numbers">
-          <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Ming Yang</h1>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/myc208" target="_blank" aria-label="LinkedIn">
+                    <img src="linkedin-icon.png" alt="LinkedIn" width="24" loading="lazy">
+                </a>
+                <a href="https://www.instagram.com/_ap.cr_" target="_blank" aria-label="Instagram">
+                    <img src="instagram-icon.png" alt="Instagram" width="24" loading="lazy">
+                </a>
+            </div>
         </div>
-        <pre class="code-block">
-<code>
-void saveGrades(Student *head) {
-    FILE *fp = fopen("grades.txt", "w");
-    while (head) {
-        fprintf(fp, "%s %d\\n", head->name, head->score);
-        head = head->next;
-    }
-    fclose(fp);
-}
-</code>
-        </pre>
-      </div>
+    </header>
 
-      <div class="grade-list">
-        <h4>Features:</h4>
-        <ul>
-          <li>Dynamic linked list of student structs</li>
-          <li>Save/load from text file with validation</li>
-          <li>Sort, search, and update records via command input</li>
-        </ul>
-      </div>
+    <div class="nav-orb" id="navOrb">
+        <i class="fas fa-bars"></i>
     </div>
-  </main>
+    
+    <div class="nav-sphere" id="navSphere">
+        <a href="work_hnn.html"><i class="fas fa-brain"></i> Hybrid Neural Network</a>
+        <a href="work_elastic.html"><i class="fas fa-database"></i> ElasticSearch DB</a>
+        <a href="work_cnn.html"><i class="fas fa-eye"></i> Convolutional NN</a>
+        <a href="work_rnn.html"><i class="fas fa-language"></i> Recurrent NN</a>
+        <a href="work_aa.html"><i class="fas fa-chart-line"></i> Storyboard Mapping</a>
+        <a href="work_fse.html"><i class="fas fa-file-excel"></i> Excel Engineering</a>
+        <a href="work_dv.html"><i class="fas fa-chart-pie"></i> Data Visualization</a>
+        <a href="work_cs.html"><i class="fas fa-code"></i> C# Application</a>
+        <a href="work_grade.html" class="active"><i class="fas fa-graduation-cap"></i> Grades Database</a>
+    </div>
 
-  <script src="works.js"></script>
+    <div class="container">
+        <div class="project-header">
+            <h1 class="project-title">Student Grades Database Implementation Using C</h1>
+            <p class="project-summary">Develop a robust application to manage student grades for each module</p>
+        </div>
+
+        <div class="project-description project-section">
+            <h2>Project Description</h2>
+            <p>This is a team project that consists of reading existing data from a .txt file that acts as a database, show the retrieved data in the program, allow users to insert new data, query for a specific data, update an existing data, delete specific data, and lastly save the changes made back into the .txt file. My role specifically in this project was to implement the reading of data from the database, displaying and saving the data.</p>
+        </div>
+
+        <div class="project-technologies project-section">
+            <h2>Technologies Used</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <i class="fas fa-copyright"></i>
+                    <span>C Programming</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-file-alt"></i>
+                    <span>File I/O</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-users"></i>
+                    <span>Team Collaboration</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-features project-section">
+            <h2>Key Features Implemented</h2>
+            <div class="feature-cards">
+                <div class="feature-card animate-on-scroll">
+                    <i class="fas fa-database"></i>
+                    <h3>Database Initialization</h3>
+                    <p>Implemented file creation with default headers when database doesn't exist</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <i class="fas fa-file-import"></i>
+                    <h3>Data Reading</h3>
+                    <p>Robust parsing of text file with error handling for corrupted data</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <i class="fas fa-file-export"></i>
+                    <h3>Data Saving</h3>
+                    <p>Complete rewrite of database file while maintaining proper formatting</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-code project-section">
+            <h2>Code Implementation</h2>
+            <div class="code-examples">
+                <div class="code-example animate-on-scroll">
+                    <h3>Database Initialization</h3>
+                    <pre><code class="language-c">
+void openDb(const char *filename) {
+    FILE *file = fopen(filename, "a+");
+    if (file == NULL) {
+        printf("Error opening or creating file \"%s\".\n", filename);
+        return;
+    }
+
+    fseek(file, 0, SEEK_END);
+    long fileSize = ftell(file);
+    if (fileSize == 0) {
+        fprintf(file, "Database Name: P13_8-CMS\n");
+        fprintf(file, "Authors: Team Members\n\n");
+        fprintf(file, "Table Name: StudentRecords\n");
+        fprintf(file, "ID\tName\t\tProgramme\t\tMark\n");
+        printf("File \"%s\" created with default headers.\n", filename);
+        fclose(file);
+        return;
+    }
+    // ... rest of the function
+}
+                    </code></pre>
+                </div>
+                <div class="code-example animate-on-scroll">
+                    <h3>Data Saving</h3>
+                    <pre><code class="language-c">
+void saveDb(const char *filename) {
+    FILE *file = fopen(filename, "w");
+    if (!file) {
+        printf("Error opening file.\n");
+        return;
+    }
+    fprintf(file, "Database Name: P13_8-CMS\n");
+    fprintf(file, "Authors: Team Members\n\n");
+    fprintf(file, "Table Name: StudentRecords\n");
+    fprintf(file, "ID\tName\t\tProgramme\t\tMark\n");
+
+    Node *current = head;
+    while (current != NULL) {
+        fprintf(file, "%d\t%-20s\t%-25s\t%.1f\n", 
+            current->record.id, 
+            current->record.name, 
+            current->record.programme, 
+            current->record.mark);
+        current = current->next;
+    }
+    fclose(file);
+    printf("Database file \"%s\" saved successfully.\n", filename);
+}
+                    </code></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-lessons project-section">
+            <h2>Key Learnings</h2>
+            <div class="lessons-grid">
+                <div class="lesson-item animate-on-scroll">
+                    <i class="fas fa-users-cog"></i>
+                    <h3>Team Collaboration</h3>
+                    <p>Coordinated with team members to ensure consistent file handling across all functions</p>
+                </div>
+                <div class="lesson-item animate-on-scroll">
+                    <i class="fas fa-bug"></i>
+                    <h3>Error Handling</h3>
+                    <p>Implemented robust error checking for file operations and data parsing</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Ming Yang. You can't use up creativity, the more you use, the more you have in your significant mind.</p>
+    </footer>
+
+    <script src="works.js"></script>
 </body>
 </html>

@@ -1,47 +1,145 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="project-fse">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Spreadsheet Engineering – Ming Yang</title>
-  <link rel="stylesheet" href="works.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/portfolio/">
+    <title>Ming Yang - Excel Engineering</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="works.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body class="light-mode">
-  <header class="top-header">
-    <h1>Ming Yang – Spreadsheet Engineering</h1>
-    <a href="works.html" class="drive-button">← Back to All Works</a>
-  </header>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Ming Yang</h1>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/myc208" target="_blank" aria-label="LinkedIn">
+                    <img src="linkedin-icon.png" alt="LinkedIn" width="24" loading="lazy">
+                </a>
+                <a href="https://www.instagram.com/_ap.cr_" target="_blank" aria-label="Instagram">
+                    <img src="instagram-icon.png" alt="Instagram" width="24" loading="lazy">
+                </a>
+            </div>
+        </div>
+    </header>
 
-  <main class="main-content">
-    <div id="view-fse" class="project-view active fse-theme">
-      <h2 class="fse-title">Spreadsheet Engineering (Excel & Google Sheets)</h2>
-      <p class="fse-description">Designing automated workflows using advanced formulas, cross-sheet linking, and dashboard charts.</p>
-
-      <div class="fse-grid">
-        <div class="fse-cell">
-          <h4>Macro Automation</h4>
-          <p>Record, edit, and trigger repetitive tasks across sheets.</p>
-        </div>
-        <div class="fse-cell">
-          <h4>Interlinked Formulas</h4>
-          <p>Use <code>=IF</code>, <code>=VLOOKUP</code>, and <code>=COUNTIF</code> across sheets.</p>
-        </div>
-        <div class="fse-cell formula-box">
-          <h4>Example Formula</h4>
-          <pre>=IF(A1>100, "High", "Low")</pre>
-        </div>
-        <div class="fse-cell formula-box">
-          <h4>Lookup</h4>
-          <pre>=VLOOKUP(ID, A2:C100, 3, FALSE)</pre>
-        </div>
-      </div>
-
-      <div class="fse-note">
-        <strong>Tools:</strong> Excel 365, Google Sheets, Python (Data Cleaning)
-      </div>
+    <div class="nav-orb" id="navOrb">
+        <i class="fas fa-bars"></i>
     </div>
-  </main>
+    
+    <div class="nav-sphere" id="navSphere">
+        <a href="work_hnn.html"><i class="fas fa-brain"></i> Hybrid Neural Network</a>
+        <a href="work_elastic.html"><i class="fas fa-database"></i> ElasticSearch DB</a>
+        <a href="work_cnn.html"><i class="fas fa-eye"></i> Convolutional NN</a>
+        <a href="work_rnn.html"><i class="fas fa-language"></i> Recurrent NN</a>
+        <a href="work_aa.html"><i class="fas fa-chart-line"></i> Storyboard Mapping</a>
+        <a href="work_fse.html" class="active"><i class="fas fa-file-excel"></i> Excel Engineering</a>
+        <a href="work_dv.html"><i class="fas fa-chart-pie"></i> Data Visualization</a>
+        <a href="work_cs.html"><i class="fas fa-code"></i> C# Application</a>
+        <a href="work_grade.html"><i class="fas fa-graduation-cap"></i> Grades Database</a>
+    </div>
 
-  <script src="works.js"></script>
+    <div class="container">
+        <div class="project-header">
+            <h1 class="project-title">Microsoft Excel Spreadsheet Engineering</h1>
+            <p class="project-summary">Exploring excel spreadsheet formulas and functions such as macros, visualizations, vlookup, etc.</p>
+        </div>
+
+        <div class="project-description project-section">
+            <h2>Project Description</h2>
+            <p>Explore and familiarize with various formulas and functions within the spreadsheet that makes data analysis more efficient by reducing manual work for filtering, searching, and calculating. Learn visualization and storyboard creation techniques within the application to help in broadening data analysis choices of platforms.</p>
+        </div>
+
+        <div class="project-technologies project-section">
+            <h2>Technologies Used</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <i class="fas fa-file-excel"></i>
+                    <span>Microsoft Excel</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-table"></i>
+                    <span>Google Sheets</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-project-diagram"></i>
+                    <span>Data Visualization</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-features project-section">
+            <h2>Key Features Implemented</h2>
+            <div class="feature-cards">
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Advanced Lookups</h3>
+                    <p>Implemented VLOOKUP, HLOOKUP, and INDEX-MATCH combinations for efficient data retrieval</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Complex Formulas</h3>
+                    <p>Created nested formulas combining logical functions with statistical calculations</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3>Macro Automation</h3>
+                    <p>Developed VBA macros to automate repetitive tasks and data processing</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-examples project-section">
+            <h2>Formula Examples</h2>
+            <div class="example-grid">
+                <div class="example-item animate-on-scroll">
+                    <div class="example-header">
+                        <i class="fas fa-hashtag"></i>
+                        <h3>Conditional Sum</h3>
+                    </div>
+                    <code>=SUMIF(A1:A10, ">100", B1:B10)</code>
+                    <p>Sums values in B1:B10 where corresponding A column values are greater than 100</p>
+                </div>
+                <div class="example-item animate-on-scroll">
+                    <div class="example-header">
+                        <i class="fas fa-search-plus"></i>
+                        <h3>Advanced Lookup</h3>
+                    </div>
+                    <code>=INDEX(B1:B10, MATCH("Target", A1:A10, 0))</code>
+                    <p>More flexible alternative to VLOOKUP with better performance</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-gallery project-section">
+            <h2>Project Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item animate-on-scroll">
+                    <img src="fse1.gif" alt="Excel automation demo">
+                    <p class="image-caption">Data Processing Automation</p>
+                </div>
+                <div class="gallery-item animate-on-scroll">
+                    <img src="fse2.gif" alt="Excel dashboard">
+                    <p class="image-caption">Interactive Dashboard</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Ming Yang. You can't use up creativity, the more you use, the more you have in your significant mind.</p>
+    </footer>
+
+    <script src="works.js"></script>
 </body>
 </html>

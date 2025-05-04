@@ -1,54 +1,225 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="project-cs">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Employee Management System – Ming Yang</title>
-  <link rel="stylesheet" href="works.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/portfolio/">
+    <title>Ming Yang - C# Application</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="works.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body class="light-mode">
-  <header class="top-header">
-    <h1>Ming Yang – Employee Management System (C#)</h1>
-    <a href="works.html" class="drive-button">← Back to All Works</a>
-  </header>
-
-  <main class="main-content">
-    <div id="view-cs" class="project-view active cs-theme">
-      <h2 class="cs-title">C# Employee Management System</h2>
-      <p class="cs-description">A class-based application handling full-time, part-time, and commission-based employee types using inheritance.</p>
-
-      <div class="cs-tabs">
-        <div class="tab-box active">
-          <h4>🧩 Class Hierarchy</h4>
-          <ul>
-            <li><strong>Employee (Abstract)</strong> – Base class</li>
-            <li><strong>FullTimeEmployee</strong> – BasePay + Allowance</li>
-            <li><strong>PartTimeEmployee</strong> – DailyRate × Days</li>
-            <li><strong>SalesEmployee</strong> – Inherits FullTime + Commission</li>
-          </ul>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Ming Yang</h1>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/myc208" target="_blank" aria-label="LinkedIn">
+                    <img src="linkedin-icon.png" alt="LinkedIn" width="24" loading="lazy">
+                </a>
+                <a href="https://www.instagram.com/_ap.cr_" target="_blank" aria-label="Instagram">
+                    <img src="instagram-icon.png" alt="Instagram" width="24" loading="lazy">
+                </a>
+            </div>
         </div>
+    </header>
 
-        <div class="tab-box">
-          <h4>💻 Application Features</h4>
-          <ul>
-            <li>Object creation and polymorphism</li>
-            <li>Interface-based pay calculation</li>
-            <li>Console-based CRUD operations</li>
-          </ul>
-        </div>
-
-        <div class="tab-box">
-          <h4>📄 Sample Output</h4>
-          <pre class="cs-output">
-Name: Jane Doe
-Type: SalesEmployee
-Pay: RM 5800.00
-          </pre>
-        </div>
-      </div>
+    <div class="nav-orb" id="navOrb">
+        <i class="fas fa-bars"></i>
     </div>
-  </main>
+    
+    <div class="nav-sphere" id="navSphere">
+        <a href="work_hnn.html"><i class="fas fa-brain"></i> Hybrid Neural Network</a>
+        <a href="work_elastic.html"><i class="fas fa-database"></i> ElasticSearch DB</a>
+        <a href="work_cnn.html"><i class="fas fa-eye"></i> Convolutional NN</a>
+        <a href="work_rnn.html"><i class="fas fa-language"></i> Recurrent NN</a>
+        <a href="work_aa.html"><i class="fas fa-chart-line"></i> Storyboard Mapping</a>
+        <a href="work_fse.html"><i class="fas fa-file-excel"></i> Excel Engineering</a>
+        <a href="work_dv.html"><i class="fas fa-chart-pie"></i> Data Visualization</a>
+        <a href="work_cs.html" class="active"><i class="fas fa-code"></i> C# Application</a>
+        <a href="work_grade.html"><i class="fas fa-graduation-cap"></i> Grades Database</a>
+    </div>
 
-  <script src="works.js"></script>
+    <div class="container">
+        <div class="project-header">
+            <h1 class="project-title">Employee Application Development Using C#</h1>
+            <p class="project-summary">Develop a robust application to better manage various employees of a company</p>
+        </div>
+
+        <div class="project-description project-section">
+            <h2>Project Description</h2>
+            <p>This project is a simple system for managing employees in an organization. It allows users to add employees, including Full-Time, Part-Time, and Sales employees, while also calculating and displaying their pay. Users can search for employees by ID, remove employees by name, and sort them by their pay. The system demonstrates key programming concepts such as organizing data with class hierarchies and handling errors gracefully.</p>
+        </div>
+
+        <div class="project-technologies project-section">
+            <h2>Technologies Used</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <i class="fab fa-windows"></i>
+                    <span>C#/.NET</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-code-branch"></i>
+                    <span>OOP Principles</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-laptop-code"></i>
+                    <span>Visual Studio</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-architecture project-section">
+            <h2>Class Architecture</h2>
+            <div class="architecture-diagram animate-on-scroll">
+                <img src="cs_architecture.png" alt="Class architecture diagram">
+            </div>
+        </div>
+
+        <div class="project-code project-section">
+            <h2>Code Implementation</h2>
+            <div class="code-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-button active" data-tab="employee">Employee.cs</button>
+                    <button class="tab-button" data-tab="fulltime">FullTimeEmployee.cs</button>
+                    <button class="tab-button" data-tab="parttime">PartTimeEmployee.cs</button>
+                    <button class="tab-button" data-tab="sales">SalesEmployee.cs</button>
+                </div>
+                
+                <div class="tab-content active" id="employee">
+                    <pre><code class="language-csharp">
+// Employee.cs (Base Class)
+abstract class Employee : IComparable&lt;Employee&gt;
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+
+    public Employee() { }
+    
+    public Employee(int id, string name) {
+        try {
+            Id = id;
+            Name = name;
+        }
+        catch (Exception ex) {
+            Console.WriteLine($"Error initializing Employee: {ex.Message}");
+        }
+    }
+
+    public abstract double CalculatePay();
+
+    public override string ToString() {
+        try {
+            return $"\tId: {Id}\tName: {Name}";
+        }
+        catch (Exception ex) {
+            return $"Error generating string representation: {ex.Message}";
+        }
+    }
+
+    public int CompareTo(Employee e) {
+        try {
+            return CalculatePay().CompareTo(e.CalculatePay());
+        }
+        catch (Exception ex) {
+            Console.WriteLine($"Error comparing employees: {ex.Message}");
+            return 0;
+        }
+    }
+}
+                    </code></pre>
+                </div>
+                
+                <div class="tab-content" id="fulltime">
+                    <pre><code class="language-csharp">
+// FullTimeEmployee.cs
+class FullTimeEmployee : Employee
+{
+    public double BasicPay { get; set; }
+    public double Allowance { get; set; }
+
+    public FullTimeEmployee() : base() { }
+
+    public FullTimeEmployee(int id, string name, double bp, double alw)
+        : base(id, name)
+    {
+        try {
+            BasicPay = bp;
+            Allowance = alw;
+        }
+        catch (Exception ex) {
+            Console.WriteLine($"Error initializing FullTimeEmployee: {ex.Message}");
+        }
+    }
+
+    public override double CalculatePay() {
+        try {
+            return BasicPay + Allowance;
+        }
+        catch (Exception ex) {
+            Console.WriteLine($"Error calculating pay for FullTimeEmployee: {ex.Message}");
+            return 0;
+        }
+    }
+
+    public override string ToString() {
+        try {
+            return base.ToString() + $"\tBasic Pay: {BasicPay}\tAllowance: {Allowance}";
+        }
+        catch (Exception ex) {
+            return $"Error generating string representation: {ex.Message}";
+        }
+    }
+}
+                    </code></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-features project-section">
+            <h2>Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-item animate-on-scroll">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Robust Error Handling</h3>
+                    <p>Comprehensive exception handling throughout all class methods</p>
+                </div>
+                <div class="feature-item animate-on-scroll">
+                    <i class="fas fa-sitemap"></i>
+                    <h3>Class Hierarchy</h3>
+                    <p>Clear inheritance structure for different employee types</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Ming Yang. You can't use up creativity, the more you use, the more you have in your significant mind.</p>
+    </footer>
+
+    <script src="works.js"></script>
+    <script>
+        // Tab functionality
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const tabId = button.getAttribute('data-tab');
+                
+                // Remove active class from all buttons and contents
+                document.querySelectorAll('.tab-button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    </script>
 </body>
 </html>

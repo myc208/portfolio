@@ -1,54 +1,143 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="project-dv">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Data Visualization – Ming Yang</title>
-  <link rel="stylesheet" href="works.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/portfolio/">
+    <title>Ming Yang - Data Visualization</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="works.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body class="light-mode">
-  <header class="top-header">
-    <h1>Ming Yang – Data Visualization (Tableau)</h1>
-    <a href="works.html" class="drive-button">← Back to All Works</a>
-  </header>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Ming Yang</h1>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/myc208" target="_blank" aria-label="LinkedIn">
+                    <img src="linkedin-icon.png" alt="LinkedIn" width="24" loading="lazy">
+                </a>
+                <a href="https://www.instagram.com/_ap.cr_" target="_blank" aria-label="Instagram">
+                    <img src="instagram-icon.png" alt="Instagram" width="24" loading="lazy">
+                </a>
+            </div>
+        </div>
+    </header>
 
-  <main class="main-content">
-    <div id="view-dv" class="project-view active dv-theme">
-      <h2 class="dv-title">Data Visualization with Tableau</h2>
-      <p class="dv-subtext">Analyzing business metrics using dynamic dashboards and interactive charts.</p>
-
-      <div class="dv-kpi">
-        <div class="tile">
-          <h4>💰 Total Sales</h4>
-          <p>$1.2M</p>
-        </div>
-        <div class="tile">
-          <h4>📦 Top Product</h4>
-          <p>Smart Speaker</p>
-        </div>
-        <div class="tile">
-          <h4>🌍 Highest Region</h4>
-          <p>North America</p>
-        </div>
-      </div>
-
-      <div class="dv-gallery">
-        <div class="dv-chart">
-          <img src="tableau1.png" alt="Sales Trends" />
-          <span class="chart-caption">Monthly Revenue Trends</span>
-        </div>
-        <div class="dv-chart">
-          <img src="tableau2.png" alt="Geo Analysis" />
-          <span class="chart-caption">Geo Distribution</span>
-        </div>
-        <div class="dv-chart">
-          <img src="tableau3.png" alt="Time Breakdown" />
-          <span class="chart-caption">Category Performance</span>
-        </div>
-      </div>
+    <div class="nav-orb" id="navOrb">
+        <i class="fas fa-bars"></i>
     </div>
-  </main>
+    
+    <div class="nav-sphere" id="navSphere">
+        <a href="work_hnn.html"><i class="fas fa-brain"></i> Hybrid Neural Network</a>
+        <a href="work_elastic.html"><i class="fas fa-database"></i> ElasticSearch DB</a>
+        <a href="work_cnn.html"><i class="fas fa-eye"></i> Convolutional NN</a>
+        <a href="work_rnn.html"><i class="fas fa-language"></i> Recurrent NN</a>
+        <a href="work_aa.html"><i class="fas fa-chart-line"></i> Storyboard Mapping</a>
+        <a href="work_fse.html"><i class="fas fa-file-excel"></i> Excel Engineering</a>
+        <a href="work_dv.html" class="active"><i class="fas fa-chart-pie"></i> Data Visualization</a>
+        <a href="work_cs.html"><i class="fas fa-code"></i> C# Application</a>
+        <a href="work_grade.html"><i class="fas fa-graduation-cap"></i> Grades Database</a>
+    </div>
 
-  <script src="works.js"></script>
+    <div class="container">
+        <div class="project-header">
+            <h1 class="project-title">Data Visualizations and Analysis with Tableau</h1>
+            <p class="project-summary">Allow better conceptualisation of data through graphical representations</p>
+        </div>
+
+        <div class="project-description project-section">
+            <h2>Project Description</h2>
+            <p>Explore and familiarize with various graphical functions within Tableau and other visualization tools. This project focused on selecting appropriate chart types for different data relationships, creating interactive dashboards, and effectively communicating insights through visual representations.</p>
+        </div>
+
+        <div class="project-technologies project-section">
+            <h2>Technologies Used</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Tableau</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-python"></i>
+                    <span>Python</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-file-excel"></i>
+                    <span>Excel</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-book"></i>
+                    <span>Jupyter Notebook</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-visualizations project-section">
+            <h2>Visualization Techniques</h2>
+            <div class="viz-grid">
+                <div class="viz-item animate-on-scroll">
+                    <div class="viz-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Temporal Patterns</h3>
+                    <p>Created line charts and area charts to show trends over time</p>
+                </div>
+                <div class="viz-item animate-on-scroll">
+                    <div class="viz-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>Composition</h3>
+                    <p>Used pie charts and stacked bar charts to show part-to-whole relationships</p>
+                </div>
+                <div class="viz-item animate-on-scroll">
+                    <div class="viz-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Distribution</h3>
+                    <p>Implemented histograms and box plots to show data distribution</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-gallery project-section">
+            <h2>Visualization Examples</h2>
+            <div class="gallery-container">
+                <div class="gallery-item animate-on-scroll">
+                    <img src="graph1.png" alt="Tableau visualization example">
+                    <p class="image-caption">Interactive Tableau Dashboard</p>
+                </div>
+                <div class="gallery-item animate-on-scroll">
+                    <img src="graph2.png" alt="Python visualization example">
+                    <p class="image-caption">Python Visualization in Jupyter</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-insights project-section">
+            <h2>Key Insights</h2>
+            <div class="insights-container">
+                <div class="insight-item animate-on-scroll">
+                    <i class="fas fa-eye"></i>
+                    <h3>Visual Perception</h3>
+                    <p>Learned how different visual encodings affect data interpretation</p>
+                </div>
+                <div class="insight-item animate-on-scroll">
+                    <i class="fas fa-palette"></i>
+                    <h3>Color Theory</h3>
+                    <p>Applied color principles to enhance readability and highlight key information</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Ming Yang. You can't use up creativity, the more you use, the more you have in your significant mind.</p>
+    </footer>
+
+    <script src="works.js"></script>
 </body>
 </html>

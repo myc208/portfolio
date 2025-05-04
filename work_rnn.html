@@ -1,44 +1,174 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="project-rnn">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Recurrent Neural Network – Ming Yang</title>
-  <link rel="stylesheet" href="works.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/portfolio/">
+    <title>Ming Yang - RNN Development</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="works.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body class="light-mode">
-  <header class="top-header">
-    <h1>Ming Yang – Recurrent Neural Network</h1>
-    <a href="works.html" class="drive-button">← Back to All Works</a>
-  </header>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Ming Yang</h1>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/myc208" target="_blank" aria-label="LinkedIn">
+                    <img src="linkedin-icon.png" alt="LinkedIn" width="24" loading="lazy">
+                </a>
+                <a href="https://www.instagram.com/_ap.cr_" target="_blank" aria-label="Instagram">
+                    <img src="instagram-icon.png" alt="Instagram" width="24" loading="lazy">
+                </a>
+            </div>
+        </div>
+    </header>
 
-  <main class="main-content">
-    <div id="view-rnn" class="project-view active rnn-theme">
-      <h2 class="rnn-title">Recurrent Neural Network (RNN)</h2>
-      <p class="rnn-subtext">Generating full paragraphs from sentence seeds using GRU/LSTM models.</p>
-
-      <div class="rnn-section">
-        <h4>Challenge</h4>
-        <p>Train a model to read sentence structures and output predictive paragraph continuations with coherence and tone control.</p>
-      </div>
-
-      <div class="rnn-terminal">
-        <p class="prompt">Input ➜ <span class="typed-text" id="typed-seed">"Technology is evolving"</span></p>
-        <p class="response" id="typed-response">|</p>
-      </div>
-
-      <div class="rnn-insight">
-        <h4>Technologies Used:</h4>
-        <ul>
-          <li>Python</li>
-          <li>Keras (LSTM, GRU)</li>
-          <li>Google Colab</li>
-          <li>Tokenizer + Seq2Seq pipeline</li>
-        </ul>
-      </div>
+    <!-- 3D Navigation Orb -->
+    <div class="nav-orb" id="navOrb">
+        <i class="fas fa-bars"></i>
     </div>
-  </main>
+    
+    <div class="nav-sphere" id="navSphere">
+        <a href="work_hnn.html"><i class="fas fa-brain"></i> Hybrid Neural Network</a>
+        <a href="work_elastic.html"><i class="fas fa-database"></i> ElasticSearch DB</a>
+        <a href="work_cnn.html"><i class="fas fa-eye"></i> Convolutional NN</a>
+        <a href="work_rnn.html" class="active"><i class="fas fa-language"></i> Recurrent NN</a>
+        <a href="work_aa.html"><i class="fas fa-chart-line"></i> Storyboard Mapping</a>
+        <a href="work_fse.html"><i class="fas fa-file-excel"></i> Excel Engineering</a>
+        <a href="work_dv.html"><i class="fas fa-chart-pie"></i> Data Visualization</a>
+        <a href="work_cs.html"><i class="fas fa-code"></i> C# Application</a>
+        <a href="work_grade.html"><i class="fas fa-graduation-cap"></i> Grades Database</a>
+    </div>
 
-  <script src="works.js"></script>
+    <div class="container">
+        <!-- Project Header -->
+        <div class="project-header">
+            <h1 class="project-title">Development of Recurrent Neural Network</h1>
+            <p class="project-summary">Text classification and generation using sequential data processing</p>
+        </div>
+
+        <!-- Project Description -->
+        <div class="project-description project-section">
+            <h2>Project Description</h2>
+            <p>Develop a neural network model to learn from several text paragraphs and continue forming complete paragraphs of up to a certain number of words from an incomplete sentence or word input. The model demonstrates the power of sequential data processing in natural language tasks.</p>
+        </div>
+
+        <!-- Project Technologies -->
+        <div class="project-technologies project-section">
+            <h2>Technologies Used</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <i class="fab fa-python"></i>
+                    <span>Python</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-code"></i>
+                    <span>TensorFlow/Keras</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-cloud"></i>
+                    <span>Google Colab</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-database"></i>
+                    <span>Kaggle Datasets</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-steps project-section">
+            <h2>Methodology</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-point"></div>
+                    <div class="timeline-content">
+                        <h3>Base Model Development</h3>
+                        <p>Created initial RNN architecture with LSTM layers for sequential processing</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-point"></div>
+                    <div class="timeline-content">
+                        <h3>Hyperparameter Tuning</h3>
+                        <p>Systematically adjusted layer sizes, dropout rates, and learning parameters</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-point"></div>
+                    <div class="timeline-content">
+                        <h3>Performance Analysis</h3>
+                        <p>Evaluated model using validation metrics and loss curves</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-point"></div>
+                    <div class="timeline-content">
+                        <h3>Iterative Refinement</h3>
+                        <p>Made incremental improvements based on quantitative results</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Project Gallery -->
+        <div class="project-gallery project-section">
+            <h2>Project Gallery</h2>
+            <a href="https://drive.google.com/file/d/1BSPrPeOsLpx13QJDcfxCqEjvP_3VSUn_/view?usp=drive_link" target="_blank" class="drive-button">
+                <i class="fas fa-file-alt"></i>
+                View Project Report
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Ming Yang. You can't use up creativity, the more you use, the more you have in your significant mind.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navigation Orb Toggle
+            const navOrb = document.getElementById('navOrb');
+            const navSphere = document.getElementById('navSphere');
+            
+            navOrb.addEventListener('click', function() {
+                navSphere.classList.toggle('active');
+            });
+
+            // Theme Toggle
+            const themeToggle = document.createElement('div');
+            themeToggle.className = 'theme-toggle';
+            themeToggle.innerHTML = `
+                <label class="switch">
+                    <input type="checkbox" id="themeToggle">
+                    <span class="slider-ios"></span>
+                </label>
+            `;
+            document.body.appendChild(themeToggle);
+
+            const toggle = document.getElementById('themeToggle');
+            toggle.addEventListener('change', () => {
+                document.body.classList.toggle('dark-mode', toggle.checked);
+                localStorage.setItem('theme', toggle.checked ? 'dark' : 'light');
+            });
+
+            if (localStorage.getItem('theme') === 'dark') {
+                document.body.classList.add('dark-mode');
+                toggle.checked = true;
+            }
+
+            // Animate timeline
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateX(0)';
+                }, index * 200);
+            });
+        });
+    </script>
 </body>
 </html>

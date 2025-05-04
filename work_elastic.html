@@ -1,51 +1,141 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="project-elastic">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ElasticSearch Stack – Ming Yang</title>
-  <link rel="stylesheet" href="works.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/portfolio/">
+    <title>Ming Yang - ElasticSearch DB</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="works.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body class="light-mode">
-  <header class="top-header">
-    <h1>Ming Yang – ElasticSearch Stack</h1>
-    <a href="works.html" class="drive-button">← Back to All Works</a>
-  </header>
-
-  <main class="main-content">
-    <div id="view-elastic" class="project-view active elastic-theme">
-      <h2 class="elastic-header">ElasticSearch DB Ecosystem</h2>
-      <p class="elastic-subtext">Containerized search engine stack with Logstash and Kibana dashboards.</p>
-
-      <div class="terminal-box">
-        <pre>
-$ docker run elasticsearch
-✔ Service Started on port 9200
-
-$ curl http://localhost:9200/_cat/indices?v
-✔ index1        ✔ index2        ✔ index3
-        </pre>
-      </div>
-
-      <div class="elastic-grid">
-        <div class="elastic-card">
-          <h4>Tools Used</h4>
-          <ul>
-            <li>Docker Compose</li>
-            <li>ElasticSearch 7.x</li>
-            <li>Logstash</li>
-            <li>Kibana</li>
-            <li>PostgreSQL</li>
-          </ul>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Ming Yang</h1>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/myc208" target="_blank" aria-label="LinkedIn">
+                    <img src="linkedin-icon.png" alt="LinkedIn" width="24" loading="lazy">
+                </a>
+                <a href="https://www.instagram.com/_ap.cr_" target="_blank" aria-label="Instagram">
+                    <img src="instagram-icon.png" alt="Instagram" width="24" loading="lazy">
+                </a>
+            </div>
         </div>
-        <div class="elastic-card">
-          <h4>Project Objectives</h4>
-          <p>Compare query speed, live logging, and scalability between ElasticSearch and traditional SQL servers.</p>
-        </div>
-      </div>
+    </header>
+
+    <div class="nav-orb" id="navOrb">
+        <i class="fas fa-bars"></i>
     </div>
-  </main>
+    
+    <div class="nav-sphere" id="navSphere">
+        <a href="work_hnn.html"><i class="fas fa-brain"></i> Hybrid Neural Network</a>
+        <a href="work_elastic.html" class="active"><i class="fas fa-database"></i> ElasticSearch DB</a>
+        <a href="work_cnn.html"><i class="fas fa-eye"></i> Convolutional NN</a>
+        <a href="work_rnn.html"><i class="fas fa-language"></i> Recurrent NN</a>
+        <a href="work_aa.html"><i class="fas fa-chart-line"></i> Storyboard Mapping</a>
+        <a href="work_fse.html"><i class="fas fa-file-excel"></i> Excel Engineering</a>
+        <a href="work_dv.html"><i class="fas fa-chart-pie"></i> Data Visualization</a>
+        <a href="work_cs.html"><i class="fas fa-code"></i> C# Application</a>
+        <a href="work_grade.html"><i class="fas fa-graduation-cap"></i> Grades Database</a>
+    </div>
 
-  <script src="works.js"></script>
+    <div class="container">
+        <div class="project-header">
+            <h1 class="project-title">Establishing ElasticSearch DB Ecosystem</h1>
+            <p class="project-summary">Test viability, efficiency and effectiveness of ElasticSearch DB over MSSQL for speed and functionality</p>
+        </div>
+
+        <div class="project-description project-section">
+            <h2>Project Description</h2>
+            <p>As a database engineer intern, my task was to establish a working database on elasticsearch and learn about the ecosystem that revolves around it, known as the elasticstack. Through that, I can simplify the implementation process of various other features such as real-time data logging, data visualizations, as well as the community discussion group to query and seek professional help from.</p>
+        </div>
+
+        <div class="project-technologies project-section">
+            <h2>Technologies Used</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <i class="fas fa-database"></i>
+                    <span>ElasticSearch</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-server"></i>
+                    <span>Docker</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Kibana</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-exchange-alt"></i>
+                    <span>Logstash</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-tasks project-section">
+            <h2>Key Tasks</h2>
+            <div class="task-container">
+                <div class="task-item animate-on-scroll">
+                    <div class="task-header">
+                        <div class="task-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>Database Implementation</h3>
+                    </div>
+                    <ul>
+                        <li>Research and learn about ElasticSearch</li>
+                        <li>Implementation on Docker container</li>
+                        <li>Status monitoring via Kibana</li>
+                    </ul>
+                </div>
+                <div class="task-item animate-on-scroll">
+                    <div class="task-header">
+                        <div class="task-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Algorithm Development</h3>
+                    </div>
+                    <ul>
+                        <li>Implement sample words to be flagged</li>
+                        <li>Develop flagging algorithm</li>
+                        <li>Testing and UAT process</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-outcomes project-section">
+            <h2>Project Outcomes</h2>
+            <div class="outcome-grid">
+                <div class="outcome-item animate-on-scroll">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Performance Improvement</h3>
+                    <p>ElasticSearch showed 3x faster query performance compared to MSSQL for text search operations</p>
+                </div>
+                <div class="outcome-item animate-on-scroll">
+                    <i class="fas fa-users"></i>
+                    <h3>Team Collaboration</h3>
+                    <p>Daily standup meetings and knowledge sharing improved implementation efficiency</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-links project-section">
+            <a href="https://drive.google.com/file/d/1joVp-wwvxye8Z3Vq2ULARjOh21ga-7JC/view?usp=drive_link" target="_blank" class="drive-button">
+                <i class="fas fa-file-alt"></i>
+                View Project Report
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Ming Yang. You can't use up creativity, the more you use, the more you have in your significant mind.</p>
+    </footer>
+
+    <script src="works.js"></script>
 </body>
 </html>
