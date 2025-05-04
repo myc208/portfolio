@@ -21,19 +21,30 @@
     </style>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <h1>Ming Yang</h1>
-            <div class="social-icons">
-                <a href="https://www.linkedin.com/in/myc208" target="_blank" aria-label="LinkedIn">
-                    <img src="linkedin-icon.png" alt="LinkedIn" width="24" loading="lazy">
-                </a>
-                <a href="https://www.instagram.com/_ap.cr_" target="_blank" aria-label="Instagram">
-                    <img src="instagram-icon.png" alt="Instagram" width="24" loading="lazy">
-                </a>
-            </div>
+  <header>
+    <div class="logo">
+        <h1>Ming Yang</h1>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/myc208" target="_blank" aria-label="LinkedIn">
+                <img src="linkedin-icon.png" alt="LinkedIn" width="24" loading="lazy">
+            </a>
+            <a href="https://www.instagram.com/_ap.cr_" target="_blank" aria-label="Instagram">
+                <img src="instagram-icon.png" alt="Instagram" width="24" loading="lazy">
+            </a>
         </div>
-    </header>
+    </div>
+    <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        &#9776;
+    </button>
+    <nav class="nav-links">
+        <a href="index.html" class="active">About</a>
+        <a href="works.html">Works</a>
+        <label class="switch">
+            <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
+            <span class="slider-ios"></span>
+          </label>              
+    </nav>
+  </header>
 
     <!-- 3D Navigation Orb -->
     <div class="nav-orb" id="navOrb">
