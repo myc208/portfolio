@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" class="project-gwent">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/portfolio/">
+    <title>Ming Yang - Gwent Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="works.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Ming Yang</h1>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/myc208" target="_blank" aria-label="LinkedIn">
+                    <img src="linkedin-icon.png" alt="LinkedIn" width="24" loading="lazy">
+                </a>
+                <a href="https://www.instagram.com/_ap.cr_" target="_blank" aria-label="Instagram">
+                    <img src="instagram-icon.png" alt="Instagram" width="24" loading="lazy">
+                </a>
+            </div>
+        </div>
+        <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+            &#9776;
+        </button>
+        <nav class="nav-links">
+            <a href="index.html">About</a>
+            <a href="works.html" class="active">Works</a>
+            <label class="switch">
+              <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
+              <span class="slider-ios"></span>
+            </label>             
+        </nav>
+    </header>
+
+    <div class="nav-orb" id="navOrb">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <div class="nav-sphere" id="navSphere">
+        <a href="work_hnn.html"><i class="fas fa-brain"></i> Hybrid Neural Network</a>
+        <a href="work_elastic.html"><i class="fas fa-database"></i> ElasticSearch DB</a>
+        <a href="work_cnn.html"><i class="fas fa-eye"></i> Convolutional NN</a>
+        <a href="work_rnn.html"><i class="fas fa-language"></i> Recurrent NN</a>
+        <a href="work_aa.html"><i class="fas fa-chart-line"></i> Storyboard Mapping</a>
+        <a href="work_fse.html"><i class="fas fa-file-excel"></i> Excel Engineering</a>
+        <a href="work_dv.html"><i class="fas fa-chart-pie"></i> Data Visualization</a>
+        <a href="work_cs.html"><i class="fas fa-code"></i> C# Application</a>
+        <a href="work_grade.html"><i class="fas fa-graduation-cap"></i> Grades Database</a>
+        <a href="work_gwent.html" class="active"><i class="fas fa-gamepad"></i> Gwent Game</a>
+    </div>
+
+    <div class="container">
+        <div class="project-header">
+            <h1 class="project-title">Development of Online Gwent Card Game</h1>
+            <p class="project-summary">A passion-driven web-based remake of the Gwent mini-game from The Witcher 3, improved with enhanced UI, thematic music, and closer alignment to the original gameplay for accessible online play.</p>
+        </div>
+
+        <div class="project-description project-section">
+            <h2>Project Description</h2>
+            <p>Developed out of a personal passion for the Gwent mini-game in one of my favorite games, The Witcher 3. The project builds on an open-source implementation from GitHub by another developer, with key enhancements including a more polished UI, updated music to maintain freshness and immersion, and adjustments to views and functionalities to better resemble the authentic in-game experience. This allows fans to enjoy Gwent conveniently via a web link, promoting community engagement.</p>
+        </div>
+
+        <div class="project-technologies project-section">
+            <h2>Technologies Used</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <i class="fab fa-html5"></i>
+                    <span>HTML5</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-css3-alt"></i>
+                    <span>CSS3</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fab fa-js-square"></i>
+                    <span>JavaScript</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-music"></i>
+                    <span>Audio Integration</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-gamepad"></i>
+                    <span>Game Development</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-features project-section">
+            <h2>Key Features Implemented</h2>
+            <div class="feature-cards">
+                <div class="feature-card animate-on-scroll">
+                    <i class="fas fa-layer-group"></i>
+                    <h3>Enhanced Card Mechanics</h3>
+                    <p>Implemented card abilities such as spies, medics, and weather effects, with logic for row placement (melee, ranged, siege) and power calculations.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <i class="fas fa-exchange-alt"></i>
+                    <h3>Turn-Based Gameplay</h3>
+                    <p>Managed player turns, including playing cards, passing rounds, and determining round winners based on total power scores.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <i class="fas fa-robot"></i>
+                    <h3>AI Opponent Logic</h3>
+                    <p>Basic AI for single-player mode, with decision-making for card selection and strategic plays (e.g., prioritizing high-power cards or counters).</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <i class="fas fa-music"></i>
+                    <h3>Immersive Audio Updates</h3>
+                    <p>Replaced original music with thematic tracks to enhance immersion, including functions for playing/pausing based on game events.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Responsive Design</h3>
+                    <p>Ensured dynamic display sizes for compatibility across devices, using CSS media queries and JavaScript event listeners.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-code project-section">
+            <h2>Code Implementation</h2>
+            <div class="code-examples">
+                <div class="code-example animate-on-scroll">
+                    <h3>Spy Ability (from abilities.js)</h3>
+                    <pre><code class="language-javascript">
+spy: {
+    name: "spy",
+    description: "Place on your opponent's battlefield (counts towards your opponent's total) and draw 2 cards from your deck. ",
+    placed: async (card) =&gt; {
+        await card.animate("spy");
+        for (let i=0;i&lt;2;i++) {
+            if (card.holder.deck.cards.length &gt; 0)
+                await card.holder.deck.draw(card.holder.hand);
+        }
+        card.holder = card.holder.opponent();
+    }
+},
+                    </code></pre>
+                </div>
+                <div class="code-example animate-on-scroll">
+                    <h3>Scorch Ability (from abilities.js)</h3>
+                    <pre><code class="language-javascript">
+scorch: {
+    name: "Scorch",
+    description: "Discard after playing. Kills the strongest card(s) on the battlefield. ",
+    activated: async card =&gt; {	
+        await ability_dict["scorch"].placed(card);
+        await board.toGrave(card, card.holder.hand);
+    },
+    placed: async (card, row) =&gt; {
+        if (row !== undefined)
+            row.cards.splice( row.cards.indexOf(card), 1);
+        let maxUnits = board.row.map( r =&gt; [r,r.maxUnits()] ).filter( p =&gt; p[1].length &gt; 0);
+        if (row !== undefined)
+            row.cards.push(card);
+        let maxPower = maxUnits.reduce( (a,p) =&gt; Math.max(a, p[1][0].power), 0 );
+        let scorched = maxUnits.filter( p =&gt; p[1][0].power === maxPower);
+        let cards = scorched.reduce( (a,p) =&gt; a.concat( p[1].map(u =&gt; [p[0], u])), []);
+        
+        await Promise.all(cards.map( async u =&gt; await u[1].animate("scorch", true, false)) );
+        await Promise.all(cards.map( async u =&gt; await board.toGrave(u[1], u[0])) );
+    }
+},
+                    </code></pre>
+                </div>
+                <div class="code-example animate-on-scroll">
+                    <h3>AI Card Weighting (from gwent.js)</h3>
+                    <pre><code class="language-javascript">
+// From ControllerAI class
+weightCard(card, max, data){
+    if (card.name === "Decoy")
+        return data.spy.length ? 50 : data.medic.length ? 15 : data.scorch.length  ? 10 : max.me.length ? 1 : 0;
+    if (card.name === "Commander's Horn") {
+        let rows = [0,1,2].map(i =&gt; board.row[i]).filter(r =&gt; r.special === null);
+        if (!rows.length)
+            return 0;
+        rows = rows.map(r =&gt; this.weightHornRow(card, r) );
+        return Math.max(...rows)/2;
+    }
+    
+    if (card.abilities) {
+        if (card.abilities.includes("scorch")) {
+            let power_op = max.op.length ? max.op[0].card.power : 0;
+            let power_me = max.me.length ? max.me[0].card.power : 0;
+            let total_op = power_op * max.op.length;
+            let total_me = power_me * max.me.length;
+            return power_me &gt; power_op ? 0 : power_me &lt; power_op ? total_op : Math.max(0, total_op - total_me);
+        }
+        if (card.abilities.includes("decoy")) {
+            return data.spy.length ? 50 : data.medic.length ? 15 : data.scorch.length  ? 10 : max.me.length ? 1 : 0;
+        }
+        if (card.abilities.includes("mardroeme")) {
+            let rows = [1,2].map(i =&gt; board.row[i]);
+            return Math.max(...rows.map(r =&gt; this.weightMardroemeRow(card, r)) );
+        }
+    }
+    
+    if (card.row === "weather") {
+        return Math.max(0, this.weightWeather(card));
+    }
+    
+    let row = board.getRow(card, card.row === "agile" ? "close" : card.row, this.player);
+    let score = row.calcCardScore(card);
+    switch(card.abilities[card.abilities.length -1]) {
+        case "bond": 
+        case "morale":
+        case "horn":
+            score = this.weightRowChange(card, row); break;
+        case "medic": 
+            score = this.weightMedic(data, score, card.holder);	break;
+        case "spy": score = 15 + score; break;
+        case "muster": score *= 3; break;
+        case "scorch_c":
+            score = Math.max(1, this.weightScorchRow(card, max, "close")); break;
+        case "scorch_r": 
+            score = Math.max(1, this.weightScorchRow(card, max, "ranged")); break;
+        case "scorch_s":
+            score = Math.max(1, this.weightScorchRow(card, max, "siege")); break;
+        case "berserker":
+            score = this.weightBerserker(card, row, score); break;
+        case "avenger": case "avenger_kambi":
+            return score + ability_dict[card.abilities[card.abilities.length -1]].weight();
+    }
+    
+    return score;
+},
+                    </code></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-gallery project-section">
+            <h2>Project Gallery</h2>
+            <div class="image-grid">
+                <div class="image-item animate-on-scroll">
+                    <img src="gwent_board.png" alt="Game board screenshot">
+                    <p class="image-caption">Enhanced in-game board view with card placements</p>
+                </div>
+                <div class="image-item animate-on-scroll">
+                    <img src="gwent_ui.png" alt="UI elements">
+                    <p class="image-caption">Updated user interface with immersive elements</p>
+                </div>
+                <div class="image-item animate-on-scroll">
+                    <img src="gwent_demo.gif" alt="Gameplay demo">
+                    <p class="image-caption">Animated demo of turn-based play</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-lessons project-section">
+            <h2>Key Learnings</h2>
+            <div class="lessons-grid">
+                <div class="lesson-item animate-on-scroll">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Open-Source Iteration</h3>
+                    <p>Learned to build on existing codebases, improving features while maintaining core gameplay.</p>
+                </div>
+                <div class="lesson-item animate-on-scroll">
+                    <i class="fas fa-users"></i>
+                    <h3>User Experience Focus</h3>
+                    <p>Emphasized immersion through UI and audio changes, increasing player engagement.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-links project-section">
+            <a href="[YOUR LIVE DEMO LINK HERE, e.g., https://yourgithub.io/gwent/]" target="_blank" class="drive-button">
+                <i class="fas fa-play"></i>
+                Play the Game Demo
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Ming Yang. You can't use up creativity, the more you use, the more you have in your significant mind.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script src="works.js"></script>
+</body>
+</html>

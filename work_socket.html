@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en" class="project-socket">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/portfolio/">
+    <title>Ming Yang - Socket Programming Chat Application</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="works.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Ming Yang</h1>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/myc208" target="_blank" aria-label="LinkedIn">
+                    <img src="linkedin-icon.png" alt="LinkedIn" width="24" loading="lazy">
+                </a>
+                <a href="https://www.instagram.com/_ap.cr_" target="_blank" aria-label="Instagram">
+                    <img src="instagram-icon.png" alt="Instagram" width="24" loading="lazy">
+                </a>
+            </div>
+        </div>
+        <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+            &#9776;
+        </button>
+        <nav class="nav-links">
+            <a href="index.html">About</a>
+            <a href="works.html" class="active">Works</a>
+            <label class="switch">
+              <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
+              <span class="slider-ios"></span>
+            </label>             
+        </nav>
+    </header>
+
+    <div class="nav-orb" id="navOrb">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <div class="nav-sphere" id="navSphere">
+        <a href="work_hnn.html"><i class="fas fa-brain"></i> Hybrid Neural Network</a>
+        <a href="work_elastic.html"><i class="fas fa-database"></i> ElasticSearch DB</a>
+        <a href="work_cnn.html"><i class="fas fa-eye"></i> Convolutional NN</a>
+        <a href="work_rnn.html"><i class="fas fa-language"></i> Recurrent NN</a>
+        <a href="work_aa.html"><i class="fas fa-chart-line"></i> Storyboard Mapping</a>
+        <a href="work_fse.html"><i class="fas fa-file-excel"></i> Excel Engineering</a>
+        <a href="work_dv.html"><i class="fas fa-chart-pie"></i> Data Visualization</a>
+        <a href="work_cs.html"><i class="fas fa-code"></i> C# Application</a>
+        <a href="work_grade.html"><i class="fas fa-graduation-cap"></i> Grades Database</a>
+        <a href="work_gwent.html"><i class="fas fa-gamepad"></i> Gwent Game</a>
+        <a href="work_socket.html" class="active"><i class="fas fa-plug"></i> Socket Programming</a>
+    </div>
+
+    <div class="container">
+        <div class="project-header">
+            <h1 class="project-title">Socket Programming Chat Application</h1>
+            <p class="project-summary">A group-based client-server chat application in Python with user authentication, private/group messaging, encryption, and AI-assisted development for code generation and refinement.</p>
+        </div>
+
+        <div class="project-description project-section">
+            <h2>Project Description</h2>
+            <p>This project involved developing a real-time chat application using socket programming in Python. Key features include user authentication, broadcasting, private messaging, group management, and encryption for secure communication. AI tools like ChatGPT were used to generate initial code, test cases, and refinements, with manual improvements for error handling and security. The application supports command-line interaction and includes robust testing and UML documentation.</p>
+        </div>
+
+        <div class="project-technologies project-section">
+            <h2>Technologies Used</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <i class="fab fa-python"></i>
+                    <span>Python</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-network-wired"></i>
+                    <span>Socket Programming</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-lock"></i>
+                    <span>Cryptography (Fernet)</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-users"></i>
+                    <span>Threading</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-brain"></i>
+                    <span>AI-Assisted (ChatGPT)</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-features project-section">
+            <h2>Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-item animate-on-scroll">
+                    <i class="fas fa-user-check"></i>
+                    <h3>User Authentication</h3>
+                    <p>Unique usernames with validation against standards (3-15 chars, no spaces, reserved words check).</p>
+                </div>
+                <div class="feature-item animate-on-scroll">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Private & Broadcast Messaging</h3>
+                    <p>Send messages to all or specific users, with sender identification.</p>
+                </div>
+                <div class="feature-item animate-on-scroll">
+                    <i class="fas fa-users-cog"></i>
+                    <h3>Group Management</h3>
+                    <p>Create, send to, leave, delete groups; list members.</p>
+                </div>
+                <div class="feature-item animate-on-scroll">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Encryption & Spam Detection</h3>
+                    <p>AES encryption for messages/history; repetition-based spam check.</p>
+                </div>
+                <div class="feature-item animate-on-scroll">
+                    <i class="fas fa-history"></i>
+                    <h3>Chat History</h3>
+                    <p>Logged encrypted messages, retrievable via command.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-code project-section">
+            <h2>Code Implementation</h2>
+            <div class="code-examples">
+                <div class="code-example animate-on-scroll">
+                    <h3>Encryption Module (encryption.py)</h3>
+                    <pre><code class="language-python">
+from cryptography.fernet import Fernet
+import os
+
+KEY_FILE = "secret.key"
+
+def generate_key():
+    """Generates a new AES encryption key and saves it."""
+    key = Fernet.generate_key()
+    with open(KEY_FILE, "wb") as key_file:
+        key_file.write(key)
+    print(f"New encryption key generated and saved to {KEY_FILE}")
+
+def load_key():
+    """Loads the AES encryption key from a file."""
+    if not os.path.exists(KEY_FILE):
+        generate_key()
+    with open(KEY_FILE, "rb") as key_file:
+        return key_file.read()
+
+# Load the key
+SECRET_KEY = load_key()
+cipher = Fernet(SECRET_KEY)
+
+def encrypt_message(message):
+    return cipher.encrypt(message.encode()).decode()
+
+def decrypt_message(encrypted_message):
+    return cipher.decrypt(encrypted_message.encode()).decode()
+                    </code></pre>
+                </div>
+                <div class="code-example animate-on-scroll">
+                    <h3>Client Side (client.py)</h3>
+                    <pre><code class="language-python">
+import socket
+import threading
+from encryption import encrypt_message, decrypt_message  # Import encryption utilities
+
+HOST = '127.0.0.1'
+PORT = 5555
+
+def receive_messages(client_socket):
+    """Receives and displays messages, including multi-part chat history."""
+    history_buffer = []  # Store multi-line history
+    while True:
+        try:
+            encrypted_message = client_socket.recv(1024).decode('utf-8')
+            if not encrypted_message:
+                print("Disconnected from server.")
+                break
+
+            message = decrypt_message(encrypted_message)
+
+            # Handle multi-line chat history
+            if message == "END_OF_HISTORY":
+                print("\n Chat History:\n" + "\n".join(history_buffer))
+                history_buffer = []  # Clear buffer after displaying
+                continue
+            elif "@history" in message:
+                history_buffer.append(message)
+                continue
+
+            print(message)  # Print regular messages
+
+        except Exception as e:
+            print(f"Error: {e}")
+            break
+
+
+def main():
+    client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    client_socket.connect((HOST, PORT))
+
+    # Receive the initial prompt from the server
+    initial_prompt = decrypt_message(client_socket.recv(1024).decode('utf-8'))
+    print(initial_prompt)  # Print "Enter your username: "
+
+    while True:
+        username = input()  # Wait for the user to input their username
+        client_socket.send(encrypt_message(username).encode('utf-8'))
+
+        response = decrypt_message(client_socket.recv(1024).decode('utf-8'))
+        if "Invalid username" in response or "Duplicate username" in response:
+            print(response)  # Print the error message
+            continue  # Ask for a new username
+        else:
+            # Print the successful connection message
+            print(response)  # Print "Connected to the chat server!"
+            break  # Exit the loop once a valid, unique username is provided
+
+    threading.Thread(target=receive_messages, args=(client_socket,), daemon=True).start()
+
+    while True:
+        message = input()
+        if message.lower() == "@quit":
+            client_socket.send(encrypt_message(message).encode('utf-8'))
+            print("Disconnecting...")
+            break
+        client_socket.send(encrypt_message(message).encode('utf-8'))
+
+    client_socket.close()
+
+if __name__ == "__main__":
+    main()
+                    </code></pre>
+                </div>
+                <div class="code-example animate-on-scroll">
+                    <h3>Server Side (server.py)</h3>
+                    <pre><code class="language-python">
+import socket
+import threading
+import time
+import re
+from encryption import encrypt_message, decrypt_message  # Import encryption utilities
+
+# Server configuration
+HOST = '127.0.0.1'
+PORT = 5555
+
+clients = {}  # Stores client sockets with usernames
+groups = {}  # Stores groups with members
+user_status = {}  # Stores user statuses (available, busy, away)
+message_log = "chat_history.log"  # Log file for encrypted chat messages
+spam_tracker = {}  # Tracks recent messages to detect spam
+
+def is_valid_username(username):
+    """Validates a username against industry standards."""
+    # Define the regex pattern for acceptable usernames
+    pattern = r"^\S(?:[a-zA-Z0-9._]*\S)?$"
+    
+    # Check if the username matches the pattern and is within the length limits
+    if not re.match(pattern, username) or len(username) < 3 or len(username) > 15:
+        return False
+    
+    # List of reserved words
+    reserved_words = ["admin", "root", "system", "server", "moderator"]
+    if username.lower() in reserved_words:
+        return False
+    
+    return True
+
+def log_message(username, message):
+    """Logs encrypted messages to a file for chat history tracking."""
+    try:
+        with open(message_log, "a") as log_file:
+            encrypted_msg = encrypt_message(f"{username}: {message}")
+            log_file.write(encrypted_msg + "\n")
+    except Exception as e:
+        print(f"Error logging message: {e}")
+
+def detect_spam(username, message):
+    """Detects spam messages based on repetition and time interval."""
+    now = time.time()
+    if username in spam_tracker:
+        last_message, last_time = spam_tracker[username]
+        if message == last_message and (now - last_time) < 2:  # 2 seconds spam limit
+            return True
+    spam_tracker[username] = (message, now)
+    return False
+
+def list_group_members(message, username, client_socket):
+    """Lists all members of a specified group."""
+    try:
+        parts = message.split(' ', 2)
+        if len(parts) < 3:
+            client_socket.send(encrypt_message("Usage: @group members <group_name>").encode('utf-8'))
+            return
+
+        group_name = parts[2]
+
+        if group_name not in groups:
+            client_socket.send(encrypt_message(f"Group '{group_name}' does not exist.").encode('utf-8'))
+            return
+
+        if username not in groups[group_name]:
+            client_socket.send(encrypt_message(f"You are not a member of group '{group_name}'.").encode('utf-8'))
+            return
+
+        members_list = ", ".join(groups[group_name])
+        client_socket.send(encrypt_message(f"Members of group '{group_name}': {members_list}").encode('utf-8'))
+
+    except Exception as e:
+        client_socket.send(encrypt_message(f"Error listing group members: {e}").encode('utf-8'))
+
+def handle_group_command(message, username, client_socket):
+    """Handles group-related commands."""
+    try:
+        parts = message.split(' ', 2)
+        if len(parts) < 2:
+            client_socket.send(encrypt_message("Invalid group command. Usage: @group <set/send/leave/delete> [args]").encode('utf-8'))
+            return
+
+        command = parts[1].lower()
+
+        if command == 'set':
+            create_group(message, username, client_socket)
+        elif command == 'send':
+            send_group_message(message, username, client_socket)
+        elif command == 'leave':
+            leave_group(message, username, client_socket)
+        elif command == 'delete':
+            delete_group(message, username, client_socket)
+        elif command == 'members':
+            list_group_members(message, username, client_socket)
+        else:
+            client_socket.send(encrypt_message("Invalid group command. Usage: @group <set/send/leave/delete/members> [args]").encode('utf-8'))
+    except Exception as e:
+        client_socket.send(encrypt_message(f"Error handling group command: {e}").encode('utf-8'))
+
+def create_group(message, username, client_socket):
+    """Creates a new group with the specified members."""
+    try:
+        parts = message.split(' ', 3)
+        if len(parts) < 4:
+            client_socket.send(encrypt_message("Usage: @group set <group_name> <member1, member2,...>").encode('utf-8'))
+            return
+
+        group_name = parts[2]
+        members = parts[3].split(',')
+
+        if group_name in groups:
+            client_socket.send(encrypt_message(f"Group '{group_name}' already exists.").encode('utf-8'))
+            return
+
+        # Validate members
+        valid_members = [m.strip() for m in members if m.strip() in clients]
+        if not valid_members:
+            client_socket.send(encrypt_message("No valid members provided.").encode('utf-8'))
+            return
+
+        groups[group_name] = valid_members
+        client_socket.send(encrypt_message(f"Group '{group_name}' created with members: {', '.join(valid_members)}").encode('utf-8'))
+    except Exception as e:
+        client_socket.send(encrypt_message(f"Error creating group: {e}").encode('utf-8'))
+
+def send_group_message(message, username, client_socket):
+    """Sends a message to all members of the specified group."""
+    try:
+        parts = message.split(' ', 3)
+        if len(parts) < 4:
+            client_socket.send(encrypt_message("Usage: @group send <group_name> <message>").encode('utf-8'))
+            return
+
+        group_name = parts[2]
+        group_message = parts[3]
+
+        if group_name not in groups:
+            client_socket.send(encrypt_message(f"Group '{group_name}' does not exist.").encode('utf-8'))
+            return
+
+        if username not in groups[group_name]:
+            client_socket.send(encrypt_message(f"You are not a member of group '{group_name}'.").encode('utf-8'))
+            return
+
+        encrypted_group_msg = encrypt_message(f"[Group {group_name}] {username}: {group_message}")
+
+        for member in groups[group_name]:
+            if member in clients:
+                clients[member].send(encrypted_group_msg.encode('utf-8'))
+
+        log_message(username, f"[Group {group_name}] {group_message}")
+
+    except Exception as e:
+        client_socket.send(encrypt_message(f"Error sending group message: {e}").encode('utf-8'))
+
+def leave_group(message, username, client_socket):
+    """Removes the user from the specified group."""
+    try:
+        parts = message.split(' ', 2)
+        if len(parts) < 3:
+            client_socket.send(encrypt_message("Usage: @group leave <group_name>").encode('utf-8'))
+            return
+
+        group_name = parts[2]
+
+        if group_name not in groups:
+            client_socket.send(encrypt_message(f"Group '{group_name}' does not exist.").encode('utf-8'))
+            return
+
+        if username not in groups[group_name]:
+            client_socket.send(encrypt_message(f"You are not a member of group '{group_name}'.").encode('utf-8'))
+            return
+
+        groups[group_name].remove(username)
+        client_socket.send(encrypt_message(f"You have left group '{group_name}'.").encode('utf-8'))
+    except Exception as e:
+        client_socket.send(encrypt_message(f"Error leaving group: {e}").encode('utf-8'))
+
+def delete_group(message, username, client_socket):
+    """Deletes the specified group if the user is the creator."""
+    try:
+        parts = message.split(' ', 2)
+        if len(parts) < 3:
+            client_socket.send(encrypt_message("Usage: @group delete <group_name>").encode('utf-8'))
+            return
+
+        group_name = parts[2]
+
+        if group_name not in groups:
+            client_socket.send(encrypt_message(f"Group '{group_name}' does not exist.").encode('utf-8'))
+            return
+
+        # Assuming the creator is the first member or track creator separately
+        if username != groups[group_name][0]:  # Simple check: only creator (first member) can delete
+            client_socket.send(encrypt_message(f"You are not the creator of group '{group_name}'.").encode('utf-8'))
+            return
+
+        del groups[group_name]
+        client_socket.send(encrypt_message(f"Group '{group_name}' deleted.").encode('utf-8'))
+    except Exception as e:
+        client_socket.send(encrypt_message(f"Error deleting group: {e}").encode('utf-8'))
+
+def broadcast(message, client_socket=None):
+    """Broadcasts an encrypted message to all clients except the sender."""
+    encrypted_message = encrypt_message(message)
+    for client in clients.values():
+        if client != client_socket:
+            client.send(encrypted_message.encode('utf-8'))
+
+def send_private_message(message, username, client_socket):
+    """Sends a private message to a specific user."""
+    try:
+        parts = message.split(' ', 2)
+        if len(parts) < 3:
+            client_socket.send(encrypt_message("Usage: @username <message>").encode('utf-8'))
+            return
+
+        target_username = parts[1][1:]  # Remove '@'
+        private_message = parts[2]
+
+        if target_username not in clients:
+            client_socket.send(encrypt_message(f"User '{target_username}' not found.").encode('utf-8'))
+            return
+
+        encrypted_private_msg = encrypt_message(f"[Private from {username}] {private_message}")
+        clients[target_username].send(encrypted_private_msg.encode('utf-8'))
+
+        # Log the private message
+        log_message(username, f"[Private to {target_username}] {private_message}")
+    except Exception as e:
+        client_socket.send(encrypt_message(f"Error sending private message: {e}").encode('utf-8'))
+
+def list_connected_users(client_socket):
+    """Lists all connected usernames."""
+    users_list = ", ".join(clients.keys())
+    client_socket.send(encrypt_message(f"Connected users: {users_list}").encode('utf-8'))
+
+def set_user_status(message, username, client_socket):
+    """Sets the user's status to available, busy, or away."""
+    try:
+        parts = message.split(' ', 2)
+        if len(parts) < 2:
+            client_socket.send(encrypt_message("Usage: @status <available/busy/away>").encode('utf-8'))
+            return
+
+        new_status = parts[1].lower()
+        if new_status not in ['available', 'busy', 'away']:
+            client_socket.send(encrypt_message("Invalid status. Use available, busy, or away.").encode('utf-8'))
+            return
+
+        user_status[username] = new_status
+        client_socket.send(encrypt_message(f"Your status has been set to '{new_status}'.").encode('utf-8'))
+    except Exception as e:
+        client_socket.send(encrypt_message(f"Error updating status: {e}").encode('utf-8'))
+
+def send_chat_history(client_socket):
+    """Sends the chat history to the client."""
+    try:
+        with open(message_log, "r") as log_file:
+            history_lines = log_file.readlines()
+
+        if not history_lines:
+            client_socket.send(encrypt_message("No chat history available.").encode('utf-8'))
+            return
+        
+        decrypted_history = "\n".join([decrypt_message(line.strip()) for line in history_lines])
+
+        # Send history in multiple chunks if needed
+        for chunk in [decrypted_history[i:i+1024] for i in range(0, len(decrypted_history), 1024)]:
+            client_socket.send(encrypt_message(chunk).encode('utf-8'))
+
+        # Signal end of history transmission
+        client_socket.send(encrypt_message("END_OF_HISTORY").encode('utf-8'))
+
+    except Exception as e:
+        client_socket.send(encrypt_message(f"Error retrieving history: {e}").encode('utf-8'))
+
+def remove_client(username, client_socket):
+    """Removes a client from the server."""
+    if username in clients:
+        del clients[username]
+    if username in user_status:
+        del user_status[username]
+    client_socket.close()
+    print(f'{username} has disconnected.')  # Update terminal when user disconnects
+    broadcast(f'{username} has disconnected.', client_socket)
+
+def main():
+    """Main server function to accept clients."""
+    server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server.bind((HOST, PORT))
+    server.listen(5)
+    print(f'Server running on {HOST}:{PORT}')
+
+    while True:
+        try:
+            client_socket, addr = server.accept()
+            # Send the initial prompt only once
+            client_socket.send(encrypt_message("Enter your username: ").encode('utf-8'))
+
+            # Keep requesting a unique username until the client provides one
+            while True:
+                encrypted_username = client_socket.recv(1024).decode('utf-8')
+                username = decrypt_message(encrypted_username)
+
+                # Validate the username
+                if not is_valid_username(username):
+                    client_socket.send(encrypt_message("Invalid username. Usernames must be 3-15 characters long, contain only a-z, A-Z, 0-9, ., or _, and cannot have spaces.").encode('utf-8'))
+                    continue
+
+                if username in clients:
+                    # Inform the client that the username is already taken
+                    client_socket.send(encrypt_message("Username already taken. Please try a different one.").encode('utf-8'))
+                else:
+                    # Accept the username if it's not taken
+                    clients[username] = client_socket
+                    user_status[username] = "available"  # Default status
+                    print(f'{username} connected.')
+                    # Send the successful connection message
+                    client_socket.send(encrypt_message("Connected to the chat server!").encode('utf-8'))
+                    broadcast(f'{username} has joined the chat.', client_socket)
+                    break  # Exit the loop and proceed to handle client communication
+
+                threading.Thread(target=handle_client_v2, args=(client_socket, username)).start()
+        except Exception as e:
+            print(f"Error accepting connection: {e}")
+
+if __name__ == "__main__":
+    main()
+                    </code></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-gallery project-section">
+            <h2>Project Gallery</h2>
+            <div class="image-grid">
+                <div class="image-item animate-on-scroll">
+                    <img src="socket_class_diagram.png" alt="Class Diagram">
+                    <p class="image-caption">UML Class Diagram for Chat System</p>
+                </div>
+                <div class="image-item animate-on-scroll">
+                    <img src="socket_sequence_diagram.png" alt="Sequence Diagram">
+                    <p class="image-caption">Sequence Diagram for Group Messaging</p>
+                </div>
+                <div class="image-item animate-on-scroll">
+                    <img src="socket_demo.gif" alt="Chat Demo">
+                    <p class="image-caption">Demo of Chat Application in Action</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-lessons project-section">
+            <h2>Key Learnings</h2>
+            <div class="lessons-grid">
+                <div class="lesson-item animate-on-scroll">
+                    <i class="fas fa-brain"></i>
+                    <h3>AI-Assisted Development</h3>
+                    <p>AI tools sped up code generation but required manual refinement for error handling and security, emphasizing human oversight.</p>
+                </div>
+                <div class="lesson-item animate-on-scroll">
+                    <i class="fas fa-users-cog"></i>
+                    <h3>Team Collaboration</h3>
+                    <p>Group work on networking and security features highlighted the importance of clear communication and modular design.</p>
+                </div>
+                <div class="lesson-item animate-on-scroll">
+                    <i class="fas fa-bug"></i>
+                    <h3>Error Handling & Security</h3>
+                    <p>Implemented robust validation and encryption, learning to balance functionality with security in real-time apps.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-links project-section">
+            <a href="report.pdf" target="_blank" class="drive-button">
+                <i class="fas fa-file-pdf"></i>
+                View Project Report
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Ming Yang. You can't use up creativity, the more you use, the more you have in your significant mind.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script src="works.js"></script>
+</body>
+</html>

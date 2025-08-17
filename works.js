@@ -203,6 +203,30 @@ document.addEventListener('DOMContentLoaded', function() {
         link: "work_grade.html",
         tags: ["C", "File I/O", "Data Structures"],
         icon: "fa-graduation-cap"
+      },
+      {
+        title: "Gwent Game",
+        summary: "A web-based remake of the Gwent card game from The Witcher 3, with enhanced UI and music.",
+        image: "gwent.png", // Add an image for thumbnail
+        link: "work_gwent.html",
+        tags: ["JavaScript", "Game Development", "UI/UX"],
+        icon: "fa-gamepad"
+      },
+      {
+        title: "Socket Programming",
+        summary: "Client-server chat app with encryption, groups, and AI assistance.",
+        image: "socket.png",
+        link: "work_socket.html",
+        tags: ["Python", "Networking", "Security"],
+        icon: "fa-plug"
+      },
+      {
+        title: "IoT Plant Watering System",
+        summary: "Smart irrigation system with sensors and web control.",
+        image: "iot.png",
+        link: "work_iot.html",
+        tags: ["IoT", "Python", "Raspberry Pi"],
+        icon: "fa-seedling"
       }
     ];
   
