@@ -54,6 +54,7 @@
         <a href="work_grade.html"><i class="fas fa-graduation-cap"></i> Grades Database</a>
         <a href="work_gwent.html"><i class="fas fa-gamepad"></i> Gwent Game</a>
         <a href="work_socket.html" class="active"><i class="fas fa-plug"></i> Socket Programming</a>
+        <a href="work_iot.html"><i class="fas fa-seedling"></i> IoT Plant Watering System</a>
     </div>
 
     <div class="container">
@@ -129,7 +130,9 @@
             <div class="code-examples">
                 <div class="code-example animate-on-scroll">
                     <h3>Encryption Module (encryption.py)</h3>
-                    <pre><code class="language-python">
+                    <details>
+                        <summary>Expand Code</summary>
+                        <pre><code class="language-python">
 from cryptography.fernet import Fernet
 import os
 
@@ -158,11 +161,14 @@ def encrypt_message(message):
 
 def decrypt_message(encrypted_message):
     return cipher.decrypt(encrypted_message.encode()).decode()
-                    </code></pre>
+                        </code></pre>
+                    </details>
                 </div>
                 <div class="code-example animate-on-scroll">
                     <h3>Client Side (client.py)</h3>
-                    <pre><code class="language-python">
+                    <details>
+                        <summary>Expand Code</summary>
+                        <pre><code class="language-python">
 import socket
 import threading
 from encryption import encrypt_message, decrypt_message  # Import encryption utilities
@@ -233,11 +239,14 @@ def main():
 
 if __name__ == "__main__":
     main()
-                    </code></pre>
+                        </code></pre>
+                    </details>
                 </div>
                 <div class="code-example animate-on-scroll">
                     <h3>Server Side (server.py)</h3>
-                    <pre><code class="language-python">
+                    <details>
+                        <summary>Expand Code</summary>
+                        <pre><code class="language-python">
 import socket
 import threading
 import time
@@ -562,13 +571,14 @@ def main():
                     broadcast(f'{username} has joined the chat.', client_socket)
                     break  # Exit the loop and proceed to handle client communication
 
-                threading.Thread(target=handle_client_v2, args=(client_socket, username)).start()
+            threading.Thread(target=handle_client_v2, args=(client_socket, username)).start()
         except Exception as e:
             print(f"Error accepting connection: {e}")
 
 if __name__ == "__main__":
     main()
-                    </code></pre>
+                        </code></pre>
+                    </details>
                 </div>
             </div>
         </div>

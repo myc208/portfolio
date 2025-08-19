@@ -471,8 +471,53 @@ input:checked + .slider-ios:before {
 .project-socket .project-title {
     color: #3498db; /* Blue for networking theme */
 }
-.project-socket .code-example pre {
-    background-color: #2c3e50; /* Darker code bg */
+.code-example pre {
+   background-color: var(--code-bg);
+   padding: 1rem;
+   border-radius: 5px;
+   margin-top: 0;
+}
+
+/* Collapsible Code Blocks */
+details {
+   margin-bottom: 1rem;
+}
+summary {
+   cursor: pointer;
+   font-weight: bold;
+   color: var(--primary);
+   padding: 0.5rem;
+   background-color: var(--light);
+   border-radius: 5px;
+   transition: background-color 0.3s ease;
+}
+summary:hover {
+   background-color: var(--secondary);
+   color: white;
+}
+details[open] summary {
+   background-color: var(--primary);
+   color: white;
+}
+/* Dark Mode Adjustments */
+body.dark-mode summary {
+   background-color: var(--dark);
+   color: var(--light);
+}
+body.dark-mode summary:hover {
+   background-color: var(--secondary);
+}
+body.dark-mode details[open] summary {
+   background-color: var(--primary);
+}
+/* Distinguish Code from Text */
+.code-block, pre {
+   background-color: #f6f8fa !important; /* Light mode: light gray */
+   border: 1px solid #ddd;
+}
+body.dark-mode .code-block, body.dark-mode pre {
+   background-color: #2d2d2d !important; /* Dark mode: darker gray */
+   border: 1px solid #444;
 }
 
 /* IoT Project Specific Styles */
