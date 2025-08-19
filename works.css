@@ -368,18 +368,6 @@ body.dark-mode .timeline-item {
   border: 3px solid var(--primary);
 }
 
-/* Code Blocks */
-.code-block {
-  background: var(--code-bg);
-  color: #f8f8f2;
-  padding: 20px;
-  border-radius: 10px;
-  overflow-x: auto;
-  margin-bottom: 30px;
-  font-family: 'Courier New', monospace;
-  transition: background-color 0.3s ease;
-}
-
 /* Footer Styles */
 footer {
   background-color: var(--footer-bg);
