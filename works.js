@@ -235,6 +235,14 @@ document.addEventListener('DOMContentLoaded', function() {
         link: "work_oop.html",
         tags: ["Java", "OOP", "Game Dev"],
         icon: "fa-cogs"
+      },
+      {
+        title: "Medium-like Blog Application",
+        summary: "PHP-based blog with CRUD and search features.",
+        image: "web.png",
+        link: "work_web.html",
+        tags: ["PHP", "Web Dev", "MySQL"],
+        icon: "fa-globe"
       }
     ];
   
