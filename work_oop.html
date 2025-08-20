@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en" class="project-oop">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/portfolio/">
+    <title>Ming Yang - OOP Game Development</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="works.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Ming Yang</h1>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/myc208" target="_blank" aria-label="LinkedIn">
+                    <img src="linkedin-icon.png" alt="LinkedIn" width="24" loading="lazy">
+                </a>
+                <a href="https://www.instagram.com/_ap.cr_" target="_blank" aria-label="Instagram">
+                    <img src="instagram-icon.png" alt="Instagram" width="24" loading="lazy">
+                </a>
+            </div>
+        </div>
+        <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+            &#9776;
+        </button>
+        <nav class="nav-links">
+            <a href="index.html">About</a>
+            <a href="works.html" class="active">Works</a>
+            <label class="switch">
+              <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
+              <span class="slider-ios"></span>
+            </label>             
+        </nav>
+    </header>
+
+    <div class="nav-orb" id="navOrb">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <div class="nav-sphere" id="navSphere">
+        <a href="work_hnn.html"><i class="fas fa-brain"></i> Hybrid Neural Network</a>
+        <a href="work_elastic.html"><i class="fas fa-database"></i> ElasticSearch DB</a>
+        <a href="work_cnn.html"><i class="fas fa-eye"></i> Convolutional NN</a>
+        <a href="work_rnn.html"><i class="fas fa-language"></i> Recurrent NN</a>
+        <a href="work_aa.html"><i class="fas fa-chart-line"></i> Storyboard Mapping</a>
+        <a href="work_fse.html"><i class="fas fa-file-excel"></i> Excel Engineering</a>
+        <a href="work_dv.html"><i class="fas fa-chart-pie"></i> Data Visualization</a>
+        <a href="work_cs.html"><i class="fas fa-code"></i> C# Application</a>
+        <a href="work_grade.html"><i class="fas fa-graduation-cap"></i> Grades Database</a>
+        <a href="work_gwent.html"><i class="fas fa-gamepad"></i> Gwent Game</a>
+        <a href="work_socket.html"><i class="fas fa-plug"></i> Socket Programming</a>
+        <a href="work_iot.html"><i class="fas fa-seedling"></i> IoT Plant Watering System</a>
+    </div>
+
+    <div class="container">
+        <div class="project-header">
+            <h1 class="project-title">OOP Game Development</h1>
+            <p class="project-summary">A group project creating an interactive game using object-oriented principles in Java, with focus on movement logic for entities.</p>
+        </div>
+
+        <div class="project-description project-section">
+            <h2>Project Description</h2>
+            <p>This group project involved developing a game where tasks were divided among team members: scene management, movement, collision detection, I/O handling, and entity management. My role was implementing the movement logic, including AI-controlled entity movement, player-controlled movements with boundaries, and physics-based effects like gravity and swaying for realism. The game uses OOP principles such as interfaces (e.g., iMoveable), abstraction, and encapsulation to manage entity behaviors efficiently.</p>
+        </div>
+
+        <div class="project-technologies project-section">
+            <h2>Technologies Used</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <i class="fab fa-java"></i>
+                    <span>Java</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-cogs"></i>
+                    <span>LibGDX</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-project-diagram"></i>
+                    <span>OOP Principles</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-gamepad"></i>
+                    <span>Game Development</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-features project-section">
+            <h2>Key Features (My Contribution: Movement)</h2>
+            <div class="features-grid">
+                <div class="feature-item animate-on-scroll">
+                    <i class="fas fa-robot"></i>
+                    <h3>AI Movement Logic</h3>
+                    <p>Implemented AI for entities to enhance gameplay, including calculated physics for realistic falling and swaying.</p>
+                </div>
+                <div class="feature-item animate-on-scroll">
+                    <i class="fas fa-arrows-alt"></i>
+                    <h3>Player-Controlled Movement</h3>
+                    <p>Enabled smooth player input handling with boundaries to prevent out-of-bounds errors.</p>
+                </div>
+                <div class="feature-item animate-on-scroll">
+                    <i class="fas fa-weight-hanging"></i>
+                    <h3>Physics Simulation</h3>
+                    <p>Added gravity acceleration capped at max speed, with material-specific fall rates and oscillation for light objects.</p>
+                </div>
+                <div class="feature-item animate-on-scroll">
+                    <i class="fas fa-users-cog"></i>
+                    <h3>Modular Design</h3>
+                    <p>Used iMoveable interface for polymorphic movement behaviors across entities.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-code project-section">
+            <h2>Code Implementation (Movement Logic)</h2>
+            <div class="code-examples">
+                <div class="code-example animate-on-scroll">
+                    <h3>iMoveable Interface (iMoveable.java)</h3>
+                    <details>
+                        <summary>Expand Code</summary>
+                        <pre><code class="language-java">
+package MovementManager;
+
+public interface iMoveable {
+    public void movementAI();
+    public void movementPlayer();
+}
+                        </code></pre>
+                    </details>
+                </div>
+                <div class="code-example animate-on-scroll">
+                    <h3>MovementManager Class (MovementManager.java)</h3>
+                    <details>
+                        <summary>Expand Code</summary>
+                        <pre><code class="language-java">
+package MovementManager;
+
+import java.util.ArrayList;
+import java.util.List;
+import EntityManager.*;
+
+public class MovementManager {
+    private List<iMoveable> movables;
+
+    // Global gravity settings (controls fall behavior)
+    private float gravityAcceleration = 0.1f;
+    private float maxFallSpeed = 4f;
+
+    // Time counter for smooth oscillation/sway effect
+    private float timeCounter = 0;
+
+    public MovementManager() {
+        this.movables = new ArrayList<>();
+    }
+
+    // Register a moveable entity (e.g., Food, Paper, Plastic, Player)
+    public void addMovable(iMoveable entity) {
+        movables.add(entity);
+    }
+
+    // Remove a moveable entity
+    public void removeMovable(iMoveable entity) {
+        movables.remove(entity);
+    }
+
+    // Main update loop called every frame
+    public void update(float deltaTime) {
+        timeCounter += deltaTime; // Keep track of time for oscillation
+
+        for (iMoveable entity : movables) {
+            if (entity instanceof Entity) {
+                applyGravity((Entity) entity);       // Apply gravity (falling effect)
+                applySway((Entity) entity, timeCounter); // Apply side-to-side swaying if needed
+            }
+            if (entity instanceof TextureObject && ((TextureObject) entity).getType().equals("Recycling_Bin")) {
+                applySmoothPlayerMovement((TextureObject) entity); // Smooth bucket control
+            }
+            applyAI(entity); // Execute AI-based movement (e.g., falling down)
+            applyPlayerMovement(entity, null); // Handle player input (for player-controlled entities)
+        }
+    }
+
+    // Call AI movement logic defined inside each entity
+    public void applyAI(iMoveable entity) {
+        entity.movementAI();
+    }
+
+    // Call player-controlled movement logic
+    public void applyPlayerMovement(iMoveable entity, String direction) {
+        entity.movementPlayer();
+    }
+
+    // Apply gravity acceleration, capped at max speed, with easing effect
+    public void applyGravity(Entity entity) {
+        float gravityFactor = getGravityFactor(entity); // Different fall speed for different materials
+        float currentSpeed = entity.getSpeed();
+
+        // Accelerate smoothly, don't exceed max speed
+        if (currentSpeed < maxFallSpeed * gravityFactor) {
+            float easedAcceleration = gravityAcceleration * gravityFactor;
+            entity.setSpeed(currentSpeed + easedAcceleration);
+        }
+    }
+
+    // Assign different gravity scaling factors for each entity type
+    private float getGravityFactor(Entity entity) {
+        if (entity instanceof TextureObject) {
+            TextureObject textureObject = (TextureObject) entity;
+            String type = textureObject.getType();
+            if (type.equals("Styrofoam")) return 0.4f; // Very slow fall
+            if (type.equals("Paper")) return 0.7f;    // Medium fall
+        }
+        return 1.0f; // Normal fall for other items (e.g., Food, Plastic)
+    }
+
+    // Apply different swaying effects for light materials (Paper and Styrofoam)
+    private void applySway(Entity entity, float time) {
+        if (entity instanceof TextureObject) {
+            TextureObject textureObject = (TextureObject) entity;
+            String type = textureObject.getType();
+            if (type.equals("Styrofoam")) {
+                // Wide and slow sway for Styrofoam
+                float swayAmount = 1.5f; // Larger sway distance
+                float swaySpeed = 1.0f;  // Slower oscillation
+                entity.setX(entity.getX() + (float) Math.sin(time * swaySpeed) * swayAmount);
+            } else if (type.equals("Paper")) {
+                // Narrow and fast sway for Paper
+                float swayAmount = 0.8f; // Smaller sway distance
+                float swaySpeed = 2.5f;  // Faster oscillation
+                entity.setX(entity.getX() + (float) Math.sin(time * swaySpeed) * swayAmount);
+            }
+        }
+    }
+
+    // Smooth, inertia-based player-controlled movement (Recycling Bin)
+    private void applySmoothPlayerMovement(TextureObject entity) {
+        if (entity.getType().equals("Recycling_Bin")) {
+            // Call the smooth movement logic for the Recycling Bin
+            entity.movementPlayer(); // Assuming movementPlayer() handles smooth movement
+        }
+    }
+}
+                        </code></pre>
+                    </details>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-gallery project-section">
+            <h2>Project Gallery</h2>
+            <div class="image-grid">
+                <div class="image-item animate-on-scroll">
+                    <img src="oop_uml.png" alt="UML Diagram">
+                    <p class="image-caption">UML Diagram of Game Architecture</p>
+                </div>
+                <div class="image-item animate-on-scroll">
+                    <img src="oop_demo.gif" alt="Game Demo">
+                    <p class="image-caption">Gameplay Demo Screenshot</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-video project-section">
+            <h2>Presentation Recording</h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/rns54LQB2mU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <div class="project-links project-section">
+            <a href="LabGroup5_TeamNumber6_ProjectPart2Report.pdf" target="_blank" class="drive-button">
+                <i class="fas fa-file-pdf"></i>
+                View Project Report
+            </a>
+            <a href="LabGroup5_TeamNumber6_ProjectPart2Slides.pdf" target="_blank" class="drive-button">
+                <i class="fas fa-file-powerpoint"></i>
+                View Presentation Slides
+            </a>
+        </div>
+
+        <div class="project-lessons project-section">
+            <h2>Key Learnings</h2>
+            <div class="lessons-grid">
+                <div class="lesson-item animate-on-scroll">
+                    <i class="fas fa-cogs"></i>
+                    <h3>OOP Principles</h3>
+                    <p>Utilized interfaces, abstraction, and polymorphism for modular movement system.</p>
+                </div>
+                <div class="lesson-item animate-on-scroll">
+                    <i class="fas fa-robot"></i>
+                    <h3>AI & Physics</h3>
+                    <p>Implemented realistic physics like gravity and swaying to enhance gameplay immersion.</p>
+                </div>
+                <div class="lesson-item animate-on-scroll">
+                    <i class="fas fa-users"></i>
+                    <h3>Team Division</h3>
+                    <p>Collaborated on divided tasks (movement, collision, etc.) for efficient development.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Ming Yang. You can't use up creativity, the more you use, the more you have in your significant mind.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script src="works.js"></script>
+</body>
+</html>

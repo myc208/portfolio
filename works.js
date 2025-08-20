@@ -227,6 +227,14 @@ document.addEventListener('DOMContentLoaded', function() {
         link: "work_iot.html",
         tags: ["IoT", "Python", "Raspberry Pi"],
         icon: "fa-seedling"
+      },
+      {
+        title: "OOP Game Development",
+        summary: "Java-based game with OOP principles, focusing on movement logic.",
+        image: "oop.png",
+        link: "work_oop.html",
+        tags: ["Java", "OOP", "Game Dev"],
+        icon: "fa-cogs"
       }
     ];
   

@@ -34,14 +34,14 @@
             <label class="switch">
               <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
               <span class="slider-ios"></span>
-            </label>              
+            </label>             
         </nav>
     </header>
 
     <div class="nav-orb" id="navOrb">
         <i class="fas fa-bars"></i>
     </div>
-    
+
     <div class="nav-sphere" id="navSphere">
         <a href="work_hnn.html" class="active"><i class="fas fa-brain"></i> Hybrid Neural Network</a>
         <a href="work_elastic.html"><i class="fas fa-database"></i> ElasticSearch DB</a>
@@ -54,7 +54,8 @@
         <a href="work_grade.html"><i class="fas fa-graduation-cap"></i> Grades Database</a>
         <a href="work_gwent.html"><i class="fas fa-gamepad"></i> Gwent Game</a>
         <a href="work_socket.html"><i class="fas fa-plug"></i> Socket Programming</a>
-        <a href="work_iot.html" class="active"><i class="fas fa-seedling"></i> IoT Plant Watering System</a>
+        <a href="work_iot.html"><i class="fas fa-seedling"></i> IoT Plant Watering System</a>
+        <a href="work_oop.html"><i class="fas fa-cogs"></i> OOP Game Development</a>
     </div>
 
     <div class="container">
@@ -119,37 +120,46 @@
 
         <div class="project-analysis project-section">
             <h2>Code Implementation</h2>
-            <div class="code-block">
-                <pre><code class="language-python">
+            <div class="code-examples">
+                <div class="code-example animate-on-scroll">
+                    <h3>Hybrid Model Architecture (model.py)</h3>
+                    <details>
+                        <summary>Expand Code</summary>
+                        <pre><code class="language-python">
 # Hybrid Model Architecture
+from tensorflow.keras.layers import Input, Embedding, Conv1D, MaxPooling1D, LSTM, Dense, Dropout, concatenate
+from tensorflow.keras.models import Model
+
 def create_hybrid_model(max_features, embedding_dim, max_length):
     inputs = Input(shape=(max_length,))
     embedding = Embedding(max_features, embedding_dim, input_length=max_length)(inputs)
-    
+
     # CNN Branch
     conv1 = Conv1D(128, 5, activation='relu')(embedding)
     pool1 = MaxPooling1D(5)(conv1)
     conv2 = Conv1D(128, 5, activation='relu')(pool1)
     pool2 = MaxPooling1D(5)(conv2)
-    
+
     # LSTM Branch
     lstm1 = LSTM(64, return_sequences=True)(embedding)
     lstm2 = LSTM(64)(lstm1)
-    
+
     # Merge branches
     merged = concatenate([pool2, lstm2])
-    
+
     # Dense layers
     dense1 = Dense(64, activation='relu')(merged)
     dropout = Dropout(0.5)(dense1)
     output = Dense(1, activation='sigmoid')(dropout)
-    
+
     model = Model(inputs=inputs, outputs=output)
     model.compile(loss='binary_crossentropy',
                  optimizer='adam',
                  metrics=['accuracy'])
     return model
-                </code></pre>
+                        </code></pre>
+                    </details>
+                </div>
             </div>
         </div>
 
