@@ -244,6 +244,15 @@ document.addEventListener('DOMContentLoaded', function() {
         tags: ["PHP", "Web Dev", "MySQL"],
         icon: "fa-globe"
       }
+      ,
+      {
+        title: "IP Address Configuration",
+        summary: "Efficient IP configuration and access-restrictions for school campus buildings.",
+        image: "network.png",
+        link: "work_network.html",
+        tags: ["DNS", "IP-Config", "IPv4"],
+        icon: "fa-network-wired"
+      }
     ];
   
     projects.forEach(project => {

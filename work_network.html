@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" class="project-web">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/portfolio/">
+    <title>Ming Yang - Enterprise Network Design</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="works.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Ming Yang</h1>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/myc208" target="_blank" aria-label="LinkedIn">
+                    <img src="linkedin-icon.png" alt="LinkedIn" width="24" loading="lazy">
+                </a>
+                <a href="https://www.instagram.com/_ap.cr_" target="_blank" aria-label="Instagram">
+                    <img src="instagram-icon.png" alt="Instagram" width="24" loading="lazy">
+                </a>
+            </div>
+        </div>
+        <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+            &#9776;
+        </button>
+        <nav class="nav-links">
+            <a href="index.html">About</a>
+            <a href="works.html" class="active">Works</a>
+            <label class="switch">
+              <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
+              <span class="slider-ios"></span>
+            </label>             
+        </nav>
+    </header>
+
+    <div class="nav-orb" id="navOrb">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <div class="nav-sphere" id="navSphere">
+        <a href="work_hnn.html"><i class="fas fa-brain"></i> Hybrid Neural Network</a>
+        <a href="work_elastic.html"><i class="fas fa-database"></i> ElasticSearch DB</a>
+        <a href="work_cnn.html"><i class="fas fa-eye"></i> Convolutional NN</a>
+        <a href="work_rnn.html"><i class="fas fa-language"></i> Recurrent NN</a>
+        <a href="work_aa.html"><i class="fas fa-chart-line"></i> Storyboard Mapping</a>
+        <a href="work_fse.html"><i class="fas fa-file-excel"></i> Excel Engineering</a>
+        <a href="work_dv.html"><i class="fas fa-chart-pie"></i> Data Visualization</a>
+        <a href="work_cs.html"><i class="fas fa-code"></i> C# Application</a>
+        <a href="work_grade.html"><i class="fas fa-graduation-cap"></i> Grades Database</a>
+        <a href="work_gwent.html"><i class="fas fa-gamepad"></i> Gwent Game</a>
+        <a href="work_socket.html"><i class="fas fa-plug"></i> Socket Programming</a>
+        <a href="work_iot.html"><i class="fas fa-seedling"></i> IoT Plant Watering System</a>
+        <a href="work_oop.html"><i class="fas fa-cogs"></i> OOP Game Development</a>
+        <a href="work_web.html"><i class="fas fa-globe"></i> Blog Web Application</a>
+    </div>
+
+    <div class="container">
+        <div class="project-header">
+            <h1 class="project-title">Enterprise Network Design</h1>
+            <p class="project-summary">A group project designing a scalable enterprise network within `103.30.215.0/24` using Cisco Packet Tracer, featuring VLAN segmentation and a special access room.</p>
+        </div>
+
+        <div class="project-description project-section">
+            <h2>Project Description</h2>
+            <p>This group assignment involved designing an enterprise network using the range `103.30.215.0/24`. Configurations made within this project included subnetting the range into /26 segments, configuring VLANs for a Network Lab and a Network Security Lab in block E2, which houses 41 PCs each, while still accomodating to personal devices connected through a Wi-Fi accesspoint. On top of that, the building also encompasses an administration office which has 4 computers and 1 network-enabled printer, which should only be accessible from the administration office itself. In block E6, it consists of 2 Labs with 25 and 21 computers respectively with 1 PC in each of the rooms dedicated to the lecturer. Additionally, there will also be 2 servers in the same block within a special Server Room with unique trunking, and setting up OSPF routing. One of the servers provides DNS for domain name resolution services and the other one represents a web server providing a simple website ("www.singaporetech.edu.sg") for students. However, every device within the same building must be able to ping any other devices within the same building. The design was validated with a Cisco Packet Tracer file and a report justifying our approach.</p>
+        </div>
+
+        <div class="project-technologies project-section">
+            <h2>Technologies Used</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <i class="fas fa-network-wired"></i>
+                    <span>Cisco Packet Tracer</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-terminal"></i>
+                    <span>Cisco IOS</span>
+                </div>
+                <div class="tech-item">
+                    <i class="fas fa-cogs"></i>
+                    <span>VLAN & Routing Protocols</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-features project-section">
+            <h2>Key Features (My Contribution)</h2>
+            <div class="features-grid">
+                <div class="feature-item animate-on-scroll">
+                    <i class="fas fa-layer-group"></i>
+                    <h3>VLAN Segmentation</h3>
+                    <p>Subdivided `103.30.215.0/24` using CIDR into /25 for each of the 2 Network Labs in E2, /29 for the Adminstration Office, /26 for the Labs in E6, and /30 for the Server Room.</p>
+                </div>
+                <div class="feature-item animate-on-scroll">
+                    <i class="fas fa-exchange-alt"></i>
+                    <h3>Inter-VLAN Routing</h3>
+                    <p>Implemented OSPF to route between VLANs within the constrained IP range.</p>
+                </div>
+                <div class="feature-item animate-on-scroll">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Special Room Access</h3>
+                    <p>Configured VLAN 30 with trunking for restricted Server Room access.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-code project-section">
+            <h2>Configuration Commands</h2>
+            <div class="code-examples">
+                <div class="code-example animate-on-scroll">
+                    <h3>Switch Configuration</h3>
+                    <details>
+                        <summary>Expand Code</summary>
+                        <pre><code class="language-plaintext">
+enable
+configure terminal
+hostname E2
+vlan 10
+ name IT_Department
+vlan 20
+ name Sales_Department
+vlan 30
+ name Server_Room
+interface FastEthernet0/1
+ switchport mode access
+ switchport access vlan 10
+interface FastEthernet0/2
+ switchport mode access
+ switchport access vlan 20
+interface FastEthernet0/3
+ switchport mode access
+ switchport access vlan 30
+interface GigabitEthernet0/1
+ switchport mode trunk
+ switchport trunk allowed vlan 10,20,30
+ switchport trunk native vlan 30
+spanning-tree vlan 1 priority 4096
+exit
+write memory
+                        </code></pre>
+                    </details>
+                </div>
+                <div class="code-example animate-on-scroll">
+                    <h3>Router Configuration</h3>
+                    <details>
+                        <summary>Expand Code</summary>
+                        <pre><code class="language-plaintext">
+enable
+configure terminal
+hostname R-Core
+interface vlan 10
+ ip address 103.30.215.1 255.255.255.192
+ no shutdown
+interface vlan 20
+ ip address 103.30.215.65 255.255.255.192
+ no shutdown
+interface vlan 30
+ ip address 103.30.215.129 255.255.255.192
+ no shutdown
+interface vlan 40
+ ip address 103.30.215.193 255.255.255.192
+ no shutdown
+ip routing
+router ospf 1
+ network 103.30.215.0 0.0.0.63 area 0
+ network 103.30.215.64 0.0.0.63 area 0
+ network 103.30.215.128 0.0.0.63 area 0
+ network 103.30.215.192 0.0.0.63 area 0
+exit
+access-list 100 permit ip 103.30.215.128 0.0.0.63 103.30.215.0 0.0.0.255
+interface vlan 30
+ ip access-group 100 in
+exit
+write memory
+                        </code></pre>
+                    </details>
+                </div>
+                <div class="code-example animate-on-scroll">
+                    <h3>Troubleshooting Commands</h3>
+                    <details>
+                        <summary>Expand Code</summary>
+                        <pre><code class="language-plaintext">
+ping 103.30.215.130
+show vlan brief
+show ip route
+show ip interface brief
+                        </code></pre>
+                    </details>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-network-map project-section">
+            <h2>Network Mapping</h2>
+            <p>Below is the visual representation of the enterprise network design created in Cisco Packet Tracer.</p>
+            <div class="image-placeholder">
+                <!-- Add your network mapping image here -->
+                <img src="network_mapping.jpg" alt="Enterprise Network Mapping" style="max-width: 100%; height: auto;">
+            </div>
+        </div>
+
+        <div class="project-links project-section">
+            <a href="INF1006_P1_GRP37_ASG1Report.pdf" target="_blank" class="drive-button">
+                <i class="fas fa-file-pdf"></i>
+                View Project Report
+            </a>
+        </div>
+
+        <div class="project-lessons project-section">
+            <h2>Key Learnings</h2>
+            <div class="lessons-grid">
+                <div class="lesson-item animate-on-scroll">
+                    <i class="fas fa-users"></i>
+                    <h3>Team Collaboration</h3>
+                    <p>Worked with the team to adapt the design to specific room requirements.</p>
+                </div>
+                <div class="lesson-item animate-on-scroll">
+                    <i class="fas fa-tools"></i>
+                    <h3>Network Configuration</h3>
+                    <p>Learned to configure VLAN trunking and ACLs for special access.</p>
+                </div>
+                <div class="lesson-item animate-on-scroll">
+                    <i class="fas fa-bug"></i>
+                    <h3>Troubleshooting Skills</h3>
+                    <p>Improved skills in diagnosing connectivity for subnetted networks.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Ming Yang. You can't use up creativity, the more you use, the more you have in your significant mind.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script src="works.js"></script>
+</body>
+</html>
