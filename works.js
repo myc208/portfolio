@@ -243,8 +243,7 @@ document.addEventListener('DOMContentLoaded', function() {
         link: "work_web.html",
         tags: ["PHP", "Web Dev", "MySQL"],
         icon: "fa-globe"
-      }
-      ,
+      },
       {
         title: "IP Address Configuration",
         summary: "Efficient IP configuration and access-restrictions for school campus buildings.",
@@ -252,6 +251,14 @@ document.addEventListener('DOMContentLoaded', function() {
         link: "work_network.html",
         tags: ["DNS", "IP-Config", "IPv4"],
         icon: "fa-network-wired"
+      },
+      {
+        title: "Micron Internship",
+        summary: "Developed defect visualization systems for inspection machines in manufacturing line.",
+        image: "micron-silicon-symbol-drk-tm-rgb.png",
+        link: "work_micron.html",
+        tags: ["Python", "Data Visualization", "Flask"],
+        icon: "fa-industry"
       }
     ];
   
