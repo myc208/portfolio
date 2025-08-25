@@ -525,7 +525,7 @@ body.dark-mode .code-block, body.dark-mode pre {
 
 .image-item img {
     width: 100%;
-    height: auto;
+    height: 500px;
     object-fit: contain;
     border-radius: 8px;
 }
