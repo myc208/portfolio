@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', function() {
       {
         title: "Socket Programming",
         summary: "Client-server chat app with encryption, groups, and AI assistance.",
-        image: "socket.png",
+        image: "socketorg.png",
         link: "work_socket.html",
         tags: ["Python", "Networking", "Security"],
         icon: "fa-plug"
