@@ -452,7 +452,7 @@ input:checked + .slider-ios:before {
     color: #c7a56a; /* Witcher-inspired gold for title */
 }
 .project-gwent .feature-card {
-    background-color: rgba(30, 30, 30, 0.8); /* Darker card bg for game theme */
+    background-color: rgba(235, 235, 235, 0.8); /* Darker card bg for game theme */
 }
 
 /* Socket Project Specific Styles */
