@@ -1350,3 +1350,24 @@ body.dark-mode .welcome-overlay h1 {
 body.dark-mode .welcome-overlay p {
    color: #b0b0b0;
 }
+
+/* Fix Code Block Overflow on Mobile */
+.code-example pre, 
+.code-block, 
+pre {
+    background-color: var(--code-bg, #2d2d2d);
+    padding: 1rem;
+    border-radius: 5px;
+    margin-top: 0;
+    
+    /* These lines fix the overflow issue */
+    overflow-x: auto;       /* Adds a horizontal scrollbar if content is too wide */
+    max-width: 100%;        /* Prevents the box from exceeding the screen width */
+    white-space: pre;       /* Keeps code formatting but forces scrolling */
+}
+
+/* Ensure code inside doesn't force expansion */
+code {
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 0.9em;
+}

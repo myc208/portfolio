@@ -1,30 +1,186 @@
-// Works Page JavaScript
+// works.js
+
+// 1. CENTRAL DATA SOURCE
+const portfolioProjects = [
+  {
+    id: "hnn",
+    title: "Development of Hybrid Neural Network",
+    summary: "Optimizing algorithm learning through convergence of convolutional layers with LSTM/GRU layers.",
+    image: "hybridmodel.png",
+    link: "work_hnn.html",
+    tags: ["Machine Learning", "Python", "Neural Networks"],
+    icon: "fa-brain",
+    featured: true
+  },
+  {
+    id: "elastic",
+    title: "Establishing ElasticSearch DB Ecosystem",
+    summary: "Test viability, efficiency and effectiveness of ElasticSearch DB over MSSQL.",
+    image: "elasticsearch.png",
+    link: "work_elastic.html",
+    tags: ["Database", "Docker", "ElasticStack"],
+    icon: "fa-database",
+    featured: true
+  },
+  {
+    id: "cnn",
+    title: "Development of Convolutional Neural Network",
+    summary: "Comparing self-trained models to pre-trained model (VGG16).",
+    image: "cnn.png",
+    link: "work_cnn.html",
+    tags: ["Computer Vision", "Deep Learning", "Python"],
+    icon: "fa-eye",
+    featured: true
+  },
+  {
+    id: "rnn",
+    title: "Development of Recurrent Neural Network",
+    summary: "Text classification and generation using sequential data processing.",
+    image: "rnn.png",
+    link: "work_rnn.html",
+    tags: ["NLP", "Text Generation", "Python"],
+    icon: "fa-language",
+    featured: true
+  },
+  {
+    id: "storyboard",
+    title: "Creation of Storyboard: Mapping of Visualizations",
+    summary: "Allow better conceptualisation of data through graphical storyboard.",
+    image: "storyboard.png",
+    link: "work_aa.html",
+    tags: ["Data Visualization", "Tableau", "Storytelling"],
+    icon: "fa-chart-line",
+    featured: true
+  },
+  {
+    id: "excel",
+    title: "Microsoft Excel Spreadsheet Engineering",
+    summary: "Exploring advanced Excel functions for data analysis and automation.",
+    image: "fse.png",
+    link: "work_fse.html",
+    tags: ["Excel", "Data Analysis", "Automation"],
+    icon: "fa-file-excel",
+    featured: true
+  },
+  {
+    id: "tableau",
+    title: "Data Visualizations and Analysis with Tableau",
+    summary: "Creating impactful visual representations of complex datasets.",
+    image: "tab.png",
+    link: "work_dv.html",
+    tags: ["Tableau", "Dashboard", "Analytics"],
+    icon: "fa-chart-pie",
+    featured: true
+  },
+  {
+    id: "csharp",
+    title: "Employee Application Development Using C#",
+    summary: "Employee management system demonstrating OOP principles.",
+    image: "cscover.png",
+    link: "work_cs.html",
+    tags: ["C#", "OOP", ".NET"],
+    icon: "fa-code",
+    featured: true
+  },
+  {
+    id: "grade",
+    title: "Student Grades Database Implementation Using C",
+    summary: "Student grades management system implemented in C.",
+    image: "grade.png",
+    link: "work_grade.html",
+    tags: ["C", "File I/O", "Data Structures"],
+    icon: "fa-graduation-cap",
+    featured: true
+  },
+  {
+    id: "gwent",
+    title: "Creating a replica of a game driven by my passion",
+    summary: "A web-based remake of the Gwent card game from The Witcher 3, with enhanced UI and music.",
+    image: "gwent.png",
+    link: "work_gwent.html",
+    tags: ["JavaScript", "Game Development", "UI/UX"],
+    icon: "fa-gamepad",
+    featured: true
+  },
+  {
+    id: "socket",
+    title: "Client-Server chat application using Python",
+    summary: "Client-server chat app with encryption, groups, and AI assistance.",
+    image: "socketprg.png",
+    link: "work_socket.html",
+    tags: ["Python", "Networking", "Security"],
+    icon: "fa-plug",
+    featured: true
+  },
+  {
+    id: "iot",
+    title: "IoT Plant Watering System",
+    summary: "Smart irrigation system with sensors and web control.",
+    image: "iot.png",
+    link: "work_iot.html",
+    tags: ["IoT", "Python", "Raspberry Pi"],
+    icon: "fa-seedling",
+    featured: true
+  },
+  {
+    id: "oop",
+    title: "Movement and physics controls for OOP",
+    summary: "Java-based game with OOP principles, focusing on movement logic.",
+    image: "oop.png",
+    link: "work_oop.html",
+    tags: ["Java", "OOP", "Game Dev"],
+    icon: "fa-cogs",
+    featured: true
+  },
+  {
+    id: "web",
+    title: "Web Application inspired by Medium",
+    summary: "PHP-based blog with CRUD and search features.",
+    image: "web.png",
+    link: "work_web.html",
+    tags: ["PHP", "Web Dev", "MySQL"],
+    icon: "fa-globe",
+    featured: true
+  },
+  {
+    id: "network",
+    title: "IP-Allocation and Configuration Project",
+    summary: "Efficient IP configuration and access-restrictions for school campus buildings.",
+    image: "ip.png",
+    link: "work_network.html",
+    tags: ["DNS", "IP-Config", "IPv4"],
+    icon: "fa-network-wired",
+    featured: true
+  },
+  {
+    id: "micron",
+    title: "Year 1 Summer Internship Program with Micron",
+    summary: "Developed defect visualization systems for inspection machines in manufacturing line.",
+    image: "micron-silicon-symbol-drk-tm-rgb.png",
+    link: "work_micron.html",
+    tags: ["Python", "Data Visualization", "Flask"],
+    icon: "fa-industry",
+    featured: true
+  }
+];
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize 3D Navigation
-    const navOrb = document.getElementById('navOrb');
-    const navSphere = document.getElementById('navSphere');
+    // Initialize Components
+    loadNavOrb();
+    loadProjectGrid();
+    loadFeaturedSlider();
     
-    if (navOrb && navSphere) {
-      navOrb.addEventListener('click', function() {
-        navSphere.classList.toggle('active');
-        this.classList.toggle('active');
-      });
-    }
-  
-    // Enhanced Theme Toggle Functionality
-    const themeToggle = document.getElementById('theme-toggle'); // Fixed ID to match HTML
+    // Theme Toggle Logic
+    const themeToggle = document.getElementById('theme-toggle');
     if (themeToggle) {
-      // Check for saved user preference or system preference
       const currentTheme = localStorage.getItem('theme') || 
                           (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
       
-      // Apply the theme
       if (currentTheme === 'dark') {
         document.body.classList.add('dark-mode');
         themeToggle.checked = true;
       }
   
-      // Toggle theme when switch is clicked
       themeToggle.addEventListener('change', function() {
         if (this.checked) {
           document.body.classList.add('dark-mode');
@@ -35,9 +191,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
   
-      // Listen for system theme changes
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-        if (!localStorage.getItem('theme')) { // Only if user hasn't set preference
+        if (!localStorage.getItem('theme')) { 
           if (e.matches) {
             document.body.classList.add('dark-mode');
             themeToggle.checked = true;
@@ -49,7 +204,18 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   
-    // Project Modal Functionality
+    // 3D Navigation Orb Logic
+    const navOrb = document.getElementById('navOrb');
+    const navSphere = document.getElementById('navSphere');
+    
+    if (navOrb && navSphere) {
+      navOrb.addEventListener('click', function() {
+        navSphere.classList.toggle('active');
+        this.classList.toggle('active');
+      });
+    }
+
+    // Modal Logic
     const projectModal = document.getElementById('projectModal');
     const closeModal = document.getElementById('closeModal');
     
@@ -64,8 +230,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
     }
-  
-    // Animate elements on scroll
+
+    // Scroll Animations
     const animateOnScroll = function() {
       const elements = document.querySelectorAll('.animate-on-scroll');
       elements.forEach(element => {
@@ -79,213 +245,87 @@ document.addEventListener('DOMContentLoaded', function() {
     };
   
     window.addEventListener('scroll', animateOnScroll);
-    animateOnScroll(); // Initialize
-  
-    // Project-specific animations
-    if (document.querySelector('.project-rnn')) {
-      // RNN-specific animations
-      const timelineItems = document.querySelectorAll('.timeline-item');
-      timelineItems.forEach((item, index) => {
-        setTimeout(() => {
-          item.style.opacity = '1';
-          item.style.transform = 'translateX(0)';
-        }, index * 200);
-      });
-    }
-  
-    if (document.querySelector('.project-cnn')) {
-      // CNN-specific animations
-      const imageItems = document.querySelectorAll('.image-item');
-      imageItems.forEach((item, index) => {
-        setTimeout(() => {
-          item.style.opacity = '1';
-          item.style.transform = 'translateY(0)';
-        }, index * 150);
-      });
-    }
-  
-    if (document.querySelector('.project-cs')) {
-      // Tab functionality
-      document.querySelectorAll('.tab-button').forEach(button => {
-        button.addEventListener('click', () => {
-          const tabId = button.getAttribute('data-tab');
-          
-          // Remove active class from all buttons and contents
-          document.querySelectorAll('.tab-button').forEach(btn => {
-            btn.classList.remove('active');
-          });
-          document.querySelectorAll('.tab-content').forEach(content => {
-            content.classList.remove('active');
-          });
-          
-          // Add active class to clicked button and corresponding content
-          button.classList.add('active');
-          document.getElementById(tabId).classList.add('active');
-        });
-      });
-    }
-  });
-  
-  // Dynamic Project Loading
-  function loadProjectGrid() {
+    animateOnScroll(); 
+});
+
+// 2. DYNAMIC NAV ORB GENERATOR
+function loadNavOrb() {
+    const navSphere = document.getElementById('navSphere');
+    if (!navSphere) return;
+
+    // Clear existing content
+    navSphere.innerHTML = '';
+
+    portfolioProjects.forEach(project => {
+        const link = document.createElement('a');
+        link.href = project.link;
+        
+        const icon = document.createElement('i');
+        icon.className = `fas ${project.icon}`;
+        
+        link.appendChild(icon);
+        link.appendChild(document.createTextNode(` ${project.title}`));
+        
+        navSphere.appendChild(link);
+    });
+}
+
+// 3. DYNAMIC WORKS GRID GENERATOR (For works.html)
+function loadProjectGrid() {
     const projectGrid = document.getElementById('projectGrid');
     if (!projectGrid) return;
-  
-    const projects = [
-      {
-        title: "Hybrid Neural Network",
-        summary: "Optimizing algorithm learning through convergence of convolutional layers with LSTM/GRU layers.",
-        image: "hnn.png",
-        link: "work_hnn.html",
-        tags: ["Machine Learning", "Python", "Neural Networks"],
-        icon: "fa-brain"
-      },
-      {
-        title: "ElasticSearch DB Ecosystem",
-        summary: "Test viability, efficiency and effectiveness of ElasticSearch DB over MSSQL.",
-        image: "elasticsearch.png",
-        link: "work_elastic.html",
-        tags: ["Database", "Docker", "ElasticStack"],
-        icon: "fa-database"
-      },
-      {
-        title: "Convolutional Neural Network",
-        summary: "Comparing self-trained models to pre-trained model (VGG16).",
-        image: "cnn.png",
-        link: "work_cnn.html",
-        tags: ["Computer Vision", "Deep Learning", "Python"],
-        icon: "fa-eye"
-      },
-      {
-        title: "Recurrent Neural Network",
-        summary: "Text classification and generation using sequential data processing.",
-        image: "rnn.png",
-        link: "work_rnn.html",
-        tags: ["NLP", "Text Generation", "Python"],
-        icon: "fa-language"
-      },
-      {
-        title: "Storyboard Mapping",
-        summary: "Allow better conceptualisation of data through graphical storyboard.",
-        image: "storyboard.png",
-        link: "work_aa.html",
-        tags: ["Data Visualization", "Tableau", "Storytelling"],
-        icon: "fa-chart-line"
-      },
-      {
-        title: "Excel Engineering",
-        summary: "Exploring advanced Excel functions for data analysis and automation.",
-        image: "fse.png",
-        link: "work_fse.html",
-        tags: ["Excel", "Data Analysis", "Automation"],
-        icon: "fa-file-excel"
-      },
-      {
-        title: "Data Visualization",
-        summary: "Creating impactful visual representations of complex datasets.",
-        image: "tab.png",
-        link: "work_dv.html",
-        tags: ["Tableau", "Dashboard", "Analytics"],
-        icon: "fa-chart-pie"
-      },
-      {
-        title: "C# Application",
-        summary: "Employee management system demonstrating OOP principles.",
-        image: "cscover.png",
-        link: "work_cs.html",
-        tags: ["C#", "OOP", ".NET"],
-        icon: "fa-code"
-      },
-      {
-        title: "Grades Database",
-        summary: "Student grades management system implemented in C.",
-        image: "grade.png",
-        link: "work_grade.html",
-        tags: ["C", "File I/O", "Data Structures"],
-        icon: "fa-graduation-cap"
-      },
-      {
-        title: "Gwent Game",
-        summary: "A web-based remake of the Gwent card game from The Witcher 3, with enhanced UI and music.",
-        image: "gwent.png", // Add an image for thumbnail
-        link: "work_gwent.html",
-        tags: ["JavaScript", "Game Development", "UI/UX"],
-        icon: "fa-gamepad"
-      },
-      {
-        title: "Socket Programming",
-        summary: "Client-server chat app with encryption, groups, and AI assistance.",
-        image: "socketorg.png",
-        link: "work_socket.html",
-        tags: ["Python", "Networking", "Security"],
-        icon: "fa-plug"
-      },
-      {
-        title: "IoT Plant Watering System",
-        summary: "Smart irrigation system with sensors and web control.",
-        image: "iot.png",
-        link: "work_iot.html",
-        tags: ["IoT", "Python", "Raspberry Pi"],
-        icon: "fa-seedling"
-      },
-      {
-        title: "OOP Game Development",
-        summary: "Java-based game with OOP principles, focusing on movement logic.",
-        image: "oop.png",
-        link: "work_oop.html",
-        tags: ["Java", "OOP", "Game Dev"],
-        icon: "fa-cogs"
-      },
-      {
-        title: "Medium-like Blog Application",
-        summary: "PHP-based blog with CRUD and search features.",
-        image: "web.png",
-        link: "work_web.html",
-        tags: ["PHP", "Web Dev", "MySQL"],
-        icon: "fa-globe"
-      }
-      ,
-      {
-        title: "IP Address Configuration",
-        summary: "Efficient IP configuration and access-restrictions for school campus buildings.",
-        image: "ip.png",
-        link: "work_network.html",
-        tags: ["DNS", "IP-Config", "IPv4"],
-        icon: "fa-network-wired"
-      },
-      {
-        title: "Micron Internship",
-        summary: "Developed defect visualization systems for inspection machines in manufacturing line.",
-        image: "micron-silicon-symbol-drk-tm-rgb.png",
-        link: "work_micron.html",
-        tags: ["Python", "Data Visualization", "Flask"],
-        icon: "fa-industry"
-      }
-    ];
-  
-    projects.forEach(project => {
-      const projectCard = document.createElement('div');
-      projectCard.className = 'project-card animate-on-scroll';
-      projectCard.innerHTML = `
-        <img src="${project.image}" alt="${project.title}" loading="lazy">
-        <div class="project-info">
-          <h3>${project.title}</h3>
-          <p>${project.summary}</p>
-          <div class="project-tags">
-            ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-          </div>
-        </div>
-      `;
-      
-      projectCard.addEventListener('click', () => {
-        window.location.href = project.link;
-      });
-      
-      projectGrid.appendChild(projectCard);
+
+    projectGrid.innerHTML = '';
+
+    portfolioProjects.forEach(project => {
+        const projectCard = document.createElement('div');
+        projectCard.className = 'project-card animate-on-scroll';
+        projectCard.innerHTML = `
+            <img src="${project.image}" alt="${project.title}" loading="lazy">
+            <div class="project-info">
+                <h3>${project.title}</h3>
+                <p>${project.summary}</p>
+                <div class="project-tags">
+                    ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                </div>
+            </div>
+        `;
+        
+        projectCard.addEventListener('click', () => {
+            window.location.href = project.link;
+        });
+        
+        projectGrid.appendChild(projectCard);
     });
-  }
-  
-  // Initialize when page loads
-  if (document.getElementById('projectGrid')) {
-    loadProjectGrid();
-  }
+}
+
+// 4. DYNAMIC SLIDER GENERATOR (For index.html)
+function loadFeaturedSlider() {
+    const slidesContainer = document.querySelector('.slides');
+    if (!slidesContainer) return;
+
+    // Clear any existing content
+    slidesContainer.innerHTML = '';
+
+    // Filter featured projects
+    const featuredProjects = portfolioProjects.filter(p => p.featured);
+
+    featuredProjects.forEach(project => {
+        const slide = document.createElement('div');
+        slide.className = 'slide card-item';
+        slide.setAttribute('tabindex', '0'); 
+        
+        slide.innerHTML = `
+            <a href="${project.link}" class="card-link">
+                <img src="${project.image}" alt="${project.title}" class="card-image" loading="lazy">
+                <p class="badge">Developer</p>
+                <h2 class="card-title">${project.title}</h2>
+                <button class="card-button material-symbols-rounded">→</button>
+            </a>
+        `;
+        slidesContainer.appendChild(slide);
+    });
+
+    // Notify scripts.js that the slider content is ready
+    window.dispatchEvent(new Event('sliderContentReady'));
+}
