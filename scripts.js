@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Dark/Light Mode Toggle (Handled in works.js mostly, but keeping listeners safe)
+    // Dark/Light Mode Toggle
     const themeToggle = document.getElementById('theme-toggle');
     if (themeToggle) {
         themeToggle.addEventListener('change', () => {
@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Timeline and Form Logic
+    // Timeline Logic
     function initTimeline() {
         const timeline = document.querySelector('.timeline');
         const events = document.querySelectorAll('.event');
@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', function() {
         initTimeline();
     }
 
-    // Form Logic
+    // Form LocalStorage Auto-save
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
         function saveForm() {
@@ -310,24 +310,59 @@ document.addEventListener('DOMContentLoaded', function() {
         document.head.appendChild(style);
     }
 
-    // EmailJS
+    // ------------------------------------------------------------------------
+    // UPDATED EMAILJS LOGIC
+    // ------------------------------------------------------------------------
     window.sendEmail = function() {
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+        const btn = document.querySelector('.submit-button');
+        const originalText = btn.innerText;
+
+        // 1. Validation
+        if (!name || !email || !message) {
+            alert('Please fill in all fields before submitting.');
+            return;
+        }
+
+        // 2. Button Loading State
+        btn.innerText = 'Sending...';
+        btn.disabled = true;
+
+        // 3. Prepare Parameters
+        // We send both "name/email/message" AND "from_name/reply_to" 
+        // to cover standard EmailJS template defaults.
         const templateParams = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            message: document.getElementById('message').value
+            name: name,
+            email: email,
+            message: message,
+            from_name: name,   // Standard EmailJS param
+            reply_to: email,   // Standard EmailJS param
+            to_name: "Ming Yang" 
         };
         
-        if(typeof emailjs !== 'undefined') {
-            emailjs.send('service_m86enjx', 'template_m86enjx', templateParams)
-                .then(function(response) {
-                    alert('Email sent successfully!');
-                    document.getElementById('contact-form').reset();
-                    localStorage.removeItem('contactFormData');
-                }, function(error) {
-                    alert('Failed to send email. Please try again later.');
-                });
-        }
+        // 4. Send Email
+        // Make sure these IDs match your EmailJS Dashboard
+        const serviceID = 'service_m86enjx'; 
+        const templateID = 'template_m86enjx';
+
+        emailjs.send(serviceID, templateID, templateParams)
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                alert('Message sent successfully!');
+                document.getElementById('contact-form').reset();
+                localStorage.removeItem('contactFormData');
+            })
+            .catch(function(error) {
+                console.error('FAILED...', error);
+                alert('Failed to send message. Please check the console for error details.');
+            })
+            .finally(function() {
+                // Reset button state
+                btn.innerText = originalText;
+                btn.disabled = false;
+            });
     };
 
     // Animations (Typewriter / 3D Card)

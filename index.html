@@ -235,14 +235,14 @@
         <p>&copy; 2025 Ming Yang. You can't use up creativity, the more you use, the more you have in your significant mind.</p>
     </footer>
 
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="scripts.js"></script>
     <script src="works.js"></script>
     <script>
         (function() {
-            if(typeof emailjs !== 'undefined') {
-                emailjs.init('UETHVMIaZExRj5Bm-');
-            }
+            // UPDATED: Using initPublicKey for v3
+            // Make sure 'UETHVMIaZExRj5Bm-' is your actual Public Key from EmailJS Dashboard > Account > Public Key
+            emailjs.initPublicKey('UETHVMIaZExRj5Bm-');
         })();
     </script>
 </body>
