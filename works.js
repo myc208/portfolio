@@ -6,10 +6,20 @@ const portfolioProjects = [
     id: "traffic",
     title: "Traffic-AI: Predictive Traffic Forecasting",
     summary: "Cloud-native system fusing live traffic, weather, and accident data to predict congestion risk using Hybrid LSTM-XGBoost and Graph Neural Networks.",
-    image: "traffic-ai.png", // Make sure to add an image with this name to your folder!
+    image: "traffic-ai.png", 
     link: "work_traffic.html",
     tags: ["Deep Learning", "Traffic Forecasting", "Python", "Cloud"],
     icon: "fa-car",
+    featured: true
+  },
+  {
+    id: "hdb",
+    title: "HDB Resale Market & Community Analytics",
+    summary: "A hybrid database platform (SQL + NoSQL) for analyzing Singapore's property trends and hosting scalable community discussions.",
+    image: "hdb-analytics.png", // Make sure to add this image!
+    link: "work_hdb.html",
+    tags: ["Database Design", "MySQL", "MongoDB", "Data Analytics"],
+    icon: "fa-building",
     featured: true
   },
   {

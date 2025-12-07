@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/portfolio/">
+    <title>HDB Resale Analytics - Ming Yang</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="works.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+        <h1>Ming Yang</h1>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/myc208" target="_blank" aria-label="LinkedIn">
+                <img src="linkedin-icon.png" alt="LinkedIn" width="24" loading="lazy">
+            </a>
+            <a href="https://www.instagram.com/_ap.cr_" target="_blank" aria-label="Instagram">
+                <img src="instagram-icon.png" alt="Instagram" width="24" loading="lazy">
+            </a>
+        </div>
+    </div>
+    <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      &#9776;
+    </button>
+    <nav class="nav-links">
+      <a href="index.html">About</a>
+      <a href="works.html" class="active">Works</a>
+      <label class="switch">
+        <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
+        <span class="slider-ios"></span>
+      </label>              
+    </nav>
+  </header>
+
+    <div class="nav-orb" id="navOrb">
+        <i class="fas fa-bars"></i>
+    </div>
+    <div class="nav-sphere" id="navSphere">
+        </div>
+
+    <div class="container">
+        <div class="project-header">
+            <a href="works.html" class="back-link">← Back to Projects</a>
+            <h1 class="project-title">HDB Resale Market & Community Analytics</h1>
+            <div class="project-tags">
+                <span class="tag">Hybrid Architecture</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">MongoDB</span>
+                <span class="tag">Data Analytics</span>
+            </div>
+        </div>
+
+        <div class="project-content">
+            <img src="hdb-analytics.png" alt="HDB Analytics Dashboard" class="project-main-image">
+
+            <section class="project-section">
+                <h2>Project Overview</h2>
+                <p>Navigating the Singapore housing market can be daunting. This project delivers a unified platform that combines rigorous market data analysis with community-driven insights. By leveraging a <strong>Hybrid Database Architecture</strong>, the system provides reliable transaction history for buyers while fostering active community discussions.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>Data Preparation & Cleansing</h2>
+                <p>The foundation of accurate analytics lies in clean data. I implemented a comprehensive ETL (Extract, Transform, Load) pipeline using Python to process raw HDB resale datasets.</p>
+                <ul class="feature-list">
+                    <li><strong>Data Cleaning:</strong> Standardized flat types (e.g., merging "3 ROOM" and "3-ROOM") and normalized town names to ensure consistency across decades of records.</li>
+                    <li><strong>Geospatial Enrichment:</strong> Integrated MRT station coordinates to calculate "Proximity Scores," adding value to property listings by quantifying convenience.</li>
+                    <li><strong>Anomaly Detection:</strong> Identified and flagged outliers in price-per-square-foot metrics to prevent skewing the trend analysis algorithms.</li>
+                </ul>
+            </section>
+
+            <section class="project-section">
+                <h2>Hybrid Database Architecture</h2>
+                <p>The core technical challenge was selecting the right database for distinct data types. We moved beyond a "one-size-fits-all" approach by integrating Relational (SQL) and Non-Relational (NoSQL) systems.</p>
+                
+                <div class="tab-container">
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" data-target="sql">Relational (MySQL)</button>
+                        <button class="tab-btn" data-target="nosql">Non-Relational (MongoDB)</button>
+                    </div>
+                    
+                    <div id="sql" class="tab-content active">
+                        <h3>Handling Structured Transaction Data</h3>
+                        <p><strong>Why SQL?</strong> The HDB resale records are highly structured, requiring strict schema enforcement and complex join operations to link flats, towns, and amenities.</p>
+                        <ul class="feature-list">
+                            <li><strong>ACID Compliance:</strong> Ensures that financial data and transaction records remain consistent and reliable, which is critical for pricing analytics.</li>
+                            <li><strong>Complex Queries:</strong> Enabled the development of robust analytics APIs, such as <code>/api/analytics/price-by-town</code> (295ms response) and <code>/api/analytics/price-trends</code>, allowing users to filter millions of records efficiently.</li>
+                            <li><strong>Normalization:</strong> Reduced data redundancy by normalizing town and street data into separate tables.</li>
+                        </ul>
+                    </div>
+
+                    <div id="nosql" class="tab-content">
+                        <h3>Powering Community Engagement</h3>
+                        <p><strong>Why MongoDB?</strong> The social features, such as user comments and "likes," require high write throughput and a flexible schema to accommodate evolving user-generated content.</p>
+                        <ul class="feature-list">
+                            <li><strong>High Scalability:</strong> MongoDB's document-oriented structure allows for rapid retrieval of nested comments without expensive JOIN operations.</li>
+                            <li><strong>Atomic Operations:</strong> Implemented the <code>$inc</code> operator for the "Like" feature. This ensures that even with concurrent user actions, the like counts remain accurate without race conditions.</li>
+                            <li><strong>Flexibility:</strong> The schema-less design allowed us to easily add new features (like user badges or image attachments) to comments without downtime or complex migrations.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section">
+                <h2>Resources & Code</h2>
+                <div class="resource-list">
+                    <a href="https://docs.google.com/document/d/17rBt-ZWg9NP2Zo2heat_OvvW1JGo2_C8uliwm0gDQPQ/edit?usp=sharing" target="_blank" class="resource-btn">
+                        <i class="fas fa-file-alt"></i> Project Report
+                    </a>
+                    <a href="https://colab.research.google.com/drive/1bkSk3QxK1seznhoc3MISOGFuYn1309ai?usp=sharing" target="_blank" class="resource-btn">
+                        <i class="fas fa-database"></i> Data Cleaning (Colab)
+                    </a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Ming Yang. You can't use up creativity, the more you use, the more you have in your significant mind.</p>
+    </footer>
+
+    <script src="scripts.js?v=2"></script>
+    <script src="works.js?v=2"></script>
+</body>
+</html>
