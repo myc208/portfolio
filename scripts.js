@@ -350,7 +350,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log("Attempting to send with params:", templateParams);
 
             const serviceID = 'service_m86enjx'; 
-            const templateID = 'template_m86enjx';
+            const templateID = 'template_ex169bd';
             // *** PUBLIC KEY PASSED DIRECTLY HERE ***
             const publicKey = 'UETHVMIaZExRj5Bm-'; 
 
