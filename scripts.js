@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Timeline Logic
+    // Timeline and Form Logic
     function initTimeline() {
         const timeline = document.querySelector('.timeline');
         const events = document.querySelectorAll('.event');
@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', function() {
         initTimeline();
     }
 
-    // Form LocalStorage Auto-save
+    // Form Auto-Save Functionality
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
         function saveForm() {
@@ -311,7 +311,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ------------------------------------------------------------------------
-    // UPDATED EMAILJS LOGIC
+    // ROBUST EMAIL SENDING LOGIC
     // ------------------------------------------------------------------------
     window.sendEmail = function() {
         const name = document.getElementById('name').value;
@@ -326,43 +326,54 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        // 2. Button Loading State
+        // 2. Set Button Loading State
         btn.innerText = 'Sending...';
         btn.disabled = true;
 
-        // 3. Prepare Parameters
-        // We send both "name/email/message" AND "from_name/reply_to" 
-        // to cover standard EmailJS template defaults.
-        const templateParams = {
-            name: name,
-            email: email,
-            message: message,
-            from_name: name,   // Standard EmailJS param
-            reply_to: email,   // Standard EmailJS param
-            to_name: "Ming Yang" 
-        };
-        
-        // 4. Send Email
-        // Make sure these IDs match your EmailJS Dashboard
-        const serviceID = 'service_m86enjx'; 
-        const templateID = 'template_m86enjx';
+        // 3. Robust Error Handling (Try-Catch)
+        try {
+            // Check if EmailJS is actually loaded
+            if (typeof emailjs === 'undefined') {
+                throw new Error("Email service is not loaded. Please check your internet connection or disable ad blockers.");
+            }
 
-        emailjs.send(serviceID, templateID, templateParams)
-            .then(function(response) {
-                console.log('SUCCESS!', response.status, response.text);
-                alert('Message sent successfully!');
-                document.getElementById('contact-form').reset();
-                localStorage.removeItem('contactFormData');
-            })
-            .catch(function(error) {
-                console.error('FAILED...', error);
-                alert('Failed to send message. Please check the console for error details.');
-            })
-            .finally(function() {
-                // Reset button state
-                btn.innerText = originalText;
-                btn.disabled = false;
-            });
+            // Prepare Parameters
+            const templateParams = {
+                name: name,
+                email: email,
+                message: message,
+                from_name: name,
+                reply_to: email,
+                to_name: "Ming Yang" 
+            };
+            
+            const serviceID = 'service_m86enjx'; 
+            const templateID = 'template_m86enjx';
+
+            emailjs.send(serviceID, templateID, templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    alert('Message sent successfully!');
+                    document.getElementById('contact-form').reset();
+                    localStorage.removeItem('contactFormData');
+                })
+                .catch(function(error) {
+                    console.error('FAILED...', error);
+                    alert('Failed to send message: ' + (error.text || error.message));
+                })
+                .finally(function() {
+                    // Always reset button, even if successful or failed
+                    btn.innerText = originalText;
+                    btn.disabled = false;
+                });
+
+        } catch (err) {
+            // Catch synchronous errors (like emailjs not defined)
+            console.error("CRITICAL ERROR:", err);
+            alert("Error: " + err.message);
+            btn.innerText = originalText;
+            btn.disabled = false;
+        }
     };
 
     // Animations (Typewriter / 3D Card)
