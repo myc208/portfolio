@@ -311,7 +311,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ------------------------------------------------------------------------
-    // ROBUST EMAIL SENDING LOGIC (With "Undefined Error" Fix)
+    // ROBUST EMAIL SENDING LOGIC (Pass Public Key Explicitly)
     // ------------------------------------------------------------------------
     window.sendEmail = function() {
         const name = document.getElementById('name').value;
@@ -332,7 +332,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // 3. Try-Catch Block for Safety
         try {
-            // Check if EmailJS is actually loaded (Common Ad-blocker issue)
+            // Check if EmailJS is loaded
             if (typeof emailjs === 'undefined') {
                 throw new Error("Email service is not loaded. Please disable Ad-blockers or check internet connection.");
             }
@@ -347,14 +347,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 to_name: "Ming Yang" 
             };
             
-            // Log for debugging
             console.log("Attempting to send with params:", templateParams);
 
-            // *** IMPORTANT: REPLACE THESE WITH YOUR ACTUAL IDS FROM EMAILJS DASHBOARD ***
             const serviceID = 'service_m86enjx'; 
             const templateID = 'template_m86enjx';
+            // *** PUBLIC KEY PASSED DIRECTLY HERE ***
+            const publicKey = 'UETHVMIaZExRj5Bm-'; 
 
-            emailjs.send(serviceID, templateID, templateParams)
+            emailjs.send(serviceID, templateID, templateParams, publicKey)
                 .then(function(response) {
                     console.log('SUCCESS!', response.status, response.text);
                     alert('Message sent successfully!');
@@ -363,7 +363,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 })
                 .catch(function(error) {
                     console.error('FAILED...', error);
-                    // Fix for "undefined" error message:
                     const errorMessage = error.text || error.message || JSON.stringify(error);
                     alert('Failed to send message: ' + errorMessage);
                 })
@@ -374,9 +373,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
 
         } catch (err) {
-            // Catch synchronous errors (like configuration errors)
             console.error("CRITICAL ERROR:", err);
-            // Fix for "undefined" error message:
             const msg = err.message || err.toString();
             alert("Error: " + msg);
             btn.innerText = originalText;
