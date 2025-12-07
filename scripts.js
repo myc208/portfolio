@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Timeline and Form Logic
+    // Timeline Logic
     function initTimeline() {
         const timeline = document.querySelector('.timeline');
         const events = document.querySelectorAll('.event');
@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', function() {
         initTimeline();
     }
 
-    // Form Auto-Save Functionality
+    // Form LocalStorage Auto-save
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
         function saveForm() {
@@ -311,7 +311,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ------------------------------------------------------------------------
-    // ROBUST EMAIL SENDING LOGIC
+    // ROBUST EMAIL SENDING LOGIC (With "Undefined Error" Fix)
     // ------------------------------------------------------------------------
     window.sendEmail = function() {
         const name = document.getElementById('name').value;
@@ -330,11 +330,11 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.innerText = 'Sending...';
         btn.disabled = true;
 
-        // 3. Robust Error Handling (Try-Catch)
+        // 3. Try-Catch Block for Safety
         try {
-            // Check if EmailJS is actually loaded
+            // Check if EmailJS is actually loaded (Common Ad-blocker issue)
             if (typeof emailjs === 'undefined') {
-                throw new Error("Email service is not loaded. Please check your internet connection or disable ad blockers.");
+                throw new Error("Email service is not loaded. Please disable Ad-blockers or check internet connection.");
             }
 
             // Prepare Parameters
@@ -347,6 +347,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 to_name: "Ming Yang" 
             };
             
+            // Log for debugging
+            console.log("Attempting to send with params:", templateParams);
+
+            // *** IMPORTANT: REPLACE THESE WITH YOUR ACTUAL IDS FROM EMAILJS DASHBOARD ***
             const serviceID = 'service_m86enjx'; 
             const templateID = 'template_m86enjx';
 
@@ -359,18 +363,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 })
                 .catch(function(error) {
                     console.error('FAILED...', error);
-                    alert('Failed to send message: ' + (error.text || error.message));
+                    // Fix for "undefined" error message:
+                    const errorMessage = error.text || error.message || JSON.stringify(error);
+                    alert('Failed to send message: ' + errorMessage);
                 })
                 .finally(function() {
-                    // Always reset button, even if successful or failed
+                    // Always reset button
                     btn.innerText = originalText;
                     btn.disabled = false;
                 });
 
         } catch (err) {
-            // Catch synchronous errors (like emailjs not defined)
+            // Catch synchronous errors (like configuration errors)
             console.error("CRITICAL ERROR:", err);
-            alert("Error: " + err.message);
+            // Fix for "undefined" error message:
+            const msg = err.message || err.toString();
+            alert("Error: " + msg);
             btn.innerText = originalText;
             btn.disabled = false;
         }
