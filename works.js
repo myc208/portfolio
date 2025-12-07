@@ -3,6 +3,16 @@
 // 1. CENTRAL DATA SOURCE
 const portfolioProjects = [
   {
+    id: "traffic",
+    title: "Traffic-AI: Predictive Traffic Forecasting",
+    summary: "Cloud-native system fusing live traffic, weather, and accident data to predict congestion risk using Hybrid LSTM-XGBoost and Graph Neural Networks.",
+    image: "traffic-ai.png", // Make sure to add an image with this name to your folder!
+    link: "work_traffic.html",
+    tags: ["Deep Learning", "Traffic Forecasting", "Python", "Cloud"],
+    icon: "fa-car",
+    featured: true
+  },
+  {
     id: "hnn",
     title: "Development of Hybrid Neural Network",
     summary: "Optimizing algorithm learning through convergence of convolutional layers with LSTM/GRU layers.",

@@ -9,10 +9,38 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Initialize Tabs if they exist
+    initTabs();
+
     // Wait for works.js to populate the slider before initializing logic
     window.addEventListener('sliderContentReady', function() {
         initSlider();
     });
+
+    function initTabs() {
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        if (tabButtons.length === 0) return;
+
+        tabButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                // Show corresponding content
+                const targetId = btn.getAttribute('data-target');
+                const targetContent = document.getElementById(targetId);
+                if (targetContent) {
+                    targetContent.classList.add('active');
+                }
+            });
+        });
+    }
 
     function initSlider() {
         let currentSlide = 0;
@@ -311,7 +339,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ------------------------------------------------------------------------
-    // ROBUST EMAIL SENDING LOGIC (Pass Public Key Explicitly)
+    // ROBUST EMAIL SENDING LOGIC (With Public Key)
     // ------------------------------------------------------------------------
     window.sendEmail = function() {
         const name = document.getElementById('name').value;
@@ -332,12 +360,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // 3. Try-Catch Block for Safety
         try {
-            // Check if EmailJS is loaded
             if (typeof emailjs === 'undefined') {
                 throw new Error("Email service is not loaded. Please disable Ad-blockers or check internet connection.");
             }
 
-            // Prepare Parameters
             const templateParams = {
                 name: name,
                 email: email,
@@ -350,8 +376,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log("Attempting to send with params:", templateParams);
 
             const serviceID = 'service_m86enjx'; 
-            const templateID = 'template_ex169bd';
-            // *** PUBLIC KEY PASSED DIRECTLY HERE ***
+            const templateID = 'template_ex169bd'; // Your corrected Template ID
             const publicKey = 'UETHVMIaZExRj5Bm-'; 
 
             emailjs.send(serviceID, templateID, templateParams, publicKey)
@@ -367,7 +392,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     alert('Failed to send message: ' + errorMessage);
                 })
                 .finally(function() {
-                    // Always reset button
                     btn.innerText = originalText;
                     btn.disabled = false;
                 });

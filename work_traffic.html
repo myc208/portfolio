@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/portfolio/">
+    <title>Traffic-AI - Ming Yang</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="works.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+        <h1>Ming Yang</h1>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/myc208" target="_blank" aria-label="LinkedIn">
+                <img src="linkedin-icon.png" alt="LinkedIn" width="24" loading="lazy">
+            </a>
+            <a href="https://www.instagram.com/_ap.cr_" target="_blank" aria-label="Instagram">
+                <img src="instagram-icon.png" alt="Instagram" width="24" loading="lazy">
+            </a>
+        </div>
+    </div>
+    <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      &#9776;
+    </button>
+    <nav class="nav-links">
+      <a href="index.html">About</a>
+      <a href="works.html" class="active">Works</a>
+      <label class="switch">
+        <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
+        <span class="slider-ios"></span>
+      </label>              
+    </nav>
+  </header>
+
+    <div class="nav-orb" id="navOrb">
+        <i class="fas fa-bars"></i>
+    </div>
+    <div class="nav-sphere" id="navSphere">
+        </div>
+
+    <div class="container">
+        <div class="project-header">
+            <a href="works.html" class="back-link">← Back to Projects</a>
+            <h1 class="project-title">Traffic-AI: Predictive Traffic Forecasting</h1>
+            <div class="project-tags">
+                <span class="tag">Deep Learning</span>
+                <span class="tag">Cloud Computing</span>
+                <span class="tag">Python</span>
+                <span class="tag">Graph Neural Networks</span>
+            </div>
+        </div>
+
+        <div class="project-content">
+            <img src="traffic-ai.png" alt="Traffic-AI System" class="project-main-image">
+
+            <section class="project-section">
+                <h2>Project Overview</h2>
+                <p>Traffic-AI is a cloud-native predictive platform designed to transform urban mobility. By fusing high-velocity live traffic data with external feeds like weather conditions and accident reports, the system provides proactive congestion risk assessments and optimal departure times. As the lead for model development, I engineered the core deep learning pipelines that power the system's predictive capabilities.</p>
+            </section>
+
+            <section class="project-section">
+                <h2>Data Pipeline & Preparation</h2>
+                <p>Handling city-scale traffic data required a robust preprocessing strategy to ensure model accuracy and stability:</p>
+                <ul class="feature-list">
+                    <li><strong>Data Fusion:</strong> Integrated real-time speed bands from LTA DataMall with weather API data (rainfall, visibility) and incident reports.</li>
+                    <li><strong>Cleansing & Imputation:</strong> Developed automated scripts to handle missing sensor values and remove outliers caused by GPS drift or sensor malfunction.</li>
+                    <li><strong>Feature Engineering:</strong> Created spatial-temporal features, including historical congestion windows, holiday flags, and road adjacency matrices for graph-based modeling.</li>
+                    <li><strong>Normalization:</strong> Applied Min-Max scaling to traffic speeds and standard scaling to weather metrics to ensure stable gradient descent during training.</li>
+                </ul>
+            </section>
+
+            <section class="project-section">
+                <h2>Model Development</h2>
+                <p>The system utilizes two distinct predictive engines to address different user needs: immediate point-to-point routing and long-term city-wide forecasting.</p>
+                
+                <div class="tab-container">
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" data-target="p2p">Point-to-Point Prediction</button>
+                        <button class="tab-btn" data-target="forecast">24-Hour Forecast</button>
+                    </div>
+                    
+                    <div id="p2p" class="tab-content active">
+                        <h3>Short-Term Route Prediction</h3>
+                        <p>This module predicts specific travel times between two points by modeling the complex spatial dependencies between road segments.</p>
+                        <div class="code-block">
+                            <h4>Key Architectures Explored:</h4>
+                            <ul>
+                                <li><strong>GraphWaveNet:</strong> Leveraged adaptive dependency matrices to capture hidden spatial relationships between roads without a predefined graph structure.</li>
+                                <li><strong>Custom STGNN (Spatial-Temporal Graph Neural Network):</strong> Designed a custom architecture combining Graph Convolutional Layers (for spatial features) with Gated Linear Units (for temporal features).</li>
+                                <li><strong>Pretrained STGCN:</strong> Fine-tuned a Spatial-Temporal Graph Convolutional Network to benchmark performance against custom solutions.</li>
+                            </ul>
+                        </div>
+                        <p><strong>Outcome:</strong> The graph-based approach successfully captured the "ripple effect" of congestion, where a jam on one road propagates to connected segments, significantly outperforming traditional statistical baselines.</p>
+                    </div>
+
+                    <div id="forecast" class="tab-content">
+                        <h3>City-Scale 24-Hour Forecasting</h3>
+                        <p>This module generates a full-day congestion outlook for the entire city, enabling proactive planning for commuters and authorities.</p>
+                        <div class="code-block">
+                            <h4>The Winning Model: Hybrid LSTM-XGBoost</h4>
+                            <p>We evaluated multiple state-of-the-art architectures including Informer, Temporal Fusion Transformer, and N-BEATS. The hybrid approach yielded the best balance of accuracy and computational efficiency.</p>
+                            <ul>
+                                <li><strong>Architecture:</strong> An LSTM network captures sequential time-series dependencies (morning/evening peaks), while XGBoost handles tabular features (weather, accidents, holidays).</li>
+                                <li><strong>Performance:</strong> Achieved an <strong>R² of 0.742</strong> and a Mean Absolute Error (MAE) of <strong>4.68 km/h</strong>.</li>
+                                <li><strong>Efficiency:</strong> Demonstrated superior scalability and fast CPU inference times compared to pure Transformer-based models.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section">
+                <h2>Resources & Code</h2>
+                <div class="resource-list">
+                    <a href="https://drive.google.com/file/d/1l8-4WpG4Z8soVngVTAIbE-6SW0WKNPyw/view?usp=drive_link" target="_blank" class="resource-btn">
+                        <i class="fas fa-file-pdf"></i> Read Project Report
+                    </a>
+                    <a href="https://colab.research.google.com/drive/1d4XD2Ev_JWrA7U9tqRVonIY82sOz8TCg?usp=sharing" target="_blank" class="resource-btn">
+                        <i class="fas fa-code"></i> Forecast Model (Colab)
+                    </a>
+                    <a href="https://colab.research.google.com/drive/1Lkzl26mdtbme6lj3O6nefFT6sP8-1g55?usp=sharing" target="_blank" class="resource-btn">
+                        <i class="fas fa-network-wired"></i> GraphWaveNet (Colab)
+                    </a>
+                    <a href="https://colab.research.google.com/drive/1_7-WcoGSdLIH6wzdN2SYWIspgqEMP3Za?usp=sharing" target="_blank" class="resource-btn">
+                        <i class="fas fa-project-diagram"></i> Custom STGNN (Colab)
+                    </a>
+                    <a href="https://colab.research.google.com/drive/19ZMDkLr4JfiLVA2REYZfwdRYlA-bDkL8?usp=sharing" target="_blank" class="resource-btn">
+                        <i class="fas fa-share-alt"></i> Pretrained STGCN (Colab)
+                    </a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Ming Yang. You can't use up creativity, the more you use, the more you have in your significant mind.</p>
+    </footer>
+
+    <script src="scripts.js?v=2"></script>
+    <script src="works.js?v=2"></script>
+</body>
+</html>
