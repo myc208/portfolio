@@ -1,5 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile menu toggle
+    // ------------------------------------------------------------------------
+    // 1. GLOBAL INITIALIZATION
+    // ------------------------------------------------------------------------
+    
+    // Automatically inject the "Back to Projects" button on relevant pages
+    injectFloatingBackButton(); 
+    
+    // Initialize Tab Switching (for Traffic-AI and HDB projects)
+    initTabs();
+
+    // Mobile menu toggle logic
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
     
@@ -9,14 +19,39 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Initialize Tabs if they exist
-    initTabs();
-
-    // Wait for works.js to populate the slider before initializing logic
+    // Wait for works.js to populate the slider before initializing slider logic
     window.addEventListener('sliderContentReady', function() {
         initSlider();
     });
 
+    // ------------------------------------------------------------------------
+    // 2. AUTOMATIC BACK BUTTON INJECTOR
+    // ------------------------------------------------------------------------
+    function injectFloatingBackButton() {
+        // Get the current page filename
+        const path = window.location.pathname;
+        const page = path.split("/").pop();
+        
+        // List of pages where we DO NOT want the back button
+        // (Home, Works Hub, Welcome Screen)
+        const excludePages = ["index.html", "works.html", "", "welcome.html"];
+
+        // If we are NOT on an excluded page, inject the button
+        if (!excludePages.includes(page)) {
+            const btn = document.createElement('a');
+            btn.href = 'works.html';
+            btn.className = 'floating-back-btn';
+            btn.innerHTML = `
+                <i class="fas fa-arrow-left"></i>
+                <span class="btn-tooltip">Back to Projects</span>
+            `;
+            document.body.appendChild(btn);
+        }
+    }
+
+    // ------------------------------------------------------------------------
+    // 3. PROJECT TABS LOGIC (Traffic-AI & HDB)
+    // ------------------------------------------------------------------------
     function initTabs() {
         const tabButtons = document.querySelectorAll('.tab-btn');
         const tabContents = document.querySelectorAll('.tab-content');
@@ -29,10 +64,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 tabButtons.forEach(b => b.classList.remove('active'));
                 tabContents.forEach(c => c.classList.remove('active'));
 
-                // Add active class to clicked button
+                // Activate clicked button
                 btn.classList.add('active');
 
-                // Show corresponding content
+                // Activate corresponding content
                 const targetId = btn.getAttribute('data-target');
                 const targetContent = document.getElementById(targetId);
                 if (targetContent) {
@@ -42,6 +77,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // ------------------------------------------------------------------------
+    // 4. SLIDER LOGIC
+    // ------------------------------------------------------------------------
     function initSlider() {
         let currentSlide = 0;
         let slidesToShow = 3; 
@@ -119,6 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (prevButton) prevButton.addEventListener('click', () => changeSlide(-1));
         if (nextButton) nextButton.addEventListener('click', () => changeSlide(1));
 
+        // Auto-play logic
         let autoSlide = setInterval(() => {
             changeSlide(1);
         }, 6000);
@@ -141,6 +180,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // ------------------------------------------------------------------------
+    // 5. GENERAL UTILITIES (Scroll, Theme, Timeline)
+    // ------------------------------------------------------------------------
+    
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -158,7 +201,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Dark/Light Mode Toggle
+    // Dark/Light Mode
     const themeToggle = document.getElementById('theme-toggle');
     if (themeToggle) {
         themeToggle.addEventListener('change', () => {
@@ -173,7 +216,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Timeline Logic
+    // Timeline Animation
     function initTimeline() {
         const timeline = document.querySelector('.timeline');
         const events = document.querySelectorAll('.event');
@@ -259,7 +302,7 @@ document.addEventListener('DOMContentLoaded', function() {
         loadForm();
     }
 
-    // Filter Buttons
+    // Filter Buttons (for Index page services)
     const filterButtons = document.querySelectorAll('.filter-btn');
     filterButtons.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -287,7 +330,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Scroll Observer
+    // Scroll Observer for Animations
     const scrollObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -319,7 +362,7 @@ document.addEventListener('DOMContentLoaded', function() {
         scrollObserver.observe(item);
     });
 
-    // Dynamic Style Injection
+    // Dynamic Style Injection for Filter Animation
     if (!document.getElementById('dynamic-styles')) {
         const style = document.createElement('style');
         style.id = 'dynamic-styles';
@@ -339,7 +382,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ------------------------------------------------------------------------
-    // ROBUST EMAIL SENDING LOGIC (With Public Key)
+    // 6. ROBUST EMAIL SENDING LOGIC (Using your specific Keys)
     // ------------------------------------------------------------------------
     window.sendEmail = function() {
         const name = document.getElementById('name').value;
@@ -348,18 +391,18 @@ document.addEventListener('DOMContentLoaded', function() {
         const btn = document.querySelector('.submit-button');
         const originalText = btn.innerText;
 
-        // 1. Validation
+        // Validation
         if (!name || !email || !message) {
             alert('Please fill in all fields before submitting.');
             return;
         }
 
-        // 2. Set Button Loading State
+        // Loading State
         btn.innerText = 'Sending...';
         btn.disabled = true;
 
-        // 3. Try-Catch Block for Safety
         try {
+            // Check for Ad-blocker
             if (typeof emailjs === 'undefined') {
                 throw new Error("Email service is not loaded. Please disable Ad-blockers or check internet connection.");
             }
@@ -373,10 +416,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 to_name: "Ming Yang" 
             };
             
+            // Debugging
             console.log("Attempting to send with params:", templateParams);
 
+            // YOUR KEYS
             const serviceID = 'service_m86enjx'; 
-            const templateID = 'template_ex169bd'; // Your corrected Template ID
+            const templateID = 'template_ex169bd'; 
             const publicKey = 'UETHVMIaZExRj5Bm-'; 
 
             emailjs.send(serviceID, templateID, templateParams, publicKey)
@@ -405,7 +450,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    // Animations (Typewriter / 3D Card)
+    // ------------------------------------------------------------------------
+    // 7. ANIMATIONS (Typewriter / 3D Card)
+    // ------------------------------------------------------------------------
     function initAnimations() {
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
